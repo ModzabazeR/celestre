@@ -16,13 +16,13 @@ const VideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: VideoPlay
     useEffect(() => {
         const options = {
             video: videoRef.current,
-            subUrl: subtitleList[6].url, //Thai
+            subUrl: subtitleList[6].url, // Thai
             fonts: ["https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/browalia.ttc"],
             workerUrl: "../subtitle-octopus/subtitles-octopus-worker.js",
             legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
         };
         const instance = new SubtitlesOctopus(options);
-        audioSourceRef.current!.src = audioList[1].url!;
+        audioSourceRef.current!.src = audioList[1].url!; // Japanese
         audioRef.current!.load();
 
         videoRef.current!.onplay = () => {
@@ -32,7 +32,9 @@ const VideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: VideoPlay
         videoRef.current!.onpause = () => {
             audioRef.current!.pause();
         }
-
+        videoRef.current!.onseeked = () => {
+            audioRef.current!.currentTime = videoRef.current!.currentTime;
+        }
     }, []);
 
     return (

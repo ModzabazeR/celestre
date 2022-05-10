@@ -1,5 +1,5 @@
 import db from "../../db";
-import { GetServerSideProps, GetStaticPaths } from "next";
+import { GetServerSideProps } from "next";
 import { VideoDetails } from "../../typings";
 import VideoPlayer from "../../components/VideoPlayer";
 import packer from "../../utils/packer";
@@ -10,6 +10,7 @@ const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: any) => {
 
     const router: NextRouter = useRouter();
     const { id } = router.query;
+
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     return (
@@ -54,3 +55,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//     const paths = db.map((video: any) => ({ params: { id: video.id } }));
+//     return {
+//         paths,
+//         fallback: false,
+//     }
+// }

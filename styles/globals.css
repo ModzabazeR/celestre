@@ -11,3 +11,7 @@
 video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
+
+#nprogress .bar {
+    @apply h-1 bg-blue-400
+}
