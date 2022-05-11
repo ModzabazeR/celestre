@@ -5,8 +5,19 @@ import VideoPlayer from "../../components/VideoPlayer";
 import packer from "../../utils/packer";
 import Head from "next/head";
 import { NextRouter, useRouter } from "next/router";
+import Link from "next/link";
 
-const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: any) => {
+interface PostProps {
+    videoDetails: VideoDetails;
+    thumbnail_url: string;
+    audio_list: {
+        lang: string;
+        url: any;
+    }[];
+    video_url: string;
+}
+
+const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: PostProps) => {
 
     const router: NextRouter = useRouter();
     const { id } = router.query;
@@ -16,7 +27,7 @@ const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: any) => {
     return (
         <div className="flex min-h-screen flex-col items-center justify-center py-2">
             <Head>
-                <title>Genshin Web Player - {videoDetails.title}</title>
+                <title>{videoDetails.title} - Genshin Web Player</title>
                 <link rel="icon" href="/favicon.ico" />
                 <script src="../subtitle-octopus/subtitles-octopus.js"></script>
             </Head>
@@ -28,6 +39,7 @@ const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: any) => {
                     audioList={audio_list}
                     thumbnail={thumbnail_url}
                 />
+                <Link href="/"><a className="text-center text-blue-400 underline">Back to Home</a></Link>
             </main>
         </div>
     )
@@ -37,6 +49,9 @@ export default Post;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { id } = context.query;
+    const res = context.res;
+    res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
+
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     const Youtube = require('youtube-stream-url')
