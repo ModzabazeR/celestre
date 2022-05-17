@@ -42,6 +42,7 @@ const YouTube: NextPage = () => {
                     <video
                         className="w-full"
                         src="assets/video.mp4"
+                        preload='auto'
                         ref={videoElement}
                         onTimeUpdate={handleOnTimeUpdate}
                     />
