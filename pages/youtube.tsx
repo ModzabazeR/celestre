@@ -18,12 +18,14 @@ const YouTube: NextPage = () => {
         speed,
         isMuted,
         isFullScreen,
+        showFirstPlayButton,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
         handleVideoSpeed,
         toggleMute,
         toggleFullScreen,
+        firstPlayClickHandler,
     } = useVideoPlayer(videoElement, videoWrapperRef)
     useEffect(() => {
         const options = {
@@ -38,7 +40,12 @@ const YouTube: NextPage = () => {
     return (
         <>
             <div className="flex justify-center items-center h-screen">
-                <div className="video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden rounded-lg" ref={videoWrapperRef}>
+                {
+                    showFirstPlayButton && (
+                        <FaPlay className='text-4xl md:text-5xl lg:text-6xl cursor-pointer absolute block' onClick={firstPlayClickHandler}/>
+                    )
+                }
+                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden rounded-lg" + (showFirstPlayButton ? " -z-10" : "")} ref={videoWrapperRef}>
                     <video
                         className="w-full"
                         src="assets/video.mp4"
@@ -47,7 +54,7 @@ const YouTube: NextPage = () => {
                         ref={videoElement}
                         onTimeUpdate={handleOnTimeUpdate}
                     />
-                    <div className="controls">
+                    <div className="controls z-50">
                         <div>
                             <button className="bg-none border-none outline-none cursor-pointer" onClick={togglePlay}>
                                 {
@@ -99,6 +106,7 @@ const YouTube: NextPage = () => {
                 </div>
 
             </div>
+            <div>HIII</div>
         </>
     )
 }

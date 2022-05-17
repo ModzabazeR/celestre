@@ -6,6 +6,7 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
     const [speed, setSpeed] = useState(1);
     const [isMuted, setIsMuted] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
+    const [showFirstPlayButton, setShowFirstPlayButton] = useState(true);
 
     const togglePlay = () => {
         setisPlaying(!isPlaying);
@@ -55,18 +56,25 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
         // isFullScreen ? videoWrapperRef.current!.requestFullscreen() : document.exitFullscreen();
     }, [isFullScreen, videoWrapperRef]);
 
+    const firstPlayClickHandler = () => {
+        setShowFirstPlayButton(false);
+        togglePlay();
+    }
+
     return {
         isPlaying,
         progress,
         speed,
         isMuted,
         isFullScreen,
+        showFirstPlayButton,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
         handleVideoSpeed,
         toggleMute,
-        toggleFullScreen
+        toggleFullScreen,
+        firstPlayClickHandler
     }
 }
 
