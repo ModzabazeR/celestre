@@ -24,7 +24,7 @@ const db = [
         id: "qrH9vMZBwAk",
         subtitleUrls: {
             en: "/assets/subtitles/hutao_demo.en.ass",
-            th: "/assets/subtitles/hutao_demo.th.ass.br",
+            th: "/assets/subtitles/hutao_demo.th.ass",
         },
         audioUrls: {
             en: "https://www.youtube.com/watch?v=qrH9vMZBwAk",
@@ -34,4 +34,69 @@ const db = [
     }
 ]
 
-export default db
+const subtitleLangIds = [
+    {
+        code: "zhs",
+        name: "Chinese (Simplified)"
+    },
+    {
+        code: "zht",
+        name: "Chinese (Traditional)"
+    },
+    {
+        code: "en",
+        name: "English"
+    },
+    {
+        code: "es",
+        name: "Spanish"
+    },
+    {
+        code: "fr",
+        name: "French"
+    },
+    {
+        code: "ru",
+        name: "Russian"
+    },
+    {
+        code: "th",
+        name: "Thai"
+    },
+    {
+        code: "vi",
+        name: "Vietnamese"
+    },
+    {
+        code: "de",
+        name: "German"
+    },
+    {
+        code: "ind",
+        name: "Indonesian"
+    },
+    {
+        code: "pt",
+        name: "Portuguese"
+    }
+]
+
+const audioLangIds = {
+    0: {
+        code: "en",
+        name: "English"
+    },
+    1: {
+        code: "ja",
+        name: "Japanese"
+    },
+    2: {
+        code: "kor",
+        name: "Korean"
+    }
+}
+export default {
+    db,
+    subtitleLangIds,
+    audioLangIds
+}

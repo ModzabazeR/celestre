@@ -1,16 +1,18 @@
 import db from "../../db";
 import { GetServerSideProps } from "next";
 import { VideoDetails } from "../../typings";
-import VideoPlayer from "../../components/VideoPlayer";
+import CustomVideoPlayer from "../../components/CustomVideoPlayer";
 import packer from "../../utils/packer";
 import Head from "next/head";
 import { NextRouter, useRouter } from "next/router";
 import Link from "next/link";
 
+
 interface PostProps {
     videoDetails: VideoDetails;
     thumbnail_url: string;
     audio_list: {
+        id: number;
         lang: string;
         url: any;
     }[];
@@ -22,18 +24,18 @@ const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: PostProps)
     const router: NextRouter = useRouter();
     const { id } = router.query;
 
-    const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
+    const db_data = db.db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center py-2">
+        <div className="flex h-screen flex-col items-center justify-center">
             <Head>
                 <title>{videoDetails.title} - Genshin Web Player</title>
                 <link rel="icon" href="/favicon.ico" />
                 <script src="../subtitle-octopus/subtitles-octopus.js"></script>
             </Head>
-            <main className="grid items-center justify-center">
+            <main className="w-full max-w-screen-md relative grid justify-center overflow-hidden">
                 <h1 className="text-2xl font-bold text-center">{videoDetails.title}</h1>
-                <VideoPlayer
+                <CustomVideoPlayer
                     videoSrc={video_url}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
@@ -52,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const res = context.res;
     res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
 
-    const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
+    const db_data = db.db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     const Youtube = require('youtube-stream-url')
     const video = await Youtube.getInfo({ url: `https://www.youtube.com/watch?v=${id}` })
@@ -70,11 +72,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//     const paths = db.map((video: any) => ({ params: { id: video.id } }));
-//     return {
-//         paths,
-//         fallback: false,
-//     }
-// }

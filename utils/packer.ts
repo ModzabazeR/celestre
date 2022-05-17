@@ -45,19 +45,23 @@ const packAudios = async ({ audioUrls }: packAudioProps) => {
 
     const audioList =  [
         {
-            lang: 'en',
+            id: 0,
+            lang: 'English',
             url: en_real_url
         },
         {
-            lang: 'ja',
+            id: 1,
+            lang: 'Japanese',
             url: ja_real_url
         },
         {
-            lang: 'kor',
+            id: 2,
+            lang: 'Korean',
             url: kor_real_url
         },
         {
-            lang: 'th',
+            id: 3,
+            lang: 'Thai (Tanudan)',
             url: th_real_url
         }
     ]
@@ -69,47 +73,58 @@ const packAudios = async ({ audioUrls }: packAudioProps) => {
 const packSubtitle = ({ subtitleUrls }: packSubtitleProps) => {
     return [
         {
-            lang: 'zhs',
+            id: 0,
+            lang: 'Chinese (Simplified)',
             url: subtitleUrls?.zhs
         },
         {
-            lang: 'zht',
+            id: 1,
+            lang: 'Chinese (Traditional)',
             url: subtitleUrls?.zht
         },
         {
-            lang: 'en',
+            id: 2,
+            lang: 'English',
             url: subtitleUrls?.en
         },
         {
-            lang: 'es',
+            id: 3,
+            lang: 'Spanish',
             url: subtitleUrls?.es
         },
         {
-            lang: 'fr',
+            id: 4,
+            lang: 'French',
             url: subtitleUrls?.fr
         },
         {
-            lang: 'ru',
+            id: 5,
+            lang: 'Russian',
             url: subtitleUrls?.ru
         },
         {
-            lang: 'th',
+            id: 6,
+            lang: 'Thai',
             url: subtitleUrls?.th
         },
         {
-            lang: 'vi',
+            id: 7,
+            lang: 'Vietnamese',
             url: subtitleUrls?.vi
         },
         {
-            lang: 'de',
+            id: 8,
+            lang: 'German',
             url: subtitleUrls?.de
         },
         {
-            lang: 'ind',
+            id: 9,
+            lang: 'Indonesian',
             url: subtitleUrls?.ind
         },
         {
-            lang: 'pt',
+            id: 10,
+            lang: 'Portuguese',
             url: subtitleUrls?.pt
         }
     ]

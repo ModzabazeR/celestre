@@ -8,6 +8,20 @@
   }
 }
 
+@layer components {
+  .option-top {
+    @apply rounded-t bg-black/50 hover:bg-black/70 py-2 px-4 block transition-all;
+  }
+
+  .option-middle {
+    @apply bg-black/50 hover:bg-black/70 py-2 px-4 block transition-all;
+  }
+
+  .option-bottom {
+    @apply rounded-b bg-black/50 hover:bg-black/70 py-2 px-4 block transition-all;
+  }
+}
+
 /* video::-webkit-media-controls-fullscreen-button {
   display: none;
 } */
@@ -51,7 +65,7 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: 50%;
   width: 10px;
   height: 10px;
-  background: white;
+  background: white !important;
   cursor: pointer;
 }
 

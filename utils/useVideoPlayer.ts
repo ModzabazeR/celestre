@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWrapperRef: React.RefObject<HTMLDivElement>) => {
+interface hookProps {
+    videoRef: React.RefObject<HTMLVideoElement>,
+    videoWrapperRef: React.RefObject<HTMLDivElement>,
+}
+
+const useVideoPlayer = ({ videoRef, videoWrapperRef }: hookProps) => {
     const [isPlaying, setisPlaying] = useState(false);
-    const [progress , setProgress] = useState(0);
-    const [speed, setSpeed] = useState(1);
+    const [progress, setProgress] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [showFirstPlayButton, setShowFirstPlayButton] = useState(true);
@@ -13,24 +17,18 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
     }
 
     useEffect(() => {
-        isPlaying ? videoElement.current!.play() : videoElement.current!.pause();
-    }, [isPlaying, videoElement]);
+        isPlaying ? videoRef.current!.play() : videoRef.current!.pause();
+    }, [isPlaying, videoRef]);
 
     const handleOnTimeUpdate = () => {
-        const progress = (videoElement.current!.currentTime / videoElement.current!.duration) * 100;
+        const progress = (videoRef.current!.currentTime / videoRef.current!.duration) * 100;
         setProgress(progress);
     }
 
     const handleVideoProgress = (e: any) => {
         const manualChange = Number(e.target.value);
-        videoElement.current!.currentTime = (videoElement.current!.duration / 100) * manualChange;
+        videoRef.current!.currentTime = (videoRef.current!.duration / 100) * manualChange;
         setProgress(manualChange);
-    }
-
-    const handleVideoSpeed = (e: any) => {
-        const speed = Number(e.target.value);
-        videoElement.current!.playbackRate = speed;
-        setSpeed(speed);
     }
 
     const toggleMute = () => {
@@ -38,8 +36,8 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
     }
 
     useEffect(() => {
-        isMuted ? videoElement.current!.muted = true : videoElement.current!.muted = false;
-    }, [isMuted, videoElement]);
+        isMuted ? videoRef.current!.muted = true : videoRef.current!.muted = false;
+    }, [isMuted, videoRef]);
 
     const toggleFullScreen = () => {
         setIsFullScreen(!isFullScreen);
@@ -53,7 +51,6 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
                 document.exitFullscreen();
             }
         }
-        // isFullScreen ? videoWrapperRef.current!.requestFullscreen() : document.exitFullscreen();
     }, [isFullScreen, videoWrapperRef]);
 
     const firstPlayClickHandler = () => {
@@ -64,17 +61,16 @@ const useVideoPlayer = (videoElement: React.RefObject<HTMLVideoElement>, videoWr
     return {
         isPlaying,
         progress,
-        speed,
         isMuted,
         isFullScreen,
         showFirstPlayButton,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
-        handleVideoSpeed,
         toggleMute,
         toggleFullScreen,
-        firstPlayClickHandler
+        firstPlayClickHandler,
+        setisPlaying,
     }
 }
 
