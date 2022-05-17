@@ -24,7 +24,7 @@ const db = [
         id: "qrH9vMZBwAk",
         subtitleUrls: {
             en: "/assets/subtitles/hutao_demo.en.ass",
-            th: "/assets/subtitles/hutao_demo.th.ass",
+            th: "/assets/subtitles/hutao_demo.th.ass.br",
         },
         audioUrls: {
             en: "https://www.youtube.com/watch?v=qrH9vMZBwAk",

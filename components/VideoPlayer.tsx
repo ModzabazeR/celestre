@@ -35,6 +35,9 @@ const VideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: VideoPlay
         videoRef.current!.onseeked = () => {
             audioRef.current!.currentTime = videoRef.current!.currentTime;
         }
+        videoRef.current!.onwaiting = () => {
+            videoRef.current!.pause();
+        }
     }, []);
 
     return (
