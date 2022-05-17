@@ -27,7 +27,7 @@ const Post = ({ videoDetails, thumbnail_url, audio_list, video_url }: PostProps)
     const db_data = db.db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     return (
-        <div className="flex h-screen flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
             <Head>
                 <title>{videoDetails.title} - Genshin Web Player</title>
                 <link rel="icon" href="/favicon.ico" />

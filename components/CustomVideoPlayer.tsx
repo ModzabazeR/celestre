@@ -135,17 +135,6 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                                         else { return (<li key={index} className="option-middle" onClick={() => subtitleHandler(sub.id)}>{sub.lang}</li>) }
                                     })
                                 }
-                                {/* {subtitleList[0].url && (<li className="option-top">{db.subtitleLangIds[0]["name"]}</li>)}
-                                {subtitleList[1].url && (<li className="option-middle">{db.subtitleLangIds[1]["name"]}</li>)}
-                                {subtitleList[2].url && (<li className="option-middle">{db.subtitleLangIds[2]["name"]}</li>)}
-                                {subtitleList[3].url && (<li className="option-middle">{db.subtitleLangIds[3]["name"]}</li>)}
-                                {subtitleList[4].url && (<li className="option-middle">{db.subtitleLangIds[4]["name"]}</li>)}
-                                {subtitleList[5].url && (<li className="option-middle">{db.subtitleLangIds[5]["name"]}</li>)}
-                                {subtitleList[6].url && (<li className="option-middle">{db.subtitleLangIds[6]["name"]}</li>)}
-                                {subtitleList[7].url && (<li className="option-middle">{db.subtitleLangIds[7]["name"]}</li>)}
-                                {subtitleList[8].url && (<li className="option-middle">{db.subtitleLangIds[8]["name"]}</li>)}
-                                {subtitleList[9].url && (<li className="option-middle">{db.subtitleLangIds[9]["name"]}</li>)}
-                                {subtitleList[10].url && (<li className="option-bottom">{db.subtitleLangIds[10]["name"]}</li>)} */}
                             </ul>
                         </div>
 
