@@ -43,6 +43,7 @@ const YouTube: NextPage = () => {
                         className="w-full"
                         src="assets/video.mp4"
                         preload='auto'
+                        poster='https://wallpaperaccess.com/full/3458146.jpg'
                         ref={videoElement}
                         onTimeUpdate={handleOnTimeUpdate}
                     />
