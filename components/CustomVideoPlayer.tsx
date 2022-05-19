@@ -3,13 +3,13 @@ import useVideoPlayer from '../utils/useVideoPlayer'
 import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
-import db from '../db'
+import { isMobile } from 'react-device-detect'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
     videoSrc: string;
-    subtitleList: { id: number, lang: string, url: string | undefined }[];
-    audioList: { id: number, lang: string, url: string | undefined }[];
+    subtitleList: { id: number, lang: string, url: string | null }[];
+    audioList: { id: number, lang: string, url: string | null }[];
     thumbnail: string;
 }
 
@@ -18,13 +18,16 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     const videoWrapperRef = useRef<HTMLDivElement>(null)
     const audioRef = useRef<HTMLAudioElement>(null)
     const audioSourceRef = useRef<HTMLSourceElement>(null)
+    const controlsRef = useRef<HTMLDivElement>(null)
     const [instance, setInstance] = useState<any>()
+    const [controlsOnHover, setControlsOnHover] = useState(false)
     const {
         isPlaying,
         progress,
         isMuted,
         isFullScreen,
         showFirstPlayButton,
+        showCursor,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
@@ -32,7 +35,9 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         toggleFullScreen,
         firstPlayClickHandler,
         setisPlaying,
-    } = useVideoPlayer({ videoRef, videoWrapperRef })
+        setShowCursor,
+        setIsFullScreen,
+    } = useVideoPlayer({ videoRef, videoWrapperRef, audioRef })
 
     const audioHandler = (langId: number) => {
         videoRef.current!.pause()
@@ -41,6 +46,17 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         audioRef.current!.onloadeddata = () => {
             videoRef.current!.play();
             audioRef.current!.currentTime = videoRef.current!.currentTime;
+        }
+    }
+
+    const controlsShowHandler = () => {
+        controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
+        setShowCursor(true)
+        if (!controlsOnHover) {
+            setTimeout(() => {
+                controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
+                setShowCursor(false)
+            }, 8000)
         }
     }
 
@@ -54,7 +70,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         };
         setInstance(new SubtitlesOctopus(options));
 
-        audioSourceRef.current!.src = audioList[1].url!; // Japanese
+        audioSourceRef.current!.src = audioList[2].url!; // Japanese
         audioRef.current!.load();
 
         videoRef.current!.onplay = () => {
@@ -70,9 +86,12 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
             audioRef.current!.currentTime = videoRef.current!.currentTime;
         }
         videoRef.current!.onwaiting = () => {
-            setisPlaying(false)
-            videoRef.current!.pause();
+            audioRef.current!.pause();
         }
+        videoRef.current!.onplaying = () => {
+            audioRef.current!.play();
+        }
+
     }, [])
 
     const subtitleHandler = (langId: number) => {
@@ -80,18 +99,44 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         instance.setTrackByUrl(url);
     }
 
-    const availableSubtitles = subtitleList.filter(sub => sub.url !== undefined && sub.url !== null)
-    const availableAudios = audioList.filter(audio => audio.url !== undefined && audio.url !== null)
+    const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
+    const availableAudios = audioList.filter(audio => audio.url !== null)
+
+    const [activeSubtitle, setActiveSubtitle] = useState({
+        activeSub: subtitleList[6],
+        objects: availableSubtitles
+    })
+
+    const toggleSubtitle = (index: number) => {
+        setActiveSubtitle({ ...activeSubtitle, activeSub: availableSubtitles[index] })
+    }
+
+    const checkIfSubtitleActive = (index: number) => {
+        return activeSubtitle.objects[index] === activeSubtitle.activeSub
+    }
+
+    const [activeAudio, setActiveAudio] = useState({
+        activeAudio: audioList[2],
+        objects: availableAudios
+    })
+
+    const toggleAudio = (index: number) => {
+        setActiveAudio({ ...activeAudio, activeAudio: availableAudios[index] })
+    }
+
+    const checkIfAudioActive = (index: number) => {
+        return activeAudio.objects[index] === activeAudio.activeAudio
+    }
 
     return (
         <>
-            <div className={showFirstPlayButton ? "bg-black/30 my-8 cursor-pointer" : "py-8"} onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }}>
+            <div className={showFirstPlayButton ? "bg-black/30 my-8 cursor-pointer flex justify-center items-center" : "py-8"} onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }}>
                 {
                     showFirstPlayButton && (
-                        <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute w-full top-1/2' />
+                        <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute' />
                     )
                 }
-                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "")} ref={videoWrapperRef}>
+                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
                     <video
                         className="w-full object-cover"
                         src={videoSrc}
@@ -99,11 +144,12 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                         poster={thumbnail}
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
+                        onClick={isMobile ? controlsShowHandler : togglePlay}
                     />
                     <audio ref={audioRef} preload="auto">
                         <source ref={audioSourceRef} />
                     </audio>
-                    <div className="controls z-50">
+                    <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
                         <div>
                             <button className="bg-none border-none outline-none cursor-pointer" onClick={togglePlay}>
                                 {
@@ -127,36 +173,28 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
                         <div className="cursor-pointer group inline-block relative">
                             <MdSubtitles />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm overflow-hidden overflow-y-scroll" + (availableSubtitles.length <= 2 ? " h-20" : " h-32 lg:h-48")}>
+                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-32 lg:h-48")}>
                                 {
                                     availableSubtitles.map((sub, index) => {
-                                        if (index === 0) { return (<li key={index} className="option-top" onClick={() => subtitleHandler(sub.id)}>{sub.lang}</li>) }
-                                        else if (index === availableSubtitles.length - 1) { return (<li key={index} className="option-bottom" onClick={() => subtitleHandler(sub.id)}>{sub.lang}</li>) }
-                                        else { return (<li key={index} className="option-middle" onClick={() => subtitleHandler(sub.id)}>{sub.lang}</li>) }
+                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
+                                            subtitleHandler(sub.id)
+                                            toggleSubtitle(index)
+                                        }}>{checkIfSubtitleActive(index) && <MdCheck className="inline mr-2" />}{sub.lang}</li>)
+
                                     })
                                 }
-                                {/* {subtitleList[0].url && (<li className="option-top">{db.subtitleLangIds[0]["name"]}</li>)}
-                                {subtitleList[1].url && (<li className="option-middle">{db.subtitleLangIds[1]["name"]}</li>)}
-                                {subtitleList[2].url && (<li className="option-middle">{db.subtitleLangIds[2]["name"]}</li>)}
-                                {subtitleList[3].url && (<li className="option-middle">{db.subtitleLangIds[3]["name"]}</li>)}
-                                {subtitleList[4].url && (<li className="option-middle">{db.subtitleLangIds[4]["name"]}</li>)}
-                                {subtitleList[5].url && (<li className="option-middle">{db.subtitleLangIds[5]["name"]}</li>)}
-                                {subtitleList[6].url && (<li className="option-middle">{db.subtitleLangIds[6]["name"]}</li>)}
-                                {subtitleList[7].url && (<li className="option-middle">{db.subtitleLangIds[7]["name"]}</li>)}
-                                {subtitleList[8].url && (<li className="option-middle">{db.subtitleLangIds[8]["name"]}</li>)}
-                                {subtitleList[9].url && (<li className="option-middle">{db.subtitleLangIds[9]["name"]}</li>)}
-                                {subtitleList[10].url && (<li className="option-bottom">{db.subtitleLangIds[10]["name"]}</li>)} */}
                             </ul>
                         </div>
 
                         <div className="cursor-pointer group inline-block relative">
                             <MdHeadphones />
-                            <ul className="absolute hidden text-white pt-1 group-hover:flex flex-col bottom-0 my-4 text-sm">
+                            <ul className="absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg">
                                 {
                                     availableAudios.map((audio, index) => {
-                                        if (index === 0) return (<li key={index} className="option-top" onClick={() => audioHandler(audio.id)}>{audio.lang}</li>)
-                                        else if (index === availableAudios.length - 1) return (<li key={index} className="option-bottom" onClick={() => audioHandler(audio.id)}>{audio.lang}</li>)
-                                        else return (<li key={index} className="option-middle" onClick={() => audioHandler(audio.id)}>{audio.lang}</li>)
+                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
+                                            audioHandler(audio.id)
+                                            toggleAudio(index)
+                                        }}>{checkIfAudioActive(index) && <MdCheck className="inline mr-2" />}{audio.lang}</li>)
                                     })
                                 }
                             </ul>
