@@ -1,5 +1,6 @@
 export interface packAudioProps {
     audioUrls: {
+        zh?: string,
         en?: string
         ja?: string
         kor?: string
@@ -38,29 +39,35 @@ const packAudio = async (url: string | undefined) => {
 
 const packAudios = async ({ audioUrls }: packAudioProps) => {
 
-    const en_real_url = await packAudio(audioUrls.en);
-    const ja_real_url = await packAudio(audioUrls.ja);
-    const kor_real_url = await packAudio(audioUrls.kor);
-    const th_real_url = await packAudio(audioUrls.th);
+    const zh_real_url = audioUrls.zh ? await packAudio(audioUrls.zh) : null;
+    const en_real_url = audioUrls.en ? await packAudio(audioUrls.en) : null;
+    const ja_real_url = audioUrls.ja ? await packAudio(audioUrls.ja) : null;
+    const kor_real_url = audioUrls.kor ? await packAudio(audioUrls.kor) : null;
+    const th_real_url = audioUrls.th ? audioUrls.th : null;
 
     const audioList =  [
         {
             id: 0,
+            lang: 'Chinese',
+            url: zh_real_url
+        },
+        {
+            id: 1,
             lang: 'English',
             url: en_real_url
         },
         {
-            id: 1,
+            id: 2,
             lang: 'Japanese',
             url: ja_real_url
         },
         {
-            id: 2,
+            id: 3,
             lang: 'Korean',
             url: kor_real_url
         },
         {
-            id: 3,
+            id: 4,
             lang: 'Thai (Tanudan)',
             url: th_real_url
         }
@@ -75,57 +82,57 @@ const packSubtitle = ({ subtitleUrls }: packSubtitleProps) => {
         {
             id: 0,
             lang: 'Chinese (Simplified)',
-            url: subtitleUrls?.zhs
+            url: subtitleUrls.zhs ? subtitleUrls.zhs : null
         },
         {
             id: 1,
             lang: 'Chinese (Traditional)',
-            url: subtitleUrls?.zht
+            url: subtitleUrls.zht ? subtitleUrls.zht : null
         },
         {
             id: 2,
             lang: 'English',
-            url: subtitleUrls?.en
+            url: subtitleUrls.en ? subtitleUrls.en : null
         },
         {
             id: 3,
             lang: 'Spanish',
-            url: subtitleUrls?.es
+            url: subtitleUrls.es ? subtitleUrls.es : null
         },
         {
             id: 4,
             lang: 'French',
-            url: subtitleUrls?.fr
+            url: subtitleUrls.fr ? subtitleUrls.fr : null
         },
         {
             id: 5,
             lang: 'Russian',
-            url: subtitleUrls?.ru
+            url: subtitleUrls.ru ? subtitleUrls.ru : null
         },
         {
             id: 6,
             lang: 'Thai',
-            url: subtitleUrls?.th
+            url: subtitleUrls.th ? subtitleUrls.th : null
         },
         {
             id: 7,
             lang: 'Vietnamese',
-            url: subtitleUrls?.vi
+            url: subtitleUrls.vi ? subtitleUrls.vi : null
         },
         {
             id: 8,
             lang: 'German',
-            url: subtitleUrls?.de
+            url: subtitleUrls.de ? subtitleUrls.de : null
         },
         {
             id: 9,
             lang: 'Indonesian',
-            url: subtitleUrls?.ind
+            url: subtitleUrls.ind ? subtitleUrls.ind : null
         },
         {
             id: 10,
             lang: 'Portuguese',
-            url: subtitleUrls?.pt
+            url: subtitleUrls.pt ? subtitleUrls.pt : null
         }
     ]
 }
