@@ -32,3 +32,34 @@ export interface VideoFormat {
     averageBitrate: number;
     audioQuality?: string;
 }
+
+export type dbItem = {
+    id: string;
+    title: string;
+    duration: string;
+    thumbnail: string;
+    uploadDate: string | Date;
+    subtitleUrls: {
+        zhs?: string;
+        zht?: string;
+        en?: string;
+        es?: string;
+        fr?: string;
+        ru?: string;
+        th?: string;
+        vi?: string;
+        de?: string;
+        ind?: string;
+        pt?: string;
+    }
+    audioUrls: {
+        zh?: string;
+        en?: string;
+        ja?: string;
+        kor?: string;
+        th?: string;
+    },
+    tags: string[];
+}
+
+export type dbData = dbItem[]

@@ -15,17 +15,17 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-[#888] rounded-xl;
+    @apply bg-[#888]/0 rounded-xl;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-xl;
+    @apply bg-[#5c5f6b] rounded-xl;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-[#555];
+    @apply bg-[#76777f];
   }
 }
 

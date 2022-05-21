@@ -41,13 +41,13 @@ const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}
                 />
-                <div className="divide-x-2 divide-[#25294A]/70">
-                    <button className="bg-[#25294A]/70 p-2 mb-4 rounded-l-md hover:bg-[#25294A] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
+                <div className="divide-x-2 divide-[#343746]">
+                    <button className="bg-[#1b1d2a] p-2 mb-4 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
                         <FiRefreshCw className="inline mr-2" />
-                        <span>Refresh</span>
+                        <span>Reload</span>
                     </button>
                     <Link href="/">
-                        <button className="bg-[#25294a]/70 p-2 mb-4 rounded-r-md hover:bg-[#25294A] transition-all w-1/2 text-sm lg:text-base">
+                        <button className="bg-[#1b1d2a] p-2 mb-4 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
                         <FaHome className="inline mr-2" />
                         Back to Home
                         </button>
