@@ -150,9 +150,8 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
                         onClick={isMobile ? controlsShowHandler : togglePlay}
-                        crossOrigin="anonymous"
                     />
-                    <audio ref={audioRef} preload="auto" crossOrigin="anonymous">
+                    <audio ref={audioRef} preload="auto">
                         <source ref={audioSourceRef} />
                     </audio>
                     <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
