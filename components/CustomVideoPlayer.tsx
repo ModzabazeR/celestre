@@ -4,6 +4,7 @@ import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
 import { isMobile } from 'react-device-detect'
+import Router from 'next/router'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
@@ -49,11 +50,13 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         }
     }
 
+    let timer: any
     const controlsShowHandler = () => {
+        clearTimeout(timer)
         controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
         setShowCursor(true)
         try {
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
                 setShowCursor(false)
             }, 8000)
@@ -147,8 +150,9 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
                         onClick={isMobile ? controlsShowHandler : togglePlay}
+                        crossOrigin="anonymous"
                     />
-                    <audio ref={audioRef} preload="auto">
+                    <audio ref={audioRef} preload="auto" crossOrigin="anonymous">
                         <source ref={audioSourceRef} />
                     </audio>
                     <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>

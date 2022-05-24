@@ -29,12 +29,11 @@ const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
     return (
         <div className="flex flex-col items-center justify-center">
             <Head>
-                <title>{videoDetails.title} - Genshin Web Player</title>
+                <title>{db_data.title} - Genshin Web Player</title>
                 <link rel="icon" href="/favicon.ico" />
-                <script src="../subtitle-octopus/subtitles-octopus.js"></script>
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
-                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{videoDetails.title}</h1>
+                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{db_data.title}</h1>
                 <CustomVideoPlayer
                     videoSrc={video_url}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
