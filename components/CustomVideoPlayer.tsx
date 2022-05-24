@@ -4,6 +4,7 @@ import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
 import { isMobile } from 'react-device-detect'
+import Router from 'next/router'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
@@ -49,14 +50,18 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         }
     }
 
+    let timer: any
     const controlsShowHandler = () => {
+        clearTimeout(timer)
         controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
         setShowCursor(true)
-        if (!controlsOnHover) {
-            setTimeout(() => {
+        try {
+            timer = setTimeout(() => {
                 controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
                 setShowCursor(false)
             }, 8000)
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -145,8 +150,9 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
                         onClick={isMobile ? controlsShowHandler : togglePlay}
+                        crossOrigin="anonymous"
                     />
-                    <audio ref={audioRef} preload="auto">
+                    <audio ref={audioRef} preload="auto" crossOrigin="anonymous">
                         <source ref={audioSourceRef} />
                     </audio>
                     <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
@@ -173,7 +179,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
                         <div className="cursor-pointer group inline-block relative">
                             <MdSubtitles />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-32 lg:h-48")}>
+                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
                                 {
                                     availableSubtitles.map((sub, index) => {
                                         return (<li key={index} className={(index === 0 ? "option-top" : index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
@@ -188,7 +194,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
                         <div className="cursor-pointer group inline-block relative">
                             <MdHeadphones />
-                            <ul className="absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg">
+                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
                                 {
                                     availableAudios.map((audio, index) => {
                                         return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {

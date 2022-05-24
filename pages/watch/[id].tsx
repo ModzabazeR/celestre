@@ -29,25 +29,24 @@ const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
     return (
         <div className="flex flex-col items-center justify-center">
             <Head>
-                <title>{videoDetails.title} - Genshin Web Player</title>
+                <title>{db_data.title} - Genshin Web Player</title>
                 <link rel="icon" href="/favicon.ico" />
-                <script src="../subtitle-octopus/subtitles-octopus.js"></script>
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
-                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{videoDetails.title}</h1>
+                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{db_data.title}</h1>
                 <CustomVideoPlayer
                     videoSrc={video_url}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}
                 />
-                <div className="divide-x-2 divide-[#25294A]/70">
-                    <button className="bg-[#25294A]/70 p-2 mb-4 rounded-l-md hover:bg-[#25294A] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
+                <div className="divide-x-2 divide-[#343746]">
+                    <button className="bg-[#1b1d2a] p-2 mb-4 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
                         <FiRefreshCw className="inline mr-2" />
-                        <span>Refresh</span>
+                        <span>Reload</span>
                     </button>
                     <Link href="/">
-                        <button className="bg-[#25294a]/70 p-2 mb-4 rounded-r-md hover:bg-[#25294A] transition-all w-1/2 text-sm lg:text-base">
+                        <button className="bg-[#1b1d2a] p-2 mb-4 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
                         <FaHome className="inline mr-2" />
                         Back to Home
                         </button>
