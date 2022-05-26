@@ -43,6 +43,8 @@ export type dbItem = {
         zhs?: string;
         zht?: string;
         en?: string;
+        kor?: string;
+        ja?: string;
         es?: string;
         fr?: string;
         ru?: string;

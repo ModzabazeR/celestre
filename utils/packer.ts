@@ -13,6 +13,8 @@ export interface packSubtitleProps {
         zhs?: string
         zht?: string
         en?: string
+        kor?: string
+        ja?: string
         es?: string
         fr?: string
         ru?: string
@@ -96,41 +98,51 @@ const packSubtitle = ({ subtitleUrls }: packSubtitleProps) => {
         },
         {
             id: 3,
+            lang: 'Korean',
+            url: subtitleUrls.kor ? subtitleUrls.kor : null
+        },
+        {
+            id: 4,
+            lang: 'Japanese',
+            url: subtitleUrls.ja ? subtitleUrls.ja : null
+        },
+        {
+            id: 5,
             lang: 'Spanish',
             url: subtitleUrls.es ? subtitleUrls.es : null
         },
         {
-            id: 4,
+            id: 6,
             lang: 'French',
             url: subtitleUrls.fr ? subtitleUrls.fr : null
         },
         {
-            id: 5,
+            id: 7,
             lang: 'Russian',
             url: subtitleUrls.ru ? subtitleUrls.ru : null
         },
         {
-            id: 6,
+            id: 8,
             lang: 'Thai',
             url: subtitleUrls.th ? subtitleUrls.th : null
         },
         {
-            id: 7,
+            id: 9,
             lang: 'Vietnamese',
             url: subtitleUrls.vi ? subtitleUrls.vi : null
         },
         {
-            id: 8,
+            id: 10,
             lang: 'German',
             url: subtitleUrls.de ? subtitleUrls.de : null
         },
         {
-            id: 9,
+            id: 11,
             lang: 'Indonesian',
             url: subtitleUrls.ind ? subtitleUrls.ind : null
         },
         {
-            id: 10,
+            id: 12,
             lang: 'Portuguese',
             url: subtitleUrls.pt ? subtitleUrls.pt : null
         }

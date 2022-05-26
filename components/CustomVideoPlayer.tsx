@@ -68,7 +68,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     useEffect(() => {
         const options = {
             video: videoRef.current,
-            subUrl: subtitleList[6].url, // Thai
+            subUrl: subtitleList[8].url, // Thai
             fonts: ["https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/browalia.ttc", "https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/zh-cn.ttf"],
             workerUrl: "../subtitle-octopus/subtitles-octopus-worker.js",
             legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
@@ -108,7 +108,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     const availableAudios = audioList.filter(audio => audio.url !== null)
 
     const [activeSubtitle, setActiveSubtitle] = useState({
-        activeSub: subtitleList[6],
+        activeSub: subtitleList[8],
         objects: availableSubtitles
     })
 
