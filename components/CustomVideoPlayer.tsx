@@ -10,7 +10,7 @@ const SubtitlesOctopus = require('libass-wasm')
 interface VideoPlayerProps {
     videoSrc: string;
     subtitleList: { id: number, lang: string, url: string | null }[];
-    audioList: { id: number, lang: string, url: string | null }[];
+    audioList: { id: number, lang: string, url: string | null, timeshift: number }[];
     thumbnail: string;
 }
 
@@ -20,6 +20,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     const audioRef = useRef<HTMLAudioElement>(null)
     const audioSourceRef = useRef<HTMLSourceElement>(null)
     const controlsRef = useRef<HTMLDivElement>(null)
+    const timerRef = useRef<any>()
     const [instance, setInstance] = useState<any>()
     const [controlsOnHover, setControlsOnHover] = useState(false)
     const {
@@ -40,29 +41,30 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         setIsFullScreen,
     } = useVideoPlayer({ videoRef, videoWrapperRef, audioRef })
 
+    const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
+    const availableAudios = audioList.filter(audio => audio.url !== null)
+
     const audioHandler = (langId: number) => {
         videoRef.current!.pause()
         audioSourceRef.current!.src = audioList[langId].url!;
         audioRef.current!.load();
         audioRef.current!.onloadeddata = () => {
             videoRef.current!.play();
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
+            audioRef.current!.currentTime = videoRef.current!.currentTime + audioList[langId].timeshift;
         }
     }
 
-    let timer: any
     const controlsShowHandler = () => {
-        clearTimeout(timer)
+        clearTimeout(timerRef.current)
         controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
         setShowCursor(true)
-        try {
-            timer = setTimeout(() => {
+        if (!controlsOnHover) {
+            timerRef.current = setTimeout(() => {
                 controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
                 setShowCursor(false)
-            }, 8000)
-        } catch (error) {
-            console.log(error)
+            }, 5000)
         }
+
     }
 
     useEffect(() => {
@@ -78,25 +80,6 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         audioSourceRef.current!.src = audioList[2].url!; // Japanese
         audioRef.current!.load();
 
-        videoRef.current!.onplay = () => {
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
-            setisPlaying(true)
-            audioRef.current!.play();
-        }
-        videoRef.current!.onpause = () => {
-            setisPlaying(false)
-            audioRef.current!.pause();
-        }
-        videoRef.current!.onseeked = () => {
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
-        }
-        videoRef.current!.onwaiting = () => {
-            audioRef.current!.pause();
-        }
-        videoRef.current!.onplaying = () => {
-            audioRef.current!.play();
-        }
-
     }, [])
 
     const subtitleHandler = (langId: number) => {
@@ -104,8 +87,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         instance.setTrackByUrl(url);
     }
 
-    const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
-    const availableAudios = audioList.filter(audio => audio.url !== null)
+
 
     const [activeSubtitle, setActiveSubtitle] = useState({
         activeSub: subtitleList[8],
@@ -132,6 +114,33 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     const checkIfAudioActive = (index: number) => {
         return activeAudio.objects[index] === activeAudio.activeAudio
     }
+
+    useEffect(() => {
+        videoRef.current!.onplay = () => {
+            audioRef.current!.currentTime = videoRef.current!.currentTime + activeAudio.activeAudio.timeshift;
+            setisPlaying(true)
+            audioRef.current!.play();
+        }
+        videoRef.current!.onpause = () => {
+            setisPlaying(false)
+            audioRef.current!.pause();
+        }
+        videoRef.current!.onseeked = () => {
+            audioRef.current!.currentTime = videoRef.current!.currentTime + activeAudio.activeAudio.timeshift;
+        }
+        videoRef.current!.onwaiting = () => {
+            audioRef.current!.pause();
+        }
+        videoRef.current!.onplaying = () => {
+            audioRef.current!.play();
+        }
+        videoRef.current!.onerror = (e) => {
+            alert(`Video Error: ${e} - try reloading the page`)
+        }
+        audioRef.current!.onerror = (e) => {
+            alert(`Audio Error: ${e} - try reloading the page`)
+        }
+    }, [activeAudio])
 
     return (
         <>
@@ -193,7 +202,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
                         <div className="cursor-pointer group inline-block relative">
                             <MdHeadphones />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
+                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
                                 {
                                     availableAudios.map((audio, index) => {
                                         return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {

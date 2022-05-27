@@ -15,6 +15,7 @@ interface PostProps {
         id: number;
         lang: string;
         url: any;
+        timeshift: number;
     }[];
     video_url: string;
 }

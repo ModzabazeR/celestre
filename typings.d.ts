@@ -55,11 +55,26 @@ export type dbItem = {
         pt?: string;
     }
     audioUrls: {
-        zh?: string;
-        en?: string;
-        ja?: string;
-        kor?: string;
-        th?: string;
+        zh?: {
+            url: string;
+            timeshift?: number;
+        };
+        en?: {
+            url: string;
+            timeshift?: number;
+        };
+        ja?: {
+            url: string;
+            timeshift?: number;
+        };
+        kor?: {
+            url: string;
+            timeshift?: number;
+        };
+        th?: {
+            url: string;
+            timeshift?: number;
+        };
     },
     tags: string[];
 }

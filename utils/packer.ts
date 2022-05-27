@@ -1,10 +1,25 @@
 export interface packAudioProps {
     audioUrls: {
-        zh?: string,
-        en?: string
-        ja?: string
-        kor?: string
-        th?: string
+        zh?: {
+            url: string;
+            timeshift?: number;
+        },
+        en?: {
+            url: string;
+            timeshift?: number;
+        }
+        ja?: {
+            url: string;
+            timeshift?: number;
+        }
+        kor?: {
+            url: string;
+            timeshift?: number;
+        }
+        th?: {
+            url: string;
+            timeshift?: number;
+        }
     }
 }
 
@@ -41,37 +56,42 @@ const packAudio = async (url: string | undefined) => {
 
 const packAudios = async ({ audioUrls }: packAudioProps) => {
 
-    const zh_real_url = audioUrls.zh ? await packAudio(audioUrls.zh) : null;
-    const en_real_url = audioUrls.en ? await packAudio(audioUrls.en) : null;
-    const ja_real_url = audioUrls.ja ? await packAudio(audioUrls.ja) : null;
-    const kor_real_url = audioUrls.kor ? await packAudio(audioUrls.kor) : null;
-    const th_real_url = audioUrls.th ? audioUrls.th : null;
+    const zh_real_url = audioUrls.zh ? await packAudio(audioUrls.zh.url) : null;
+    const en_real_url = audioUrls.en ? await packAudio(audioUrls.en.url) : null;
+    const ja_real_url = audioUrls.ja ? await packAudio(audioUrls.ja.url) : null;
+    const kor_real_url = audioUrls.kor ? await packAudio(audioUrls.kor.url) : null;
+    const th_real_url = audioUrls.th ? await packAudio(audioUrls.th.url) : null;
 
     const audioList =  [
         {
             id: 0,
             lang: 'Chinese',
-            url: zh_real_url
+            url: zh_real_url,
+            timeshift: audioUrls.zh?.timeshift ? audioUrls.zh.timeshift : 0
         },
         {
             id: 1,
             lang: 'English',
-            url: en_real_url
+            url: en_real_url,
+            timeshift: audioUrls.en?.timeshift ? audioUrls.en.timeshift : 0
         },
         {
             id: 2,
             lang: 'Japanese',
-            url: ja_real_url
+            url: ja_real_url,
+            timeshift: audioUrls.ja?.timeshift ? audioUrls.ja.timeshift : 0
         },
         {
             id: 3,
             lang: 'Korean',
-            url: kor_real_url
+            url: kor_real_url,
+            timeshift: audioUrls.kor?.timeshift ? audioUrls.kor.timeshift : 0
         },
         {
             id: 4,
             lang: 'Thai (Tanudan)',
-            url: th_real_url
+            url: th_real_url,
+            timeshift: audioUrls.th?.timeshift ? audioUrls.th.timeshift : 0
         }
     ]
 

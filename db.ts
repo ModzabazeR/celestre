@@ -25,9 +25,15 @@ const db: dbData = [
             pt: `${subtitlePath}/travail_trailer.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=TAlKhARUcoY",
-            ja: "https://www.youtube.com/watch?v=jtpX8a8G3q0",
-            kor: "https://www.youtube.com/watch?v=aCNNqHEMA9A",
+            en: {
+                url: "https://www.youtube.com/watch?v=TAlKhARUcoY",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=jtpX8a8G3q0",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=aCNNqHEMA9A",
+            },
         },
         tags: ["story teaser", "dainsleif"]
     },
@@ -52,10 +58,19 @@ const db: dbData = [
             pt: `${subtitlePath}/hutao_demo.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=qrH9vMZBwAk",
-            ja: "https://www.youtube.com/watch?v=vRj3YbsVTPc",
-            kor: "https://www.youtube.com/watch?v=kMIweyKSoqI",
-            th: `${audioPath}/hutao_demo.th.mp3`,
+            en: {
+                url: "https://www.youtube.com/watch?v=qrH9vMZBwAk",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=vRj3YbsVTPc",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=kMIweyKSoqI",
+            },
+            th: {
+                url: "https://www.youtube.com/watch?v=J6DTfl-3VMc",
+                timeshift: 4.5
+            },
         },
         tags: ["character demo", "hutao", "qiqi", "liyue"]
     },
@@ -79,9 +94,15 @@ const db: dbData = [
             pt: `${subtitlePath}/we_will_be_reunited.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=SO__VQZirJ4",
-            ja: "https://www.youtube.com/watch?v=C4Chz2toaK4",
-            kor: "https://www.youtube.com/watch?v=ANiJXb7WzIE",
+            en: {
+                url: "https://www.youtube.com/watch?v=SO__VQZirJ4",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=C4Chz2toaK4",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=ANiJXb7WzIE",
+            },
         },
         tags: ["story teaser", "lumine", "aether"]
     },
@@ -106,9 +127,15 @@ const db: dbData = [
             pt: `${subtitlePath}/klee_demo.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=C_duDk5e8yU",
-            ja: "https://www.youtube.com/watch?v=7-VnFQvCLDc",
-            kor: "https://www.youtube.com/watch?v=CYQ0Qj8N1Ms"
+            en: {
+                url: "https://www.youtube.com/watch?v=C_duDk5e8yU",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=7-VnFQvCLDc",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=CYQ0Qj8N1Ms",
+            }
         },
         tags: ["character demo", "klee", "jean", "monstadt"]
     },
@@ -133,9 +160,15 @@ const db: dbData = [
             pt: `${subtitlePath}/zhongli_demo.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=4oBpaBEMBIM",
-            ja: "https://www.youtube.com/watch?v=wO3_S82III0",
-            kor: "https://www.youtube.com/watch?v=ck8CBmeLjVQ",
+            en: {
+                url: "https://www.youtube.com/watch?v=4oBpaBEMBIM",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=wO3_S82III0",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=ck8CBmeLjVQ",
+            },
         },
         tags: ["character demo", "zhongli", "liyue"]
     },
@@ -160,9 +193,15 @@ const db: dbData = [
             pt: `${subtitlePath}/kazuha_demo.pt.ass`
         },
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=zif0Lmhrivc",
-            ja: "https://www.youtube.com/watch?v=ZxLLysD9q6g",
-            kor: "https://www.youtube.com/watch?v=03OrtAv9nBc",
+            en: {
+                url: "https://www.youtube.com/watch?v=zif0Lmhrivc",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=ZxLLysD9q6g",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=03OrtAv9nBc",
+            },
         },
         tags: ["character demo", "kaedehara kazuha", "inazuma"]
     },
@@ -174,10 +213,18 @@ const db: dbData = [
         uploadDate: "2022-04-18",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=v_QkcrKZ-Wc",
-            en: "https://www.youtube.com/watch?v=rAlymhPyKhQ",
-            ja: "https://www.youtube.com/watch?v=1_wHgvZyZdk",
-            kor: "https://www.youtube.com/watch?v=fMyuzvUQNMg",
+            zh: {
+                url: "https://www.youtube.com/watch?v=v_QkcrKZ-Wc",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=rAlymhPyKhQ",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=1_wHgvZyZdk",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=fMyuzvUQNMg",
+            },
         },
         tags: ["character teaser", "kamisato ayaka", "kamisato ayato", "inazuma"]
     },
@@ -189,10 +236,18 @@ const db: dbData = [
         uploadDate: "2022-03-24",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=TsVw551Gbwc",
-            en: "https://www.youtube.com/watch?v=s3ok84NeMdU",
-            ja: "https://www.youtube.com/watch?v=cklsFHnt-38",
-            kor: "https://www.youtube.com/watch?v=qo_djskMb9s"
+            zh: {
+                url: "https://www.youtube.com/watch?v=TsVw551Gbwc",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=s3ok84NeMdU",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=cklsFHnt-38",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=qo_djskMb9s",
+            }
         },
         tags: ["character teaser", "kamisato ayato", "kamisato ayaka", "thoma", "inazuma"]
     },
@@ -204,9 +259,15 @@ const db: dbData = [
         uploadDate: "2020-10-21",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=TFOeQuShLME",
-            ja: "https://www.youtube.com/watch?v=5q2AqjL4_Ck",
-            kor: "https://www.youtube.com/watch?v=XVTMRe5zAsY"
+            en: {
+                url: "https://www.youtube.com/watch?v=TFOeQuShLME",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=5q2AqjL4_Ck",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=XVTMRe5zAsY",
+            }
         },
         tags: ["character teaser", "klee", "monstadt"]
     },
@@ -218,9 +279,15 @@ const db: dbData = [
         uploadDate: "2020-11-05",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=ZF4KyX0ASnI",
-            ja: "https://www.youtube.com/watch?v=rxAw_fBuxlA",
-            kor: "https://www.youtube.com/watch?v=2eOhA0ofN7Y"
+            en: {
+                url: "https://www.youtube.com/watch?v=ZF4KyX0ASnI",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=rxAw_fBuxlA",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=2eOhA0ofN7Y",
+            }
         },
         tags: ["character teaser", "childe", "liyue"]
     },
@@ -232,9 +299,15 @@ const db: dbData = [
         uploadDate: "2020-11-23",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=CvCzYbVei04",
-            ja: "https://www.youtube.com/watch?v=5slzVViNrtA",
-            kor: "https://www.youtube.com/watch?v=PTDujeNdha4",
+            en: {
+                url: "https://www.youtube.com/watch?v=CvCzYbVei04",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=5slzVViNrtA",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=PTDujeNdha4",
+            },
         },
         tags: ["character teaser", "zhongli", "liyue"]
     },
@@ -246,9 +319,15 @@ const db: dbData = [
         uploadDate: "2021-01-06",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=ASO6t2zp_UI",
-            ja: "https://www.youtube.com/watch?v=91izL7-CCyQ",
-            kor: "https://www.youtube.com/watch?v=P_ndbBYvpiQ"
+            en: {
+                url: "https://www.youtube.com/watch?v=ASO6t2zp_UI",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=91izL7-CCyQ",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=P_ndbBYvpiQ",
+            }
         },
         tags: ["character teaser", "ganyu", "liyue"]
     },
@@ -260,9 +339,15 @@ const db: dbData = [
         uploadDate: "2021-02-27",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=dc3eD6C6Gbk",
-            ja: "https://www.youtube.com/watch?v=M41ID8tLAWU",
-            kor: "https://www.youtube.com/watch?v=gXUxlhY_uQ8"
+            en: {
+                url: "https://www.youtube.com/watch?v=dc3eD6C6Gbk",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=M41ID8tLAWU",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=gXUxlhY_uQ8",
+            },
         },
         tags: ["character teaser", "hu tao", "liyue"]
     },
@@ -274,9 +359,15 @@ const db: dbData = [
         uploadDate: "2021-03-10",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=M9kQP-cmipY",
-            ja: "https://www.youtube.com/watch?v=ONZorsmAFDU",
-            kor: "https://www.youtube.com/watch?v=ChBk4SFD2hQ"
+            en: {
+                url: "https://www.youtube.com/watch?v=M9kQP-cmipY",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=ONZorsmAFDU",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=ChBk4SFD2hQ",
+            },
         },
         tags: ["character teaser", "venti", "modstadt"]
     },
@@ -288,9 +379,15 @@ const db: dbData = [
         uploadDate: "2021-05-11",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=fFHfbH8UrFE",
-            ja: "https://www.youtube.com/watch?v=CHIpyrjnTvM",
-            kor: "https://www.youtube.com/watch?v=xUNVdIC_IDE"
+            en: {
+                url: "https://www.youtube.com/watch?v=fFHfbH8UrFE",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=CHIpyrjnTvM",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=xUNVdIC_IDE",
+            }
         },
         tags: ["character teaser", "eula", "modstadt"]
     },
@@ -302,9 +399,15 @@ const db: dbData = [
         uploadDate: "2021-06-23",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=ST5v7-C3iDk",
-            ja: "https://www.youtube.com/watch?v=e3UDf15r5qQ",
-            kor: "https://www.youtube.com/watch?v=UO5GFQcF2JM"
+            en: {
+                url: "https://www.youtube.com/watch?v=ST5v7-C3iDk",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=e3UDf15r5qQ",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=UO5GFQcF2JM",
+            }
         },
         tags: ["character teaser", "kaedehara kazuha", "inazuma"]
     },
@@ -316,9 +419,15 @@ const db: dbData = [
         uploadDate: "2021-07-15",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=vsCO7C416bs",
-            ja: "https://www.youtube.com/watch?v=Da6hE1zSh1Q",
-            kor: "https://www.youtube.com/watch?v=00m2V1jGNLE"
+            en: {
+                url: "https://www.youtube.com/watch?v=vsCO7C416bs",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=Da6hE1zSh1Q",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=00m2V1jGNLE",
+            }
         },
         tags: ["character teaser", "kamisato ayaka", "inazuma"]
     },
@@ -330,9 +439,15 @@ const db: dbData = [
         uploadDate: "2021-08-04",
         subtitleUrls: {},
         audioUrls: {
-            en: "https://www.youtube.com/watch?v=AtqToYEE5r4",
-            ja: "https://www.youtube.com/watch?v=kmGbq89wZIs",
-            kor: "https://www.youtube.com/watch?v=5gl9aE4_al4"
+            en: {
+                url: "https://www.youtube.com/watch?v=AtqToYEE5r4",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=kmGbq89wZIs",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=5gl9aE4_al4",
+            }
         },
         tags: ["character teaser", "yoimiya", "inazuma"]
     },
@@ -344,10 +459,18 @@ const db: dbData = [
         uploadDate: "2021-08-26",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=HoqLRiXIpqA",
-            en: "https://www.youtube.com/watch?v=ydPqFAEgHzs",
-            ja: "https://www.youtube.com/watch?v=PV366xZ0ktk",
-            kor: "https://www.youtube.com/watch?v=ZaIZl8AdknY"
+            zh: {
+                url: "https://www.youtube.com/watch?v=HoqLRiXIpqA",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=ydPqFAEgHzs",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=PV366xZ0ktk",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=ZaIZl8AdknY",
+            }
         },
         tags: ["character teaser", "raiden shogun", "inazuma"]
     },
@@ -359,10 +482,18 @@ const db: dbData = [
         uploadDate: "2021-09-15",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=t4CzTi7tUEM",
-            en: "https://www.youtube.com/watch?v=OizK-VT4aj8",
-            ja: "https://www.youtube.com/watch?v=ppH4inCNdPE",
-            kor: "https://www.youtube.com/watch?v=GFMamsMLcSs"
+            zh: {
+                url: "https://www.youtube.com/watch?v=t4CzTi7tUEM",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=OizK-VT4aj8",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=ppH4inCNdPE",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=GFMamsMLcSs",
+            },
         },
         tags: ["character teaser", "sangonomiya kokomi", "inazuma"]
     },
@@ -374,10 +505,18 @@ const db: dbData = [
         uploadDate: "2021-12-08",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=iu096jrwfiI",
-            en: "https://www.youtube.com/watch?v=KGjnRThxe7k",
-            ja: "https://www.youtube.com/watch?v=RMxg-lxrcsA",
-            kor: "https://www.youtube.com/watch?v=tStKxMH1ZTQ"
+            zh: {
+                url: "https://www.youtube.com/watch?v=iu096jrwfiI",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=KGjnRThxe7k",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=RMxg-lxrcsA",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=tStKxMH1ZTQ",
+            },
         },
         tags: ["character teaser", "arataki itto", "inazuma"]
     },
@@ -389,10 +528,18 @@ const db: dbData = [
         uploadDate: "2021-12-30",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=9HcXakmKusw",
-            en: "https://www.youtube.com/watch?v=jvGnekdMOhI",
-            ja: "https://www.youtube.com/watch?v=H57FTLsOI6E",
-            kor: "https://www.youtube.com/watch?v=8iqc_mnSobk"
+            zh: {
+                url: "https://www.youtube.com/watch?v=9HcXakmKusw",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=jvGnekdMOhI",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=H57FTLsOI6E",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=8iqc_mnSobk",
+            },
         },
         tags: ["character teaser", "shenhe", "liyue"]
     },
@@ -404,10 +551,18 @@ const db: dbData = [
         uploadDate: "2022-02-10",
         subtitleUrls: {},
         audioUrls: {
-            zh: "https://www.youtube.com/watch?v=jXTo3G7_310",
-            en: "https://www.youtube.com/watch?v=tV2QOX9fXEE",
-            ja: "https://www.youtube.com/watch?v=T5m2993Ldlw",
-            kor: "https://www.youtube.com/watch?v=XwNXR-3Qak8"
+            zh: {
+                url: "https://www.youtube.com/watch?v=jXTo3G7_310",
+            },
+            en: {
+                url: "https://www.youtube.com/watch?v=tV2QOX9fXEE",
+            },
+            ja: {
+                url: "https://www.youtube.com/watch?v=T5m2993Ldlw",
+            },
+            kor: {
+                url: "https://www.youtube.com/watch?v=XwNXR-3Qak8",
+            },
         },
         tags: ["character teaser", "yae miko", "inazuma"]
     }
