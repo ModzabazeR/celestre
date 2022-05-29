@@ -56,15 +56,14 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
     const controlsShowHandler = () => {
         clearTimeout(timerRef.current)
-        controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
+        controlsRef.current!.className = "controls opacity-100"
         setShowCursor(true)
         if (!controlsOnHover) {
             timerRef.current = setTimeout(() => {
-                controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
+                controlsRef.current!.className = "controls opacity-0"
                 setShowCursor(false)
             }, 5000)
         }
-
     }
 
     useEffect(() => {
@@ -136,9 +135,11 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         }
         videoRef.current!.onerror = (e) => {
             alert(`Video Error: ${e} - try reloading the page`)
+            console.log(e)
         }
         audioRef.current!.onerror = (e) => {
             alert(`Audio Error: ${e} - try reloading the page`)
+            console.log(e)
         }
     }, [activeAudio])
 
@@ -163,75 +164,85 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                     <audio ref={audioRef} preload="auto">
                         <source ref={audioSourceRef} />
                     </audio>
-                    <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
-                        <div>
-                            <button className="bg-none border-none outline-none cursor-pointer" onClick={togglePlay}>
-                                {
-                                    isPlaying ? (
-                                        <FaPause />
-                                    ) : (
-                                        <FaPlay />
-                                    )
-                                }
-                            </button>
+                    <div className="controls opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
+                        <div className="relative h-[8.4px] mb-[10px] mx-2">
+                            <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value={progress}
+                                onChange={(e) => handleVideoProgress(e)}
+                                className="bg-white/20 rounded-lg absolute top-0 w-full"
+                            />
                         </div>
-                        <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={progress}
-                            onChange={(e) => handleVideoProgress(e)}
-                            className="bg-white/20 rounded-3xl h-1 w-80"
-                        />
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <button className="cursor-pointer mx-2" onClick={togglePlay}>
+                                    {
+                                        isPlaying ? (
+                                            <FaPause />
+                                        ) : (
+                                            <FaPlay />
+                                        )
+                                    }
+                                </button>
+                                <div className="text-sm md:text-base mx-2">
+                                    00:00
+                                    <span> / </span>
+                                    00:00
+                                </div>
+                            </div>
 
+                            <div>
+                                <div className="cursor-pointer group inline-block relative mx-2">
+                                    <MdSubtitles />
+                                    <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
+                                        {
+                                            availableSubtitles.map((sub, index) => {
+                                                return (<li key={index} className={(index === 0 ? "option-top" : index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
+                                                    subtitleHandler(sub.id)
+                                                    toggleSubtitle(index)
+                                                }}>{checkIfSubtitleActive(index) && <MdCheck className="inline mr-2" />}{sub.lang}</li>)
 
-                        <div className="cursor-pointer group inline-block relative">
-                            <MdSubtitles />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
-                                {
-                                    availableSubtitles.map((sub, index) => {
-                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
-                                            subtitleHandler(sub.id)
-                                            toggleSubtitle(index)
-                                        }}>{checkIfSubtitleActive(index) && <MdCheck className="inline mr-2" />}{sub.lang}</li>)
+                                            })
+                                        }
+                                    </ul>
+                                </div>
 
-                                    })
-                                }
-                            </ul>
+                                <div className="cursor-pointer group inline-block relative mx-2">
+                                    <MdHeadphones />
+                                    <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
+                                        {
+                                            availableAudios.map((audio, index) => {
+                                                return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
+                                                    audioHandler(audio.id)
+                                                    toggleAudio(index)
+                                                }}>{checkIfAudioActive(index) && <MdCheck className="inline mr-2" />}{audio.lang}</li>)
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+
+                                <button className="bg-none border-none outline-none cursor-pointer mx-2" onClick={toggleMute}>
+                                    {
+                                        isMuted ? (
+                                            <FaVolumeMute />
+                                        ) : (
+                                            <FaVolumeUp />
+                                        )
+                                    }
+                                </button>
+                                <button onClick={toggleFullScreen} className="mx-2">
+                                    {
+                                        isFullScreen ? (
+                                            <BiExitFullscreen />
+                                        ) : (
+                                            <BiFullscreen />
+                                        )
+                                    }
+                                </button>
+                            </div>
                         </div>
-
-                        <div className="cursor-pointer group inline-block relative">
-                            <MdHeadphones />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
-                                {
-                                    availableAudios.map((audio, index) => {
-                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
-                                            audioHandler(audio.id)
-                                            toggleAudio(index)
-                                        }}>{checkIfAudioActive(index) && <MdCheck className="inline mr-2" />}{audio.lang}</li>)
-                                    })
-                                }
-                            </ul>
-                        </div>
-
-                        <button className="bg-none border-none outline-none cursor-pointer" onClick={toggleMute}>
-                            {
-                                isMuted ? (
-                                    <FaVolumeMute />
-                                ) : (
-                                    <FaVolumeUp />
-                                )
-                            }
-                        </button>
-                        <button onClick={toggleFullScreen}>
-                            {
-                                isFullScreen ? (
-                                    <BiExitFullscreen />
-                                ) : (
-                                    <BiFullscreen />
-                                )
-                            }
-                        </button>
                     </div>
                 </div>
             </div>

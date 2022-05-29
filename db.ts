@@ -221,6 +221,7 @@ const db: dbData = [
             },
             ja: {
                 url: "https://www.youtube.com/watch?v=1_wHgvZyZdk",
+                timeshift: 1.6
             },
             kor: {
                 url: "https://www.youtube.com/watch?v=fMyuzvUQNMg",
