@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useVideoPlayer from '../utils/useVideoPlayer'
 import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
 import { isMobile } from 'react-device-detect'
 import { VideoDetails } from '../typings'
+import formatTime from '../utils/globalUtils'
 import Router from 'next/router'
 const SubtitlesOctopus = require('libass-wasm')
 
@@ -22,6 +23,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
     const audioRef = useRef<HTMLAudioElement>(null)
     const audioSourceRef = useRef<HTMLSourceElement>(null)
     const controlsRef = useRef<HTMLDivElement>(null)
+    const progressBarRef = useRef<HTMLProgressElement>(null)
     const timerRef = useRef<any>()
     const [instance, setInstance] = useState<any>()
     const [controlsOnHover, setControlsOnHover] = useState(false)
@@ -44,19 +46,11 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         setIsFullScreen,
     } = useVideoPlayer({ videoRef, videoWrapperRef, audioRef })
 
+
+
     const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
     const availableAudios = audioList.filter(audio => audio.url !== null)
 
-    // formatTime takes a time length in seconds and returns the time in
-    // minutes and seconds
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60)
-        const seconds = Math.floor(time % 60)
-        return {
-            minutes: minutes < 10 ? `0${minutes}` : `${minutes}`,
-            seconds: seconds < 10 ? `0${seconds}` : `${seconds}`,
-        }
-    }
     const time = formatTime(Number(videoDetails.lengthSeconds))
 
     const audioHandler = (langId: number) => {
@@ -148,14 +142,6 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         videoRef.current!.onplaying = () => {
             audioRef.current!.play();
         }
-        videoRef.current!.onerror = (e) => {
-            alert(`Video Error: ${e} - try reloading the page`)
-            console.log(e)
-        }
-        audioRef.current!.onerror = (e) => {
-            alert(`Audio Error: ${e} - try reloading the page`)
-            console.log(e)
-        }
     }, [activeAudio])
 
     return (
@@ -175,12 +161,25 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
                         onClick={isMobile ? controlsShowHandler : togglePlay}
+                        onError={(e) => {
+                            const error = (e.target as HTMLVideoElement).error
+                            alert(`Video Error: ${error} - try reloading the page`)
+                            console.log(e)
+                        }}
                     />
-                    <audio ref={audioRef} preload="auto">
+                    <audio
+                        ref={audioRef}
+                        preload="auto"
+                        onError={(e) => {
+                            const error = (e.target as HTMLAudioElement).error
+                            alert(`Audio Error: ${error} - try reloading the page`)
+                            console.log(e)
+                        }}>
                         <source ref={audioSourceRef} />
                     </audio>
                     <div className="controls opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
                         <div className="relative h-[8.4px] mb-[10px] mx-2">
+                            <progress value={progress} max={videoDetails.lengthSeconds}></progress>
                             <input
                                 type="range"
                                 min="0"

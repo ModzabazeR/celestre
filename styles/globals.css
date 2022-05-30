@@ -7,7 +7,6 @@
     @apply bg-[#0c0f1d] text-white;
   }
 
-  
   /* width */
   ::-webkit-scrollbar {
     @apply w-1 lg:w-2;
@@ -15,12 +14,12 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-[#888]/0 rounded-xl;
+    @apply rounded-xl bg-[#888]/0;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-[#5c5f6b] rounded-xl;
+    @apply rounded-xl bg-[#5c5f6b];
   }
 
   /* Handle on hover */
@@ -43,7 +42,7 @@
   }
 
   .controls {
-    @apply right-0 left-0 p-[10px] absolute bottom-0 z-50 bg-gradient-to-t from-black/75 to-black/0 text-lg md:text-xl lg:text-2xl transition-all
+    @apply absolute right-0 left-0 bottom-0 z-50 bg-gradient-to-t from-black/75 to-black/0 p-[10px] text-lg transition-all md:text-xl lg:text-2xl;
   }
 }
 
@@ -51,18 +50,18 @@
   @apply h-1 bg-blue-400;
 }
 
-input[type=range] {
+input[type='range'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   height: 8.4px;
   cursor: pointer;
 }
 
-input[type=range]:focus {
+input[type='range']:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
   border-radius: 1.3px;
@@ -70,37 +69,37 @@ input[type=range]::-webkit-slider-runnable-track {
   transition: all 0.4s ease;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: white;
+  background: red;
   cursor: pointer;
   -webkit-appearance: none;
   margin-left: -1px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type='range']:focus::-webkit-slider-runnable-track {
   background: transparent;
 }
 
-input[type=range].volume {
+input[type='range'].volume {
   height: 5px;
   background-color: #fff;
 }
 
-input[type=range].volume::-webkit-slider-runnable-track {
+input[type='range'].volume::-webkit-slider-runnable-track {
   background-color: transparent;
 }
 
-input[type=range].volume::-webkit-slider-thumb {
+input[type='range'].volume::-webkit-slider-thumb {
   margin-left: 0;
   height: 14px;
   width: 14px;
   background: #fff;
 }
 
-input[type=range]::-moz-range-track {
+input[type='range']::-moz-range-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -109,45 +108,50 @@ input[type=range]::-moz-range-track {
   border-radius: 1.3px;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50px;
-  border: 1px solid white;
-  background: white;
+  border: 1px solid red;
+  background: red;
   cursor: pointer;
   margin-top: 5px;
 }
 
-input[type=range]:focus::-moz-range-track {
+input[type='range']:focus::-moz-range-track {
   outline: none;
 }
 
-input[type=range].volume::-moz-range-thumb {
+input[type='range'].volume::-moz-range-thumb {
   border: 1px solid #fff;
   background: #fff;
 }
 
-
-.velocity {
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  background: none;
-  color: white;
-  outline: none;
-  border: none;
-  text-align: center;
-  font-size: 16px;
+  border-radius: 2px;
+  width: 100%;
+  height: 8.4px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
 }
 
-.velocity option {
-  color: black;
+progress::-webkit-progress-bar {
+  background-color: #474545;
+  border-radius: 2px;
 }
 
-.mute-btn {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
+progress::-webkit-progress-value {
+  background: red;
+  border-radius: 2px;
+}
+
+progress::-moz-progress-bar {
+  border: 1px solid red;
+  background: red;
 }
 
 .libassjs-canvas-parent {

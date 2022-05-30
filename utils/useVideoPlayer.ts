@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import formatTime from "./globalUtils";
 
 interface hookProps {
     videoRef: React.RefObject<HTMLVideoElement>,
@@ -17,15 +18,6 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [showFirstPlayButton, setShowFirstPlayButton] = useState(true);
     const [showCursor, setShowCursor] = useState(true);
-
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60)
-        const seconds = Math.floor(time % 60)
-        return {
-            minutes: minutes < 10 ? `0${minutes}` : `${minutes}`,
-            seconds: seconds < 10 ? `0${seconds}` : `${seconds}`,
-        }
-    }
 
     const togglePlay = () => {
         setisPlaying(!isPlaying);
@@ -58,18 +50,19 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
 
     const toggleFullScreen = () => {
         setIsFullScreen(!isFullScreen);
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+          } else if (document.webkitFullscreenElement) {
+            // Need this to support Safari
+            document.webkitExitFullscreen();
+          } else if (videoWrapperRef.current!.webkitRequestFullscreen) {
+            // Need this to support Safari
+            videoWrapperRef.current!.webkitRequestFullscreen();
+          } else {
+            videoWrapperRef.current!.requestFullscreen();
+          }
     }
-
-    useEffect(() => {
-        if (isFullScreen) {
-            videoWrapperRef.current!.requestFullscreen()
-        } else {
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            }
-        }
-    }, [isFullScreen, videoWrapperRef]);
-
+    
     const firstPlayClickHandler = () => {
         setShowFirstPlayButton(false);
         togglePlay();
