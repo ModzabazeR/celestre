@@ -9,10 +9,23 @@ interface hookProps {
 const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
     const [isPlaying, setisPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [progressString, setProgressString] = useState({
+        minutes: "00",
+        seconds: "00",
+    });
     const [isMuted, setIsMuted] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [showFirstPlayButton, setShowFirstPlayButton] = useState(true);
     const [showCursor, setShowCursor] = useState(true);
+
+    const formatTime = (time: number) => {
+        const minutes = Math.floor(time / 60)
+        const seconds = Math.floor(time % 60)
+        return {
+            minutes: minutes < 10 ? `0${minutes}` : `${minutes}`,
+            seconds: seconds < 10 ? `0${seconds}` : `${seconds}`,
+        }
+    }
 
     const togglePlay = () => {
         setisPlaying(!isPlaying);
@@ -23,13 +36,15 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
     }, [isPlaying, videoRef]);
 
     const handleOnTimeUpdate = () => {
-        const progress = (videoRef.current!.currentTime / videoRef.current!.duration) * 100;
+        const progress = videoRef.current!.currentTime;
         setProgress(progress);
+
+        setProgressString(formatTime(progress))
     }
 
     const handleVideoProgress = (e: any) => {
         const manualChange = Number(e.target.value);
-        videoRef.current!.currentTime = (videoRef.current!.duration / 100) * manualChange;
+        videoRef.current!.currentTime = manualChange;
         setProgress(manualChange);
     }
 
@@ -67,6 +82,7 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
         isFullScreen,
         showFirstPlayButton,
         showCursor,
+        progressString,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,

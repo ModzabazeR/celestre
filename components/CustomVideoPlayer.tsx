@@ -4,6 +4,7 @@ import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
 import { isMobile } from 'react-device-detect'
+import { VideoDetails } from '../typings'
 import Router from 'next/router'
 const SubtitlesOctopus = require('libass-wasm')
 
@@ -12,9 +13,10 @@ interface VideoPlayerProps {
     subtitleList: { id: number, lang: string, url: string | null }[];
     audioList: { id: number, lang: string, url: string | null, timeshift: number }[];
     thumbnail: string;
+    videoDetails: VideoDetails
 }
 
-const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: VideoPlayerProps) => {
+const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, videoDetails }: VideoPlayerProps) => {
     const videoRef = useRef<HTMLVideoElement>(null)
     const videoWrapperRef = useRef<HTMLDivElement>(null)
     const audioRef = useRef<HTMLAudioElement>(null)
@@ -30,6 +32,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         isFullScreen,
         showFirstPlayButton,
         showCursor,
+        progressString,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
@@ -43,6 +46,18 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
 
     const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
     const availableAudios = audioList.filter(audio => audio.url !== null)
+
+    // formatTime takes a time length in seconds and returns the time in
+    // minutes and seconds
+    const formatTime = (time: number) => {
+        const minutes = Math.floor(time / 60)
+        const seconds = Math.floor(time % 60)
+        return {
+            minutes: minutes < 10 ? `0${minutes}` : `${minutes}`,
+            seconds: seconds < 10 ? `0${seconds}` : `${seconds}`,
+        }
+    }
+    const time = formatTime(Number(videoDetails.lengthSeconds))
 
     const audioHandler = (langId: number) => {
         videoRef.current!.pause()
@@ -153,7 +168,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                 }
                 <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
                     <video
-                        className="w-full object-cover"
+                        className="w-full"
                         src={videoSrc}
                         preload='auto'
                         poster={thumbnail}
@@ -169,7 +184,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                             <input
                                 type="range"
                                 min="0"
-                                max="100"
+                                max={videoDetails.lengthSeconds}
                                 value={progress}
                                 onChange={(e) => handleVideoProgress(e)}
                                 className="bg-white/20 rounded-lg absolute top-0 w-full"
@@ -187,9 +202,9 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
                                     }
                                 </button>
                                 <div className="text-sm md:text-base mx-2">
-                                    00:00
+                                    {`${progressString.minutes}:${progressString.seconds}`}
                                     <span> / </span>
-                                    00:00
+                                    {`${time.minutes}:${time.seconds}`}
                                 </div>
                             </div>
 

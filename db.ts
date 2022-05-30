@@ -135,6 +135,10 @@ const db: dbData = [
             },
             kor: {
                 url: "https://www.youtube.com/watch?v=CYQ0Qj8N1Ms",
+            },
+            th: {
+                url: "https://www.youtube.com/watch?v=2D60NDYcDWw",
+                timeshift: 16.7
             }
         },
         tags: ["character demo", "klee", "jean", "monstadt"]

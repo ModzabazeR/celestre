@@ -40,6 +40,7 @@ const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}
+                    videoDetails={videoDetails}
                 />
                 <div className="divide-x-2 divide-[#343746]">
                     <button className="bg-[#1b1d2a] p-2 mb-4 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
