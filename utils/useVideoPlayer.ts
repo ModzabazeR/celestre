@@ -48,10 +48,12 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
         isMuted ? audioRef.current!.muted = true : audioRef.current!.muted = false;
     }, [isMuted, audioRef]);
 
-    const fullScreenDocument = document as Document & {
+    let fullScreenDocument: any
+    if (typeof window !== "undefined"){
+    fullScreenDocument = document as Document & {
         webkitFullscreenElement: any;
         webkitExitFullscreen(): Promise<void>;
-    }
+    }}
 
     const fullScreenDiv = videoWrapperRef.current! as HTMLDivElement & {
         webkitRequestFullscreen(): Promise<void>;
