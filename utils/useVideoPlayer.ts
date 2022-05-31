@@ -48,16 +48,24 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
         isMuted ? audioRef.current!.muted = true : audioRef.current!.muted = false;
     }, [isMuted, audioRef]);
 
+    const fullScreenDocument = document as Document & {
+        webkitFullscreenElement: any;
+        webkitExitFullscreen(): Promise<void>;
+    }
+
+    const fullScreenDiv = videoWrapperRef.current! as HTMLDivElement & {
+        webkitRequestFullscreen(): Promise<void>;
+        mozRequestFullScreen(): Promise<void>;
+    }
+
     const toggleFullScreen = () => {
         setIsFullScreen(!isFullScreen);
         if (document.fullscreenElement) {
             document.exitFullscreen();
-          } else if (document.webkitFullscreenElement) {
-            // Need this to support Safari
-            document.webkitExitFullscreen();
-          } else if (videoWrapperRef.current!.webkitRequestFullscreen) {
-            // Need this to support Safari
-            videoWrapperRef.current!.webkitRequestFullscreen();
+          } else if (fullScreenDocument.webkitFullscreenElement) {
+            fullScreenDocument.webkitExitFullscreen();
+          } else if (fullScreenDiv.webkitRequestFullscreen) {
+            fullScreenDiv.webkitRequestFullscreen();
           } else {
             videoWrapperRef.current!.requestFullscreen();
           }
