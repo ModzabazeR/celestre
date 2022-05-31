@@ -163,8 +163,11 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         onClick={isMobile ? controlsShowHandler : togglePlay}
                         onError={(e) => {
                             const error = (e.target as HTMLVideoElement).error
-                            alert(`Video Error: ${error!.code} - try reloading the page`)
+                            alert(`Video Error: Code ${error!.code} - try reloading the page`)
                             console.log(e)
+                            if (error!.code === 4) {
+                                Router.reload()
+                            }
                         }}
                     />
                     <audio

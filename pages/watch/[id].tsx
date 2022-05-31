@@ -64,8 +64,8 @@ export default Post;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { id } = context.query;
-    const res = context.res;
-    res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
+    // const res = context.res;
+    // res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
