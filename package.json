@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "fontfaceobserver": "^2.3.0",
     "libass-wasm": "^4.0.0",
     "next": "latest",
     "nprogress": "^0.2.0",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",
+    "@types/fontfaceobserver": "^2.1.0",
     "@types/node": "17.0.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "17.0.38",

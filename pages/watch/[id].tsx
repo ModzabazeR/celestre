@@ -37,7 +37,7 @@ const Post = ({ videoDetails, videoFormats , audio_list, video_url }: PostProps)
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
-                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{db_data.title}</h1>
+                <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>
                 <CustomVideoPlayer
                     videoSrc={webmVideo}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
@@ -45,13 +45,13 @@ const Post = ({ videoDetails, videoFormats , audio_list, video_url }: PostProps)
                     thumbnail={db_data.thumbnail}
                     videoDetails={videoDetails}
                 />
-                <div className="divide-x-2 divide-[#343746]">
-                    <button className="bg-[#1b1d2a] p-2 mb-4 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
+                <div className="divide-x-2 divide-[#343746] my-8">
+                    <button className="bg-[#1b1d2a] p-2 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
                         <FiRefreshCw className="inline mr-2" />
                         <span>Reload</span>
                     </button>
                     <Link href="/">
-                        <button className="bg-[#1b1d2a] p-2 mb-4 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
+                        <button className="bg-[#1b1d2a] p-2 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
                         <FaHome className="inline mr-2" />
                         Back to Home
                         </button>

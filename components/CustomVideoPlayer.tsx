@@ -9,6 +9,7 @@ import { VideoDetails, VideoFormat } from '../typings'
 import Loading from './Loading'
 import formatTime from '../utils/globalUtils'
 import Router from 'next/router'
+import FontFaceObserver from 'fontfaceobserver'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
@@ -31,12 +32,12 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
     const [instance, setInstance] = useState<any>()
     const [controlsOnHover, setControlsOnHover] = useState(false)
     const [isNoSubtitles, setIsNoSubtitles] = useState(availableSubtitles.length > 0 ? false : true)
-    const [isLoading, setIsLoading] = useState(true)
     const {
         isPlaying,
         progress,
         isMuted,
         isFullScreen,
+        isLoading,
         showFirstPlayButton,
         showCursor,
         progressString,
@@ -45,6 +46,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         handleVideoProgress,
         toggleMute,
         toggleFullScreen,
+        setIsLoading,
         firstPlayClickHandler,
         setisPlaying,
         setShowCursor,
@@ -100,6 +102,13 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
             legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
         };
         setInstance(new SubtitlesOctopus(options));
+
+        const font = new FontFaceObserver("Genshin Impact")
+
+        font.load().then(() => {
+            console.log("Font loaded.")
+            setIsLoading(false)
+        })
 
         // videoSourceRef.current!.src = videoSrc[0].url; // Best Quality First
         audioRef.current!.src = audioList[2].url!; // Japanese
@@ -182,7 +191,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
 
     return (
         <>
-            <div className="bg-black/30 my-8 cursor-pointer flex justify-center items-center" onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }}>
+            <div className="bg-black/30 cursor-pointer flex justify-center items-center" onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }} ref={videoWrapperRef}>
                 {
                     showFirstPlayButton && (
                         <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute' />
@@ -193,7 +202,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         <Loading />
                     )
                 }
-                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
+                <div className={"video-wrapper w-full relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} onMouseMove={controlsShowHandler}>
                     <video
                         className="w-full"
                         preload='auto'
@@ -209,22 +218,23 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                 alert(`Video Error: Code ${error!.code} - Try reloading the page or change video quality`)
                             }
                         }}
+                        onDoubleClick={toggleFullScreen}
                     >
                     </video>
                     <audio
                         ref={audioRef}
                         preload="auto"
                         onError={(e) => {
-                            const error = (e.target as HTMLAudioElement).error
+                            // const error = (e.target as HTMLAudioElement).error
                             console.log(e)
-                            if (error!.code === 4) {
-                                alert(`Audio Error: Code ${error!.code} - The page will reload after you close this window.`)
-                                Router.reload()
-                            }
+                            // if (error!.code === 4) {
+                            //     alert(`Audio Error: Code ${error!.code} - The page will reload after you close this window.`)
+                            //     Router.reload()
+                            // }
                         }}>
                     </audio>
                     <div className="controls opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
-                        <div className="relative h-[8.4px] mb-[10px] mx-2">
+                        <div className="relative h-[8.4px] mb-[10px] mx-1 md:mx-2">
                             <progress value={progress} max={videoDetails.lengthSeconds}></progress>
                             <input
                                 type="range"
@@ -237,7 +247,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         </div>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">
-                                <button className="cursor-pointer mx-2" onClick={togglePlay}>
+                                <button className="cursor-pointer mx-1 md:mx-2" onClick={togglePlay}>
                                     {
                                         isPlaying ? (
                                             <FaPause />
@@ -246,7 +256,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                         )
                                     }
                                 </button>
-                                <div className="text-sm md:text-base mx-2">
+                                <div className="text-sm md:text-base mx-1 md:mx-2">
                                     {`${progressString.minutes}:${progressString.seconds}`}
                                     <span> / </span>
                                     {`${time.minutes}:${time.seconds}`}
@@ -254,7 +264,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                             </div>
 
                             <div>
-                                <div className="cursor-pointer group inline-block relative mx-2">
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
                                     <MdSubtitles />
                                     <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg right-0 translate-x-10" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
                                         <li className={availableSubtitles.length > 1 ? "option-top" : "option-one"} onClick={() => {
@@ -273,7 +283,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                     </ul>
                                 </div>
 
-                                <div className="cursor-pointer group inline-block relative mx-2">
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
                                     <MdHeadphones />
                                     <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg right-0 translate-x-10" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
                                         {
@@ -287,7 +297,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                     </ul>
                                 </div>
 
-                                <button className="bg-none border-none outline-none cursor-pointer mx-2" onClick={toggleMute}>
+                                <button className="bg-none border-none outline-none cursor-pointer mx-1 md:mx-2" onClick={toggleMute}>
                                     {
                                         isMuted ? (
                                             <FaVolumeMute />
@@ -297,7 +307,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                     }
                                 </button>
 
-                                <div className="cursor-pointer group inline-block relative mx-2">
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
                                     <IoSettingsSharp />
                                      <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 right-0 my-5 text-xs md:text-sm w-max rounded-lg translate-x-10" + (videoSrc.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
                                         {
@@ -312,7 +322,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                                      </ul>
                                 </div>
 
-                                <button onClick={toggleFullScreen} className="mx-2">
+                                <button onClick={toggleFullScreen} className="mx-1 md:mx-2">
                                     {
                                         isFullScreen ? (
                                             <BiExitFullscreen />
