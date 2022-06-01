@@ -188,12 +188,14 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute' />
                     )
                 }
-                {
-                    isLoading && !showFirstPlayButton && (
-                        <Loading />
-                    )
-                }
-                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
+                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden items-center" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
+                    {
+                        isLoading && !showFirstPlayButton && (
+                        <div className='absolute z-50'>
+                            <Loading />
+                        </div>
+                        )
+                    }
                     <video
                         className="w-full"
                         preload='auto'
@@ -218,8 +220,8 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                             const error = (e.target as HTMLAudioElement).error
                             console.log(e)
                             if (error!.code === 4) {
-                                alert(`Audio Error: Code ${error!.code} - The page will reload after you close this window.`)
-                                Router.reload()
+                                alert(`Audio Error: Code ${error!.code} - If the video has no sound try reloading the page.`)
+                                // Router.reload()
                             }
                         }}>
                     </audio>

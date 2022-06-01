@@ -162,3 +162,8 @@ progress::-moz-progress-bar {
 .libassjs-canvas-parent {
   position: static !important;
 }
+
+.libassjs-canvas {
+  top: 0px !important;
+  left: 0px !important;
+}
