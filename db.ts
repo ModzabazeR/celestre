@@ -1,7 +1,6 @@
 import { dbData } from "./typings"
 
 const subtitlePath = "/assets/subtitles";
-const audioPath = "/assets/audio";
 
 const db: dbData = [
     {

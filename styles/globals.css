@@ -41,9 +41,14 @@
     @apply block rounded-b-lg bg-black/50 py-2 px-4 transition-all hover:bg-black/70;
   }
 
+  .option-one {
+    @apply block rounded-lg bg-black/50 py-2 px-4 transition-all hover:bg-black/70;
+  }
+
   .controls {
     @apply absolute right-0 left-0 bottom-0 z-50 bg-gradient-to-t from-black/75 to-black/0 p-[10px] text-lg transition-all md:text-xl lg:text-2xl;
   }
+
 }
 
 #nprogress .bar {
@@ -73,7 +78,7 @@ input[type='range']::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: red;
+  background: #657ef8;
   cursor: pointer;
   -webkit-appearance: none;
   margin-left: -1px;
@@ -112,8 +117,8 @@ input[type='range']::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50px;
-  border: 1px solid red;
-  background: red;
+  border: 1px solid #657ef8;
+  background: #657ef8;
   cursor: pointer;
   margin-top: 5px;
 }
@@ -131,7 +136,7 @@ progress {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 2px;
+  border-radius: 0.5rem;
   width: 100%;
   height: 8.4px;
   pointer-events: none;
@@ -141,17 +146,17 @@ progress {
 
 progress::-webkit-progress-bar {
   background-color: #474545;
-  border-radius: 2px;
+  border-radius: 0.5rem;
 }
 
 progress::-webkit-progress-value {
-  background: red;
-  border-radius: 2px;
+  background: #657ef8;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 progress::-moz-progress-bar {
-  border: 1px solid red;
-  background: red;
+  border: 1px solid #657ef8;
+  background: #657ef8;
 }
 
 .libassjs-canvas-parent {

@@ -1,6 +1,6 @@
 import db from "../../db";
 import { GetServerSideProps } from "next";
-import { VideoDetails } from "../../typings";
+import { VideoDetails, VideoFormat } from "../../typings";
 import CustomVideoPlayer from "../../components/CustomVideoPlayer";
 import packer from "../../utils/packer";
 import Head from "next/head";
@@ -11,6 +11,7 @@ import { FaHome } from "react-icons/fa";
 
 interface PostProps {
     videoDetails: VideoDetails;
+    videoFormats: VideoFormat[];
     audio_list: {
         id: number;
         lang: string;
@@ -20,12 +21,14 @@ interface PostProps {
     video_url: string;
 }
 
-const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
+const Post = ({ videoDetails, videoFormats , audio_list, video_url }: PostProps) => {
 
     const router: NextRouter = useRouter();
     const { id } = router.query;
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", title: "", duration: "", thumbnail: "", subtitleUrls: {}, audioUrls: {}, tags: [] };
+    const webm = videoFormats.filter(format => format.mimeType.includes("webm"));
+    const webmVideo = webm.filter(format => format.mimeType.includes("video"));
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -36,7 +39,7 @@ const Post = ({ videoDetails, audio_list, video_url }: PostProps) => {
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center">{db_data.title}</h1>
                 <CustomVideoPlayer
-                    videoSrc={video_url}
+                    videoSrc={webmVideo}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}
@@ -72,12 +75,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const Youtube = require('youtube-stream-url')
     const video = await Youtube.getInfo({ url: `https://www.youtube.com/watch?v=${id}` })
     const videoDetails: VideoDetails = video.videoDetails;
+    const videoFormats: VideoFormat[] = video.formats;
 
     const video_url = await packer.extractVideoUrl(`https://www.youtube.com/watch?v=${db_data?.id}`);
     const audio_list = await packer.packAudios({ audioUrls: db_data.audioUrls });
     return {
         props: {
             videoDetails,
+            videoFormats,
             audio_list,
             video_url,
         }
