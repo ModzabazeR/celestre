@@ -18,10 +18,9 @@ interface PostProps {
         url: any;
         timeshift: number;
     }[];
-    video_url: string;
 }
 
-const Post = ({ videoDetails, videoFormats , audio_list, video_url }: PostProps) => {
+const Post = ({ videoDetails, videoFormats , audio_list }: PostProps) => {
 
     const router: NextRouter = useRouter();
     const { id } = router.query;
@@ -77,14 +76,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const videoDetails: VideoDetails = video.videoDetails;
     const videoFormats: VideoFormat[] = video.formats;
 
-    const video_url = await packer.extractVideoUrl(`https://www.youtube.com/watch?v=${db_data?.id}`);
     const audio_list = await packer.packAudios({ audioUrls: db_data.audioUrls });
     return {
         props: {
             videoDetails,
             videoFormats,
             audio_list,
-            video_url,
         }
     }
 }

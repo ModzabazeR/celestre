@@ -97,7 +97,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         const options = {
             video: videoRef.current,
             subUrl: subtitleList[8].url, // Thai
-            fonts: ["https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/browalia.ttc", "https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/zh-cn.ttf"],
+            fonts: ["../assets/fonts/browalia.ttc", "../assets/fonts/zh-cn.ttf"],
             workerUrl: "../subtitle-octopus/subtitles-octopus-worker.js",
             legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
         };
@@ -105,7 +105,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
 
         const font = new FontFaceObserver("Genshin Impact")
 
-        font.load().then(() => {
+        font.load(null, 300000).then(() => {
             console.log("Font loaded.")
             setIsLoading(false)
         })
@@ -191,7 +191,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
 
     return (
         <>
-            <div className="bg-black/30 cursor-pointer flex justify-center items-center" onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }} ref={videoWrapperRef}>
+            <div className={"flex justify-center items-center" + (showFirstPlayButton ? " bg-black/30 cursor-pointer" : "")} onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }} ref={videoWrapperRef}>
                 {
                     showFirstPlayButton && (
                         <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute' />
@@ -202,7 +202,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         <Loading />
                     )
                 }
-                <div className={"video-wrapper w-full relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} onMouseMove={controlsShowHandler}>
+                <div className={"video-wrapper w-full relative flex justify-center overflow-hidden h-full" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} onMouseMove={controlsShowHandler}>
                     <video
                         className="w-full"
                         preload='auto'
@@ -215,7 +215,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                             const error = (e.target as HTMLVideoElement).error
                             console.log(e)
                             if (error!.code === 4) {
-                                alert(`Video Error: Code ${error!.code} - Try reloading the page or change video quality`)
+                                alert(`Video Error: Code ${error!.code} - Try reloading the page or try again later.`)
                             }
                         }}
                         onDoubleClick={toggleFullScreen}
