@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import formatTime from "./globalUtils";
+import { formatTime } from "./globalUtils";
 
 interface hookProps {
     videoRef: React.RefObject<HTMLVideoElement>,
