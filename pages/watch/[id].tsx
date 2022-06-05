@@ -62,16 +62,16 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                         </button>
                     </Link>
                 </div>
+                
                 <div className="bg-[#1b1d2a] rounded-md p-4 mb-8 divide-y divide-[#343746]">
-                    <div className="mb-4">
+                    <div className="pb-2">
                         <h1 className="text-xl font-bold pb-2">Video Details</h1>
-                        <div className="flex flex-row space-x-2">
+                        <div className="inline-flex flex-wrap">
                             {
                                 db_data.tags.map((tag: string, index: number) => (
                                     <Tag tag={tag} key={index} />
                                 ))
                             }
-
                         </div>
                     </div>
                     <div className="pt-4">
@@ -79,7 +79,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                             Object.entries(db_data.audioUrls).map(([lang, obj]) => {
                                 return (
                                     <p className="text-sm lg:text-base" key={obj.url}>
-                                        <span className="font-medium">{(langIdentifier as IIndexable)[lang]} Audio URL: </span>
+                                        <span className="font-medium">{(langIdentifier as IIndexable)[lang]} Video URL: </span>
                                         <Link href={`${ytPrefix}${obj.url}`}><a className="link" target="_blank">{`${ytPrefix}${obj.url}`}</a></Link>
                                     </p>
                                 )
