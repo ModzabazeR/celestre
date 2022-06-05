@@ -5,7 +5,7 @@ export interface VideoDetails {
     keywords?: string[];
     channelId: string;
     isOwnerViewing: boolean;
-    shortDescription?: string;
+    description?: string;
     isCrawlable: boolean;
     thumbnail: {
         thumbnails: {
@@ -92,3 +92,7 @@ export type relatedVideo =  {
 }
 
 export type relatedVideos = relatedVideo[]
+
+export interface IIndexable {
+    [key: string]: any;
+}

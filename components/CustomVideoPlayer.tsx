@@ -7,7 +7,7 @@ import { IoSettingsSharp } from 'react-icons/io5'
 import { isMobile } from 'react-device-detect'
 import { VideoDetails, VideoFormat } from '../typings'
 import Loading from './Loading'
-import formatTime from '../utils/globalUtils'
+import { formatTime } from '../utils/globalUtils'
 import Router from 'next/router'
 import FontFaceObserver from 'fontfaceobserver'
 const SubtitlesOctopus = require('libass-wasm')

@@ -61,12 +61,12 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="flex flex-row items-center w-full justify-between">
-        <div className="bg-[#1b1d2a] hover:bg-[#343746] py-4 px-6 rounded-lg cursor-pointer z-20 h-14" onClick={() => {alert("More options coming soon")}}>
+        <div className="bg-[#1b1d2a] hover:bg-[#343746] py-4 px-6 rounded-lg cursor-pointer z-20 h-14 transition-all" onClick={() => {alert("More options coming soon")}}>
           <span>Sort By Date</span>
           {/* {isArrowDown ? <IoIosArrowDown className="inline ml-2" /> : <IoIosArrowUp className="inline ml-2" />} */}
         </div>
 
-        <button className="bg-[#1b1d2a] hover:bg-[#343746] py-4 px-6 rounded-lg h-14" onClick={() => { setIsReversed(!isReversed) }} title={isReversed ? "Ascending" : "Descending"}>
+        <button className="bg-[#1b1d2a] hover:bg-[#343746] py-4 px-6 rounded-lg h-14 transition-all" onClick={() => { setIsReversed(!isReversed) }} title={isReversed ? "Ascending" : "Descending"}>
           {isReversed ? <FaSortAmountDownAlt /> : <FaSortAmountUpAlt />}
         </button>
       </div>
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
           db.sort(sortedByDate).map((video) => {
             return (
               <Link key={video.id} href={`/watch/${video.id}`}>
-                <a className="cursor-pointer bg-[#1b1d2a] hover:bg-[#343746] rounded-md" title={video.title}>
+                <a className="cursor-pointer bg-[#1b1d2a] hover:bg-[#343746] rounded-md transition-all" title={video.title}>
                   <div className="relative">
                     <div className="absolute z-20 bg-[#1b1d2a]/75 m-2 p-2 rounded-md bottom-0 right-0">{video.duration}</div>
                     <Image 

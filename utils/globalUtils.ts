@@ -7,4 +7,15 @@ const formatTime = (time: number) => {
     }
 }
 
-export default formatTime
+const langIdentifier = {
+    en: 'English',
+    zh: 'Chinese',
+    th: 'Thai',
+    kor: 'Korean',
+    ja: 'Japanese',
+}
+
+export {
+    formatTime,
+    langIdentifier,
+}
