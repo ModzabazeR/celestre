@@ -24,6 +24,10 @@ export interface VideoDetails {
 }
 
 export interface VideoFormat {
+    hasAudio: boolean;
+    hasVideo: boolean;
+    itag: number;
+    container: "webm" | "mp4" | "flv" | "3gp" | "ts";
     url: string;
     mimeType: string;
     bitrate: number;
@@ -80,3 +84,11 @@ export type dbItem = {
 }
 
 export type dbData = dbItem[]
+
+export type relatedVideo =  {
+    id: string;
+    length_seconds: number;
+    title: string;
+}
+
+export type relatedVideos = relatedVideo[]

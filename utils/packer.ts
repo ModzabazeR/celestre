@@ -1,3 +1,5 @@
+import ytdl from "ytdl-core";
+
 export interface packAudioProps {
     audioUrls: {
         zh?: {
@@ -43,10 +45,9 @@ export interface packSubtitleProps {
 
 const packAudio = async (url: string | undefined) => {
     if (url) {
-        const Youtube = require("youtube-stream-url");
-        const info = await Youtube.getInfo({ url });
+        const info = await ytdl.getInfo(url)
         const formats = info.formats;
-        const real_audio_url = formats.find((format: any) => format.audioQuality === 'AUDIO_QUALITY_MEDIUM' && format.mimeType === 'audio/webm; codecs="opus"').url;
+        const real_audio_url = formats.find((format: any) => format.audioQuality === 'AUDIO_QUALITY_MEDIUM' && format.container === 'webm' && format.hasVideo === false)?.url;
         return real_audio_url
     }
     else {
@@ -170,10 +171,9 @@ const packSubtitle = ({ subtitleUrls }: packSubtitleProps) => {
 }
 
 const extractVideoUrl = async (videoUrl: string) => {
-    const Youtube = require("youtube-stream-url");
-    const info = await Youtube.getInfo({ url: videoUrl });
+    const info = await ytdl.getInfo(videoUrl)
     const formats = info.formats;
-    const real_video_url = formats.find((format: any) => format.quality === 'hd1080' && format.mimeType === 'video/webm; codecs="vp9"').url;
+    const real_video_url = formats.find((format: any) => format.quality === 'hd1080' && format.container === 'webm' && format.hasAudio === false)?.url;
     return real_video_url
 }
 

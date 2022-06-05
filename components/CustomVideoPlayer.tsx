@@ -108,6 +108,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         font.load(null, 300000).then(() => {
             console.log("Font loaded.")
             setIsLoading(false)
+            !showFirstPlayButton && togglePlay()
         })
 
         // videoSourceRef.current!.src = videoSrc[0].url; // Best Quality First
