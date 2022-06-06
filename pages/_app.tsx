@@ -4,6 +4,7 @@ import Router from 'next/router'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
 NProgress.configure({ showSpinner: false })
 
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <NavBar />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }

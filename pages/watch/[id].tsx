@@ -63,7 +63,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                     </Link>
                 </div>
                 
-                <div className="bg-[#1b1d2a] rounded-md p-4 mb-8 divide-y divide-[#343746]">
+                <div className="bg-[#1b1d2a] rounded-md p-4 divide-y divide-[#343746]">
                     <div className="pb-2">
                         <h1 className="text-xl font-bold pb-2">Video Details</h1>
                         <div className="inline-flex flex-wrap">
