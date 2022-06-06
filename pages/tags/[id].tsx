@@ -5,9 +5,11 @@ import Card from '../../components/Card'
 import useSorted from '../../utils/useSorted'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa'
 
+let tag = "";
 const Tags = () => {
   const router: NextRouter = useRouter();
   const { id } = router.query;
+  tag = id as string;
   const filteredDb = db.filter(item => item.tags.includes(id as string));
 
   const {
@@ -22,7 +24,7 @@ const Tags = () => {
   return (
     <div className="m-8">
       <Head>
-        <title>{(id as string).replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())} - Genshin Web Player</title>
+        <title>{tag.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())} - Genshin Web Player</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="font-bold text-2xl text-center mb-8">Videos contain tag: <span className="capitalize italic">{id}</span></h1>
