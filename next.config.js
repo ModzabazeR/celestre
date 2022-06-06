@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const CopyPlugin = require('copy-webpack-plugin');
+const withSvgr = require("next-svgr");
 const path = require('path');
 
-module.exports = {
+module.exports = withSvgr({
   reactStrictMode: true,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
@@ -21,4 +22,4 @@ module.exports = {
   images: {
     domains: ['i.ytimg.com'],
   }
-}
+})

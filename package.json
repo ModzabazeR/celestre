@@ -9,6 +9,7 @@
     "fontfaceobserver": "^2.3.0",
     "libass-wasm": "^4.0.0",
     "next": "latest",
+    "next-svgr": "^0.0.2",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-device-detect": "^2.2.2",
