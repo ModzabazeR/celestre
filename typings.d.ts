@@ -5,7 +5,7 @@ export interface VideoDetails {
     keywords?: string[];
     channelId: string;
     isOwnerViewing: boolean;
-    shortDescription?: string;
+    description?: string;
     isCrawlable: boolean;
     thumbnail: {
         thumbnails: {
@@ -24,6 +24,10 @@ export interface VideoDetails {
 }
 
 export interface VideoFormat {
+    hasAudio: boolean;
+    hasVideo: boolean;
+    itag: number;
+    container: "webm" | "mp4" | "flv" | "3gp" | "ts";
     url: string;
     mimeType: string;
     bitrate: number;
@@ -43,6 +47,8 @@ export type dbItem = {
         zhs?: string;
         zht?: string;
         en?: string;
+        kor?: string;
+        ja?: string;
         es?: string;
         fr?: string;
         ru?: string;
@@ -53,13 +59,40 @@ export type dbItem = {
         pt?: string;
     }
     audioUrls: {
-        zh?: string;
-        en?: string;
-        ja?: string;
-        kor?: string;
-        th?: string;
+        zh?: {
+            url: string;
+            timeshift?: number;
+        };
+        en?: {
+            url: string;
+            timeshift?: number;
+        };
+        ja?: {
+            url: string;
+            timeshift?: number;
+        };
+        kor?: {
+            url: string;
+            timeshift?: number;
+        };
+        th?: {
+            url: string;
+            timeshift?: number;
+        };
     },
     tags: string[];
 }
 
 export type dbData = dbItem[]
+
+export type relatedVideo =  {
+    id: string;
+    length_seconds: number;
+    title: string;
+}
+
+export type relatedVideos = relatedVideo[]
+
+export interface IIndexable {
+    [key: string]: any;
+}

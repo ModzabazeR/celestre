@@ -1,114 +1,132 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useVideoPlayer from '../utils/useVideoPlayer'
 import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi'
 import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
+import { IoSettingsSharp } from 'react-icons/io5'
 import { isMobile } from 'react-device-detect'
+import { VideoDetails, VideoFormat } from '../typings'
+import Loading from './Loading'
+import { formatTime } from '../utils/globalUtils'
 import Router from 'next/router'
+import FontFaceObserver from 'fontfaceobserver'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
-    videoSrc: string;
+    videoSrc: VideoFormat[];
     subtitleList: { id: number, lang: string, url: string | null }[];
-    audioList: { id: number, lang: string, url: string | null }[];
+    audioList: { id: number, lang: string, url: string | null, timeshift: number }[];
     thumbnail: string;
+    videoDetails: VideoDetails
 }
 
-const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: VideoPlayerProps) => {
+const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, videoDetails }: VideoPlayerProps) => {
+    const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
+    const availableAudios = audioList.filter(audio => audio.url !== null)
+
     const videoRef = useRef<HTMLVideoElement>(null)
     const videoWrapperRef = useRef<HTMLDivElement>(null)
     const audioRef = useRef<HTMLAudioElement>(null)
-    const audioSourceRef = useRef<HTMLSourceElement>(null)
     const controlsRef = useRef<HTMLDivElement>(null)
+    const timerRef = useRef<any>()
     const [instance, setInstance] = useState<any>()
     const [controlsOnHover, setControlsOnHover] = useState(false)
+    const [isNoSubtitles, setIsNoSubtitles] = useState(availableSubtitles.length > 0 ? false : true)
     const {
         isPlaying,
         progress,
         isMuted,
         isFullScreen,
+        isLoading,
         showFirstPlayButton,
         showCursor,
+        progressString,
         togglePlay,
         handleOnTimeUpdate,
         handleVideoProgress,
         toggleMute,
         toggleFullScreen,
+        setIsLoading,
         firstPlayClickHandler,
         setisPlaying,
         setShowCursor,
         setIsFullScreen,
     } = useVideoPlayer({ videoRef, videoWrapperRef, audioRef })
 
+    const time = formatTime(Number(videoDetails.lengthSeconds))
+
     const audioHandler = (langId: number) => {
+        setIsLoading(true)
         videoRef.current!.pause()
-        audioSourceRef.current!.src = audioList[langId].url!;
+        audioRef.current!.src = audioList[langId].url!;
         audioRef.current!.load();
         audioRef.current!.onloadeddata = () => {
+            setIsLoading(false)
             videoRef.current!.play();
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
+            audioRef.current!.currentTime = videoRef.current!.currentTime + audioList[langId].timeshift;
         }
     }
 
-    let timer: any
+    const qualityHandler = (url: string) => {
+        setIsLoading(true)
+        videoRef.current!.pause();
+        audioRef.current!.pause();
+        const time = progress;
+        videoRef.current!.src = url;
+        videoRef.current!.currentTime = time;
+        videoRef.current!.load();
+        videoRef.current!.onloadeddata = () => {
+            setIsLoading(false)
+            videoRef.current!.play();
+        }
+    }
+
     const controlsShowHandler = () => {
-        clearTimeout(timer)
-        controlsRef.current!.className = "controls z-50 translate-y-0 opacity-100"
+        clearTimeout(timerRef.current)
+        controlsRef.current!.className = "controls opacity-100"
         setShowCursor(true)
-        try {
-            timer = setTimeout(() => {
-                controlsRef.current!.className = "controls z-50 translate-y-[150%] opacity-0"
+        if (!controlsOnHover) {
+            timerRef.current = setTimeout(() => {
+                controlsRef.current!.className = "controls opacity-0"
                 setShowCursor(false)
-            }, 8000)
-        } catch (error) {
-            console.log(error)
+            }, 5000)
         }
     }
 
     useEffect(() => {
         const options = {
             video: videoRef.current,
-            subUrl: subtitleList[6].url, // Thai
-            fonts: ["https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/browalia.ttc", "https://modzabazer.github.io/multi-subtitle-and-audio-player/resources/fonts/zh-cn.ttf"],
+            subUrl: subtitleList[8].url, // Thai
+            fonts: ["../assets/fonts/browalia.ttc", "../assets/fonts/zh-cn.ttf"],
             workerUrl: "../subtitle-octopus/subtitles-octopus-worker.js",
             legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
         };
         setInstance(new SubtitlesOctopus(options));
 
-        audioSourceRef.current!.src = audioList[2].url!; // Japanese
-        audioRef.current!.load();
+        const font = new FontFaceObserver("Genshin Impact")
 
-        videoRef.current!.onplay = () => {
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
-            setisPlaying(true)
-            audioRef.current!.play();
-        }
-        videoRef.current!.onpause = () => {
-            setisPlaying(false)
-            audioRef.current!.pause();
-        }
-        videoRef.current!.onseeked = () => {
-            audioRef.current!.currentTime = videoRef.current!.currentTime;
-        }
-        videoRef.current!.onwaiting = () => {
-            audioRef.current!.pause();
-        }
-        videoRef.current!.onplaying = () => {
-            audioRef.current!.play();
-        }
+        font.load(null, 300000).then(() => {
+            console.log("Font loaded.")
+            setIsLoading(false)
+            !showFirstPlayButton && togglePlay()
+        })
+
+        // videoSourceRef.current!.src = videoSrc[0].url; // Best Quality First
+        audioRef.current!.src = audioList[2].url!; // Japanese
+        audioRef.current!.load();
 
     }, [])
 
     const subtitleHandler = (langId: number) => {
+        setIsNoSubtitles(false)
         const url = subtitleList[langId].url!;
         instance.setTrackByUrl(url);
     }
 
-    const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
-    const availableAudios = audioList.filter(audio => audio.url !== null)
+
 
     const [activeSubtitle, setActiveSubtitle] = useState({
-        activeSub: subtitleList[6],
+        activeSub: subtitleList[8],
         objects: availableSubtitles
     })
 
@@ -117,6 +135,9 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
     }
 
     const checkIfSubtitleActive = (index: number) => {
+        if (index === 999) {
+            return true
+        }
         return activeSubtitle.objects[index] === activeSubtitle.activeSub
     }
 
@@ -133,96 +154,186 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail }: Vid
         return activeAudio.objects[index] === activeAudio.activeAudio
     }
 
+    const [activeQuality, setActiveQuality] = useState({
+        activeQuality: videoSrc[0],
+        objects: videoSrc
+    })
+
+    const toggleQuality = (index: number) => {
+        setActiveQuality({ ...activeQuality, activeQuality: videoSrc[index] })
+    }
+
+    const checkIfQualityActive = (index: number) => {
+        return activeQuality.objects[index] === activeQuality.activeQuality
+    }
+
+    useEffect(() => {
+        videoRef.current!.onplay = () => {
+            audioRef.current!.currentTime = videoRef.current!.currentTime + activeAudio.activeAudio.timeshift;
+            setisPlaying(true)
+            audioRef.current!.play();
+        }
+        videoRef.current!.onpause = () => {
+            setisPlaying(false)
+            audioRef.current!.pause();
+        }
+        videoRef.current!.onseeked = () => {
+            audioRef.current!.currentTime = videoRef.current!.currentTime + activeAudio.activeAudio.timeshift;
+        }
+        videoRef.current!.onwaiting = () => {
+            setIsLoading(true)
+            audioRef.current!.pause();
+        }
+        videoRef.current!.onplaying = () => {
+            setIsLoading(false)
+            audioRef.current!.play();
+        }
+    }, [activeAudio])
+
     return (
         <>
-            <div className={showFirstPlayButton ? "bg-black/30 my-8 cursor-pointer flex justify-center items-center" : "py-8"} onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }}>
+            <div className={"flex justify-center items-center" + (showFirstPlayButton ? " bg-black/30 cursor-pointer" : "")} onClick={showFirstPlayButton ? firstPlayClickHandler : () => { }} ref={videoWrapperRef}>
                 {
                     showFirstPlayButton && (
                         <FaPlay className='text-4xl md:text-5xl lg:text-6xl absolute' />
                     )
                 }
-                <div className={"video-wrapper w-full max-w-screen-md relative flex justify-center overflow-hidden" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} ref={videoWrapperRef} onMouseMove={controlsShowHandler}>
+                {
+                    isLoading && !showFirstPlayButton && (
+                        <Loading />
+                    )
+                }
+                <div className={"video-wrapper w-full relative flex justify-center overflow-hidden h-full" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} onMouseMove={controlsShowHandler}>
                     <video
-                        className="w-full object-cover"
-                        src={videoSrc}
+                        className="w-full"
                         preload='auto'
                         poster={thumbnail}
+                        src={videoSrc[0].url}
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
                         onClick={isMobile ? controlsShowHandler : togglePlay}
-                    />
-                    <audio ref={audioRef} preload="auto">
-                        <source ref={audioSourceRef} />
+                        onError={(e) => {
+                            const error = (e.target as HTMLVideoElement).error
+                            console.log(e)
+                            if (error!.code === 4) {
+                                alert(`Video Error: Code ${error!.code} - Try reloading the page or try again later.`)
+                            }
+                        }}
+                        onDoubleClick={toggleFullScreen}
+                    >
+                    </video>
+                    <audio
+                        ref={audioRef}
+                        preload="auto"
+                        onError={(e) => {
+                            // const error = (e.target as HTMLAudioElement).error
+                            console.log(e)
+                            // if (error!.code === 4) {
+                            //     alert(`Audio Error: Code ${error!.code} - The page will reload after you close this window.`)
+                            //     Router.reload()
+                            // }
+                        }}>
                     </audio>
-                    <div className="controls z-50 translate-y-[150%] opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
-                        <div>
-                            <button className="bg-none border-none outline-none cursor-pointer" onClick={togglePlay}>
-                                {
-                                    isPlaying ? (
-                                        <FaPause />
-                                    ) : (
-                                        <FaPlay />
-                                    )
-                                }
-                            </button>
+                    <div className="controls opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
+                        <div className="relative h-[8.4px] mb-[10px] mx-1 md:mx-2">
+                            <progress value={progress} max={videoDetails.lengthSeconds}></progress>
+                            <input
+                                type="range"
+                                min="0"
+                                max={videoDetails.lengthSeconds}
+                                value={progress}
+                                onChange={(e) => handleVideoProgress(e)}
+                                className="bg-white/20 rounded-lg absolute top-0 w-full"
+                            />
                         </div>
-                        <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={progress}
-                            onChange={(e) => handleVideoProgress(e)}
-                            className="bg-white/20 rounded-3xl h-1 w-80"
-                        />
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <button className="cursor-pointer mx-1 md:mx-2" onClick={togglePlay}>
+                                    {
+                                        isPlaying ? (
+                                            <FaPause />
+                                        ) : (
+                                            <FaPlay />
+                                        )
+                                    }
+                                </button>
+                                <div className="text-sm md:text-base mx-1 md:mx-2">
+                                    {`${progressString.minutes}:${progressString.seconds}`}
+                                    <span> / </span>
+                                    {`${time.minutes}:${time.seconds}`}
+                                </div>
+                            </div>
 
+                            <div>
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
+                                    <MdSubtitles />
+                                    <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg right-0 translate-x-10" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
+                                        <li className={availableSubtitles.length > 1 ? "option-top" : "option-one"} onClick={() => {
+                                            setIsNoSubtitles(true)
+                                            instance.freeTrack();
+                                        }}>{isNoSubtitles && <MdCheck className="inline mr-2" />}No Subtitle</li>
+                                        {
+                                            availableSubtitles.map((sub, index) => {
+                                                return (<li key={index} className={(index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
+                                                    subtitleHandler(sub.id)
+                                                    toggleSubtitle(index)
+                                                }}>{checkIfSubtitleActive(index) && <MdCheck className="inline mr-2" />}{sub.lang}</li>)
 
-                        <div className="cursor-pointer group inline-block relative">
-                            <MdSubtitles />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableSubtitles.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
-                                {
-                                    availableSubtitles.map((sub, index) => {
-                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableSubtitles.length - 1 ? "option-bottom" : "option-middle") + (checkIfSubtitleActive(index) ? " bg-black/70" : "")} onClick={() => {
-                                            subtitleHandler(sub.id)
-                                            toggleSubtitle(index)
-                                        }}>{checkIfSubtitleActive(index) && <MdCheck className="inline mr-2" />}{sub.lang}</li>)
+                                            })
+                                        }
+                                    </ul>
+                                </div>
 
-                                    })
-                                }
-                            </ul>
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
+                                    <MdHeadphones />
+                                    <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-5 text-xs md:text-sm w-max rounded-lg right-0 translate-x-10" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
+                                        {
+                                            availableAudios.map((audio, index) => {
+                                                return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
+                                                    audioHandler(audio.id)
+                                                    toggleAudio(index)
+                                                }}>{checkIfAudioActive(index) && <MdCheck className="inline mr-2" />}{audio.lang}</li>)
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+
+                                <button className="bg-none border-none outline-none cursor-pointer mx-1 md:mx-2" onClick={toggleMute}>
+                                    {
+                                        isMuted ? (
+                                            <FaVolumeMute />
+                                        ) : (
+                                            <FaVolumeUp />
+                                        )
+                                    }
+                                </button>
+
+                                <div className="cursor-pointer group inline-block relative mx-1 md:mx-2">
+                                    <IoSettingsSharp />
+                                     <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 right-0 my-5 text-xs md:text-sm w-max rounded-lg translate-x-10" + (videoSrc.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-36")}>
+                                        {
+                                            videoSrc.map((src, index) => {
+                                                return (<li key={index} className={(index === 0 ? "option-top" : index === videoSrc.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
+                                                    qualityHandler(src.url)
+                                                    toggleQuality(index)
+                                                }}>{checkIfQualityActive(index) && <MdCheck className="inline mr-2" />}{src.qualityLabel}</li>
+                                                )
+                                            })
+                                        }
+                                     </ul>
+                                </div>
+
+                                <button onClick={toggleFullScreen} className="mx-1 md:mx-2">
+                                    {
+                                        isFullScreen ? (
+                                            <BiExitFullscreen />
+                                        ) : (
+                                            <BiFullscreen />
+                                        )
+                                    }
+                                </button>
+                            </div>
                         </div>
-
-                        <div className="cursor-pointer group inline-block relative">
-                            <MdHeadphones />
-                            <ul className={"absolute hidden text-white pt-1 group-hover:block bottom-0 my-4 text-sm w-max rounded-lg" + (availableAudios.length <= 3 ? "" : " overflow-hidden overflow-y-scroll h-24 md:h-32 lg:h-48")}>
-                                {
-                                    availableAudios.map((audio, index) => {
-                                        return (<li key={index} className={(index === 0 ? "option-top" : index === availableAudios.length - 1 ? "option-bottom" : "option-middle")} onClick={() => {
-                                            audioHandler(audio.id)
-                                            toggleAudio(index)
-                                        }}>{checkIfAudioActive(index) && <MdCheck className="inline mr-2" />}{audio.lang}</li>)
-                                    })
-                                }
-                            </ul>
-                        </div>
-
-                        <button className="bg-none border-none outline-none cursor-pointer" onClick={toggleMute}>
-                            {
-                                isMuted ? (
-                                    <FaVolumeMute />
-                                ) : (
-                                    <FaVolumeUp />
-                                )
-                            }
-                        </button>
-                        <button onClick={toggleFullScreen}>
-                            {
-                                isFullScreen ? (
-                                    <BiExitFullscreen />
-                                ) : (
-                                    <BiFullscreen />
-                                )
-                            }
-                        </button>
                     </div>
                 </div>
             </div>

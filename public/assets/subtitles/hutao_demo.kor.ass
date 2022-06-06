@@ -15,8 +15,6 @@ Video File: D:\Videos\Genshin Impact\Character Demo - Hu Tao - Let the Living Be
 Video AR Mode: 4
 Video AR Value: 1.777778
 Video Zoom Percent: 0.500000
-Scroll Position: 3
-Active Line: 15
 Video Position: 5230
 
 [V4+ Styles]
@@ -25,36 +23,19 @@ Style: Genshin Impact,SDK_SC_Web,60,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Comment: 0,0:00:07.33,0:00:13.47,Genshin Impact,,0,0,0,,Hey, uh... you sure we're going the right way? Doubt there's any treasure in this creepy place...
-Comment: 0,0:00:13.94,0:00:16.61,Genshin Impact,,0,0,0,,This treasure map's Bao'er's
-Comment: 0,0:00:16.61,0:00:18.34,Genshin Impact,,0,0,0,,We just follow it all the way
-Comment: 0,0:00:19.01,0:00:20.46,Genshin Impact,,0,0,0,,Hey... wait...
-Comment: 0,0:00:21.10,0:00:22.59,Genshin Impact,,0,0,0,,Did you just... hear...
-Comment: 0,0:00:22.99,0:00:24.46,Genshin Impact,,0,0,0,,Something...?
-Comment: 0,0:00:25.33,0:00:28.30,Genshin Impact,,0,0,0,,Man up, you're just imagining things
-Comment: 0,0:00:30.24,0:00:31.44,Genshin Impact,,0,0,0,,ARGH!!!
-Comment: 0,0:00:32.60,0:00:34.28,Genshin Impact,,0,0,0,,Wh—Who're you!?
-Comment: 0,0:00:34.35,0:00:36.18,Genshin Impact,,0,0,0,,Quick! Do something!
-Comment: 0,0:00:48.86,0:00:55.22,Genshin Impact,,0,0,0,,Order of duality, impermanence of fate, I raise this butterfly to guide thee...
-Comment: 0,0:00:56.88,0:00:59.33,Genshin Impact,,0,0,0,,Aiya, so many droll people...
-Comment: 0,0:01:00.16,0:01:02.69,Genshin Impact,,0,0,0,,Fatui... Not even worth the tease
-Comment: 0,0:01:02.90,0:01:04.69,Genshin Impact,,0,0,0,,Guess I'll need to send you off myself!
-Comment: 0,0:01:10.94,0:01:12.59,Genshin Impact,,0,0,0,,Zombie! You scared~?
-Comment: 0,0:01:27.16,0:01:28.64,Genshin Impact,,0,0,0,,See you on the other side~
-
-Dialogue: 0,0:00:07.33,0:00:13.47,Genshin Impact,,0000,0000,0000,,형님, 뭔가 잘못된 거 아닙니까? 이런 소름 끼치는 곳에 정말 보물이 있다고요?
-Dialogue: 0,0:00:13.94,0:00:16.61,Genshin Impact,,0000,0000,0000,,인마, 이건 보아 누님의 보물 지도라고
-Dialogue: 0,0:00:16.61,0:00:18.34,Genshin Impact,,0000,0000,0000,,이 길이 틀림없어
-Dialogue: 0,0:00:19.01,0:00:20.46,Genshin Impact,,0000,0000,0000,,잠깐만요, 형님
-Dialogue: 0,0:00:21.10,0:00:22.59,Genshin Impact,,0000,0000,0000,,무슨 소리…
-Dialogue: 0,0:00:22.99,0:00:24.46,Genshin Impact,,0000,0000,0000,,못 들었어요…?
-Dialogue: 0,0:00:25.33,0:00:28.30,Genshin Impact,,0000,0000,0000,,나이가 몇인데 아직도 벌벌 떨어…
-Dialogue: 0,0:00:30.24,0:00:31.44,Genshin Impact,,0000,0000,0000,,으악——!!!
-Dialogue: 0,0:00:32.60,0:00:34.28,Genshin Impact,,0000,0000,0000,,너… 넌 누구야?!
-Dialogue: 0,0:00:34.35,0:00:36.18,Genshin Impact,,0000,0000,0000,,해치웁시다! 형님!
-Dialogue: 0,0:00:48.86,0:00:55.22,Genshin Impact,,0000,0000,0000,,음양엔 질서가 있고 운명은 변화무쌍하니 이 나비불이 네 길을 인도할지어다…
-Dialogue: 0,0:00:56.88,0:00:59.33,Genshin Impact,,0000,0000,0000,,아~ 시시한 녀석들뿐이네
-Dialogue: 0,0:01:00.16,0:01:02.69,Genshin Impact,,0000,0000,0000,,「우인단」한텐 별로 장난칠 생각이 안 든다니까
-Dialogue: 0,0:01:02.90,0:01:04.69,Genshin Impact,,0000,0000,0000,,바로 쫓아내 주지!
-Dialogue: 0,0:01:10.94,0:01:12.59,Genshin Impact,,0000,0000,0000,,강시! 무섭지~?
-Dialogue: 0,0:01:27.16,0:01:28.64,Genshin Impact,,0000,0000,0000,,잘들 가~
+Dialogue: 0,0:00:07.33,0:00:13.47,Genshin Impact,,0,0,0,,형님, 뭔가 잘못된 거 아닙니까? 이런 소름 끼치는 곳에 정말 보물이 있다고요?
+Dialogue: 0,0:00:13.94,0:00:16.61,Genshin Impact,,0,0,0,,인마, 이건 보아 누님의 보물 지도라고
+Dialogue: 0,0:00:16.61,0:00:18.34,Genshin Impact,,0,0,0,,이 길이 틀림없어
+Dialogue: 0,0:00:19.01,0:00:20.46,Genshin Impact,,0,0,0,,잠깐만요, 형님
+Dialogue: 0,0:00:21.10,0:00:22.59,Genshin Impact,,0,0,0,,무슨 소리…
+Dialogue: 0,0:00:22.99,0:00:24.46,Genshin Impact,,0,0,0,,못 들었어요…?
+Dialogue: 0,0:00:25.33,0:00:28.30,Genshin Impact,,0,0,0,,나이가 몇인데 아직도 벌벌 떨어…
+Dialogue: 0,0:00:30.24,0:00:31.44,Genshin Impact,,0,0,0,,으악——!!!
+Dialogue: 0,0:00:32.60,0:00:34.28,Genshin Impact,,0,0,0,,너… 넌 누구야?!
+Dialogue: 0,0:00:34.35,0:00:36.18,Genshin Impact,,0,0,0,,해치웁시다! 형님!
+Dialogue: 0,0:00:48.86,0:00:55.22,Genshin Impact,,0,0,0,,음양엔 질서가 있고 운명은 변화무쌍하니 이 나비불이 네 길을 인도할지어다…
+Dialogue: 0,0:00:56.88,0:00:59.33,Genshin Impact,,0,0,0,,아~ 시시한 녀석들뿐이네
+Dialogue: 0,0:01:00.16,0:01:02.69,Genshin Impact,,0,0,0,,「우인단」한텐 별로 장난칠 생각이 안 든다니까
+Dialogue: 0,0:01:02.90,0:01:04.69,Genshin Impact,,0,0,0,,바로 쫓아내 주지!
+Dialogue: 0,0:01:10.94,0:01:12.59,Genshin Impact,,0,0,0,,강시! 무섭지~?
+Dialogue: 0,0:01:27.16,0:01:28.64,Genshin Impact,,0,0,0,,잘들 가~

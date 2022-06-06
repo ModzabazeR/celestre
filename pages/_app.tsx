@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import Head from 'next/head'
 import NProgress from 'nprogress'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
 NProgress.configure({ showSpinner: false })
 
@@ -24,8 +26,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ==" 
           crossOrigin="anonymous" 
           referrerPolicy="no-referrer" />
+          <link rel="stylesheet" href="/assets/fonts/style.css" />
       </Head>
+      <NavBar />
       <Component {...pageProps} />
+      <Footer />
     </>
   )
 }

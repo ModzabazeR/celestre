@@ -7,7 +7,6 @@
     @apply bg-[#0c0f1d] text-white;
   }
 
-  
   /* width */
   ::-webkit-scrollbar {
     @apply w-1 lg:w-2;
@@ -15,12 +14,12 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-[#888]/0 rounded-xl;
+    @apply bg-[#888]/0;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-[#5c5f6b] rounded-xl;
+    @apply bg-[#5c5f6b];
   }
 
   /* Handle on hover */
@@ -41,79 +40,127 @@
   .option-bottom {
     @apply block rounded-b-lg bg-black/50 py-2 px-4 transition-all hover:bg-black/70;
   }
-}
 
-/* video::-webkit-media-controls-fullscreen-button {
-  display: none;
-} */
+  .option-one {
+    @apply block rounded-lg bg-black/50 py-2 px-4 transition-all hover:bg-black/70;
+  }
+
+  .controls {
+    @apply absolute right-0 left-0 bottom-0 z-40 bg-gradient-to-t from-black/75 to-black/0 p-[10px] text-lg transition-all md:text-xl lg:text-2xl;
+  }
+
+  .link {
+    @apply text-blue-400 hover:text-blue-500 underline;
+  }
+
+}
 
 #nprogress .bar {
   @apply h-1 bg-blue-400;
 }
 
-.show {
-  transform: translateY(0%);
-  opacity: 1;
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: 30px;
-  padding: 14px;
-  width: 100%;
-  max-width: 500px;
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  /* transform: translateY(150%);
-  opacity: 0; */
-  transition: all 0.3s ease-in-out;
-}
-
 input[type='range'] {
-  -webkit-appearance: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 8.4px;
   cursor: pointer;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 1.3px;
+  -webkit-appearance: none;
+  transition: all 0.4s ease;
 }
 
 input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  background: white !important;
+  background: #657ef8;
   cursor: pointer;
+  -webkit-appearance: none;
+  margin-left: -1px;
 }
 
-input[type='range']::-moz-range-progress,
-input[type='range']::-ms-fill-lower {
-  background: white;
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: transparent;
 }
 
-.velocity {
+input[type='range'].volume {
+  height: 5px;
+  background-color: #fff;
+}
+
+input[type='range'].volume::-webkit-slider-runnable-track {
+  background-color: transparent;
+}
+
+input[type='range'].volume::-webkit-slider-thumb {
+  margin-left: 0;
+  height: 14px;
+  width: 14px;
+  background: #fff;
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 1.3px;
+}
+
+input[type='range']::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50px;
+  border: 1px solid #657ef8;
+  background: #657ef8;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+input[type='range']:focus::-moz-range-track {
+  outline: none;
+}
+
+input[type='range'].volume::-moz-range-thumb {
+  border: 1px solid #fff;
+  background: #fff;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  background: none;
-  color: white;
-  outline: none;
-  border: none;
-  text-align: center;
-  font-size: 16px;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 8.4px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
 }
 
-.velocity option {
-  color: black;
+progress::-webkit-progress-bar {
+  background-color: #474545;
+  border-radius: 0.5rem;
 }
 
-.mute-btn {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
+progress::-webkit-progress-value {
+  background: #657ef8;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+progress::-moz-progress-bar {
+  border: 1px solid #657ef8;
+  background: #657ef8;
 }
 
 .libassjs-canvas-parent {
