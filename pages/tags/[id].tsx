@@ -9,7 +9,7 @@ let tag = "";
 const Tags = () => {
   const router: NextRouter = useRouter();
   const { id } = router.query;
-  tag = id as string;
+  tag = id ? id as string : "";
   const filteredDb = db.filter(item => item.tags.includes(id as string));
 
   const {
