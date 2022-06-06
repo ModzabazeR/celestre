@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import Head from 'next/head'
 import NProgress from 'nprogress'
+import NavBar from '../components/NavBar'
 
 NProgress.configure({ showSpinner: false })
 
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           referrerPolicy="no-referrer" />
           <link rel="stylesheet" href="/assets/fonts/style.css" />
       </Head>
+      <NavBar />
       <Component {...pageProps} />
     </>
   )
