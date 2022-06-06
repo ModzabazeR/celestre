@@ -1,11 +1,10 @@
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 const NavBar = () => {
     return (
-        <header className="bg-[#1b1d2a]">
-            <div
-                className="flex items-center h-16 gap-8 px-4 mx-auto sm:px-6 lg:px-8"
-            >
+        <header className="bg-[#1b1d2a] sticky top-0 z-50">
+            <div className="flex items-center h-16 gap-8 px-4 mx-auto sm:px-6 lg:px-8">
                 <Link href="/">
                     <a className="block text-teal-600">
                         <span className="sr-only">Home</span>
@@ -80,24 +79,15 @@ const NavBar = () => {
 
                     <div className="flex items-center gap-4">
                         <div className="sm:gap-4 sm:flex">
-                            <a
-                                className="block px-5 py-2.5 font-medium text-white bg-teal-600 hover:bg-teal-700 transition rounded-md"
-                                href="/"
-                            >
-                                Login
+                            <Link href="https://github.com/ModzabazeR/genshin-web-player">
+                            <a className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base" target="_blank">
+                                <FaGithub className="inline mr-1 md:mr-2"/>
+                                <span className="font-medium">GitHub</span>
                             </a>
-
-                            <a
-                                className="hidden sm:block px-5 py-2.5 font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 transition"
-                                href="/"
-                            >
-                                Register
-                            </a>
+                            </Link>
                         </div>
 
-                        <button
-                            className="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75"
-                        >
+                        <button className="block p-2 text-gray-600 transition bg-gray-100 rounded-md md:hidden hover:text-gray-600/75">
                             <span className="sr-only">Toggle menu</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -105,11 +95,11 @@ const NavBar = () => {
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                strokeWidth="2"
                             >
                                 <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                     d="M4 6h16M4 12h16M4 18h16"
                                 />
                             </svg>

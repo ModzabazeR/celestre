@@ -14,12 +14,12 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply rounded-xl bg-[#888]/0;
+    @apply bg-[#888]/0;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply rounded-xl bg-[#5c5f6b];
+    @apply bg-[#5c5f6b];
   }
 
   /* Handle on hover */
@@ -46,7 +46,7 @@
   }
 
   .controls {
-    @apply absolute right-0 left-0 bottom-0 z-50 bg-gradient-to-t from-black/75 to-black/0 p-[10px] text-lg transition-all md:text-xl lg:text-2xl;
+    @apply absolute right-0 left-0 bottom-0 z-40 bg-gradient-to-t from-black/75 to-black/0 p-[10px] text-lg transition-all md:text-xl lg:text-2xl;
   }
 
   .link {
