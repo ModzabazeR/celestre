@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Router from 'next/router'
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
@@ -7,6 +8,10 @@ import Logo from "../images/logo.svg"
 
 const NavBar = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    Router.events.on("routeChangeComplete", () => {
+        setIsNavExpanded(false);
+    })
 
     return (
         <header className="bg-[#1b1d2a] sticky top-0 z-50">
