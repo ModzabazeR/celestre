@@ -64,7 +64,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <Link href="https://discord.gg/4nbWsCGjjE">
+                            <Link href="https://discord.com/invite/genshinimpact">
                                 <a
                                     rel="noopener noreferrer"
                                     target="_blank"
