@@ -1,6 +1,6 @@
 const Faq = () => {
     return (
-        <div>
+        <div className="h-screen">
             FAQ
         </div>
     )

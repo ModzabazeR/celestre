@@ -1,6 +1,6 @@
 const Tags = () => {
     return (
-        <div>Tags</div>
+        <div className="h-screen">Tags</div>
     )
 }
 
