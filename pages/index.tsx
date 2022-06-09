@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
         {
           db.sort(isSortedByDate ? sortedByDate : sortedByDuration).map((video) => {
             return (

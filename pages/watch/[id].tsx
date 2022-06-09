@@ -11,6 +11,8 @@ import { FaHome } from "react-icons/fa";
 import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
+import { isSafari, isMobileSafari } from "react-device-detect";
+import { useEffect } from "react";
 
 interface PostProps {
     videoDetails: VideoDetails;
@@ -34,6 +36,12 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     const webm = videoFormats.filter(format => format.mimeType.includes("webm"));
     const webmVideo = webm.filter(format => format.mimeType.includes("video"));
     console.log(webmVideo[0].url);
+
+    useEffect(() => {
+        if (isSafari || isMobileSafari) {
+            alert("Celestre work best on Chrome.")
+        }
+    }, [])
 
     return (
         <div className="flex flex-col items-center justify-center">

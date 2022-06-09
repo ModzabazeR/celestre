@@ -569,6 +569,121 @@ const db: dbData = [
             },
         },
         tags: ["character teaser", "yae miko", "inazuma"]
+    },
+    {
+        id: "VbFZvVeY0LY",
+        title: "Version 2.7 \"Hidden Dreams in the Depths\" Trailer | Genshin Impact",
+        duration: "03:47",
+        thumbnail: "https://i.ytimg.com/vi/VbFZvVeY0LY/maxresdefault.jpg",
+        uploadDate: "2022-05-20",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "kjnauvswIjs",
+            },
+            en: {
+                url: "VbFZvVeY0LY",
+            },
+            ja: {
+                url: "eU38SaRoqQk",
+            },
+            kor: {
+                url: "AT8N3QYjAZ0",
+            },
+        },
+        tags: ["version trailer", "aether", "lumine", "yelan", "shinobu", "xiao", "arataki itto", "chasm", "liyue"]
+    },
+    {
+        id: "nEX4Umn5Bx8",
+        title: "Character Teaser - \"Yelan: Inevitable Justice\" | Genshin Impact",
+        duration: "01:28",
+        thumbnail: "https://i.ytimg.com/vi/nEX4Umn5Bx8/maxresdefault.jpg",
+        uploadDate: "2022-05-25",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "J7QBXDMGxTk",
+            },
+            en: {
+                url: "nEX4Umn5Bx8",
+            },
+            ja: {
+                url: "aRY7K8nMO6M",
+            },
+            kor: {
+                url: "v5SpyQy9Fdc",
+            },
+        },
+        tags: ["character teaser", "yelan", "liyue"]
+    },
+    {
+        id: "MDpYYzMvnHI",
+        title: "Character Demo - \"Yelan: Shadow in the \" | Genshin Impact",
+        duration: "02:45",
+        thumbnail: "https://i.ytimg.com/vi/MDpYYzMvnHI/maxresdefault.jpg",
+        uploadDate: "2022-05-30",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "6ykUq4XK2hE"
+            },
+            en: {
+                url: "MDpYYzMvnHI",
+            },
+            ja: {
+                url: "kzvrzHPrrSk",
+            },
+            kor: {
+                url: "16vo4VyH_1M",
+            },
+        },
+        tags: ["character demo", "yelan", "liyue"]
+    },
+    {
+        id: "ZVnfjTVZrWY",
+        title: "Story Teaser: Only Old Memories Remain | Genshin Impact",
+        duration: "04:07",
+        thumbnail: "https://i.ytimg.com/vi/ZVnfjTVZrWY/maxresdefault.jpg",
+        uploadDate: "2022-06-02",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "z-nCZrrOZxA",
+            },
+            en: {
+                url: "ZVnfjTVZrWY",
+            },
+            ja: {
+                url: "kjab0g2h7TM",
+            },
+            kor: {
+                url: "Ef7ONrEHmhk",
+            },
+        },
+        tags: ["cutscene", "chasm", "liyue"]
+    },
+    {
+        id: "C24nvloZZhE",
+        title: "Perilous Trail Event Cutscene Animation: \"Moment of Life or Death\" | Genshin Impact",
+        duration: "04:08",
+        thumbnail: "https://i.ytimg.com/vi/C24nvloZZhE/maxresdefault.jpg",
+        uploadDate: "2022-06-05",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "NECRh-3zUA4",
+            },
+            en: {
+                url: "C24nvloZZhE",
+            },
+            ja: {
+                url: "Mu8JxZpZ6TA",
+            },
+            kor: {
+                url: "N0uXI_-710Y"
+            }
+        },
+        tags: ["cutscene", "yelan", "shinobu", "xiao", "arataki itto", "zhongli", "chasm", "liyue"]
     }
 ]
 export default db
