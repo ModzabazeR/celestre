@@ -21,5 +21,9 @@ module.exports = withSvgr({
   },
   images: {
     domains: ['i.ytimg.com'],
+  },
+  i18n: {
+    locales: ['en-US', 'th'],
+    defaultLocale: 'en-US',
   }
 })

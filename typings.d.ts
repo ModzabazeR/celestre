@@ -96,3 +96,19 @@ export type relatedVideos = relatedVideo[]
 export interface IIndexable {
     [key: string]: any;
 }
+
+export interface localeObj {
+    code: string;
+    home: string;
+    tags: string;
+    about: string;
+    faq: string;
+    sortByDate: string;
+    sortByDuration: string;
+    descending: string;
+    ascending: string;
+    disclaimer: string;
+    communityLinks: string;
+    officialLinks: string;
+    videosContainTag: string;
+}

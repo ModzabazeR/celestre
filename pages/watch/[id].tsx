@@ -46,7 +46,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     return (
         <div className="flex flex-col items-center justify-center">
             <Head>
-                <title>{db_data.title} - Genshin Web Player</title>
+                <title>{db_data.title} - Celestre</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">

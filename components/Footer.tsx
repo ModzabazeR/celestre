@@ -1,23 +1,28 @@
 import Link from 'next/link';
-import { FaFacebook, FaInstagram, FaTwitter, FaGithub, FaDribbble, FaDiscord, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaDribbble, FaDiscord, FaYoutube } from 'react-icons/fa';
 import Logo from "../images/logo.svg"
+import { useRouter } from 'next/router';
+import loc from "../locales/locales";
 
 const Footer = () => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === "th" ? loc.th : loc.en;
+
     return (
-        <footer className="bg-[#1b1d2a]">
+        <footer className={"bg-[#1b1d2a] " + t.code}>
             <div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="flex justify-center">
                     <Logo className="h-12" />
                 </div>
 
-                <p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400">
-                    Genshin Web Player is not affiliated with HoYoverse. <br />
-                    Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.
+                <p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 whitespace-pre-wrap">
+                    {t.disclaimer}
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-x-20">
                 <div>
-                    <h1 className="text-center font-medium text-lg my-6">Community Links</h1>
+                    <h1 className="text-center font-medium text-lg my-6">{t.communityLinks}</h1>
                     <ul className="flex justify-center gap-6 md:gap-8">
                         <li>
                             <Link href="https://github.com/ModzabazeR/genshin-web-player">
@@ -48,7 +53,7 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    <h1 className="text-center font-medium text-lg my-6">Official Links</h1>
+                    <h1 className="text-center font-medium text-lg my-6">{t.officialLinks}</h1>
                     <ul className="flex justify-center gap-6 md:gap-8">
                         <li>
                             <Link href="https://www.facebook.com/Genshinimpact/">

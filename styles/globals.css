@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 @layer base {
   body {
     @apply bg-[#0c0f1d] text-white;
@@ -53,6 +55,10 @@
     @apply text-blue-400 hover:text-blue-500 underline;
   }
 
+}
+
+.th {
+  font-family: 'Kanit', sans-serif;
 }
 
 #nprogress .bar {
