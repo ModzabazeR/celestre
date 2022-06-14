@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/assets/fonts/style.css" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
       <Component {...pageProps} />

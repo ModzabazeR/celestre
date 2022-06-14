@@ -50,7 +50,15 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
         <div className={"flex flex-col items-center justify-center " + t.code}>
             <Head>
                 <title>{db_data.title} - Celestre</title>
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content={videoDetails.description} />
+                <meta property="og:title" content={`[All languages] ${db_data.title}`} />
+                <meta property="og:description" content={videoDetails.description} />
+                <meta property="og:image" content={db_data.thumbnail} />
+                <meta property="og:url" content={`https://celestre.vercel.app/${id}`} />
+                <meta property="og:type" content="video" />
+                <meta property="og:site_name" content="Celestre" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image:alt" content={`[All languages] ${db_data.title}`} />
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>

@@ -25,7 +25,6 @@ const Home: NextPage = () => {
     <div className={"m-8 " + t.code}>
       <Head>
         <title>Celestre</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="flex flex-row items-center w-full justify-between">
