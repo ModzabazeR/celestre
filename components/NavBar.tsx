@@ -31,44 +31,52 @@ const NavBar = () => {
                         <h2 className="sr-only" id="header-navigation">Header navigation</h2>
 
                         <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-md w-full" : "")}>
-                            <Link href="/">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/">
                                     <a className="text-white transition hover:text-white/75">
                                         {t.home}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
 
-                            <Link href="/tags">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+
+
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/tags">
                                     <a className="text-white transition hover:text-white/75">
                                         {t.tags}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
 
-                            <Link href="/about">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+
+
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/about">
                                     <a className="text-white transition hover:text-white/75">
-                                         {t.about}
+                                        {t.about}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
 
-                            <Link href="/faq">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+
+
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/faq">
                                     <a className="text-white transition hover:text-white/75">
                                         {t.faq}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
+
                         </ul>
                     </nav>
 
                     <div className="flex items-center gap-4">
                         <div className="sm:gap-4 sm:flex">
                             <div className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base cursor-pointer" onClick={() => {
-                                router.push(asPath, asPath, {locale: t.code === "th" ? "en-US" : "th"})
+                                router.push(asPath, asPath, { locale: t.code === "th" ? "en-US" : "th" })
                             }}>
                                 <span className="font-medium uppercase">{t.code}</span>
                             </div>

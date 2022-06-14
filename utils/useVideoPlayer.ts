@@ -18,7 +18,7 @@ const useVideoPlayer = ({ videoRef, videoWrapperRef, audioRef }: hookProps) => {
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [showFirstPlayButton, setShowFirstPlayButton] = useState(true);
     const [showCursor, setShowCursor] = useState(true);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     const togglePlay = () => {
         if (!isLoading) {

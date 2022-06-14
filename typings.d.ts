@@ -111,4 +111,5 @@ export interface localeObj {
     communityLinks: string;
     officialLinks: string;
     videosContainTag: string;
+    subtitleInfo: string;
 }

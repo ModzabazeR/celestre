@@ -14,6 +14,7 @@ const en: localeObj = {
     communityLinks: 'Community Links',
     officialLinks: 'Official Links',
     videosContainTag: 'Videos contain tag',
+    subtitleInfo: 'If this sentence is a Genshin Impact font then you should be able to see the subtitle.',
 }
 
 export default en

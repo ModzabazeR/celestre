@@ -13,6 +13,7 @@ import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
 import { isSafari, isMobileSafari } from "react-device-detect";
 import { useEffect } from "react";
+import loc from "../../locales/locales";
 
 interface PostProps {
     videoDetails: VideoDetails;
@@ -31,6 +32,8 @@ const ytPrefix = "https://www.youtube.com/watch?v=";
 const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostProps) => {
     const router: NextRouter = useRouter();
     const { id } = router.query;
+    const { locale } = router;
+    const t = locale === "th" ? loc.th : loc.en;
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", title: "", duration: "", thumbnail: "", subtitleUrls: {}, audioUrls: {}, tags: [] };
     const webm = videoFormats.filter(format => format.mimeType.includes("webm"));
@@ -44,13 +47,14 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     }, [])
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className={"flex flex-col items-center justify-center " + t.code}>
             <Head>
                 <title>{db_data.title} - Celestre</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>
+                <p className="text-center game-font text-xs md:text-sm mb-4">{t.subtitleInfo}</p>
                 <CustomVideoPlayer
                     videoSrc={webmVideo}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}

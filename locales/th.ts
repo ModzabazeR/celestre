@@ -14,6 +14,7 @@ const th: localeObj = {
     communityLinks: 'ลิงก์คอมมูนิตี้',
     officialLinks: 'ลิงก์ทางการ',
     videosContainTag: 'วิดีโอที่มีแท็ก',
+    subtitleInfo: 'ถ้าข้อความนี้ขึ้นเป็นฟอนต์ Genshin Impact ตอนนี้ซับไตเติ้ลน่าจะมาแล้วครับ'
 }
 
 export default th

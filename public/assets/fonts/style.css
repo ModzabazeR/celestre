@@ -2,3 +2,7 @@
     font-family: "Genshin Impact";
     src: url(zh-cn.ttf) format("truetype");
 }
+
+.game-font {
+    font-family: "Genshin Impact";
+}

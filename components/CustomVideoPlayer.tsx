@@ -6,10 +6,10 @@ import { MdSubtitles, MdHeadphones, MdCheck } from 'react-icons/md'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { isMobile } from 'react-device-detect'
 import { VideoDetails, VideoFormat } from '../typings'
-import Loading from './Loading'
+import Loading from '../images/loading.svg'
 import { formatTime } from '../utils/globalUtils'
-import Router from 'next/router'
-import FontFaceObserver from 'fontfaceobserver'
+import loc from '../locales/locales'
+import {useRouter} from 'next/router'
 const SubtitlesOctopus = require('libass-wasm')
 
 interface VideoPlayerProps {
@@ -21,6 +21,9 @@ interface VideoPlayerProps {
 }
 
 const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, videoDetails }: VideoPlayerProps) => {
+    const router = useRouter()
+    const { locale, basePath } = router;
+    const t = locale === "th" ? loc.th : loc.en;
     const availableSubtitles = subtitleList.filter(sub => sub.url !== null)
     const availableAudios = audioList.filter(audio => audio.url !== null)
 
@@ -96,20 +99,13 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
     useEffect(() => {
         const options = {
             video: videoRef.current,
-            subUrl: subtitleList[8].url, // Thai
-            fonts: ["../assets/fonts/browalia.ttc", "../assets/fonts/zh-cn.ttf"],
-            workerUrl: "../subtitle-octopus/subtitles-octopus-worker.js",
-            legacyWorkerUrl: "../subtitle-octopus/subtitles-octopus-worker-legacy.js",
+            subUrl: locale === "th" ? subtitleList[8].url : subtitleList[2].url, // Thai or English
+            fonts: [`${basePath}/assets/fonts/browalia.ttc`, `${basePath}/assets/fonts/zh-cn.ttf`],
+            workerUrl: `${basePath}/subtitle-octopus/subtitles-octopus-worker.js`,
+            legacyWorkerUrl: `${basePath}/subtitle-octopus/subtitles-octopus-worker-legacy.js`,
         };
+        console.log(options)
         setInstance(new SubtitlesOctopus(options));
-
-        const font = new FontFaceObserver("Genshin Impact")
-
-        font.load(null, 300000).then(() => {
-            console.log("Font loaded.")
-            setIsLoading(false)
-            !showFirstPlayButton && togglePlay()
-        })
 
         // videoSourceRef.current!.src = videoSrc[0].url; // Best Quality First
         audioRef.current!.src = audioList[2].url!; // Japanese
@@ -126,7 +122,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
 
 
     const [activeSubtitle, setActiveSubtitle] = useState({
-        activeSub: subtitleList[8],
+        activeSub: locale === "th" ? subtitleList[8] : subtitleList[2],
         objects: availableSubtitles
     })
 
@@ -200,7 +196,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                 }
                 {
                     isLoading && !showFirstPlayButton && (
-                        <Loading />
+                        <Loading className="absolute z-40 h-12 md:h-24" />
                     )
                 }
                 <div className={"video-wrapper w-full relative flex justify-center overflow-hidden h-full" + (showFirstPlayButton ? " -z-10" : "") + (showCursor ? " cursor-auto" : " cursor-none")} onMouseMove={controlsShowHandler}>

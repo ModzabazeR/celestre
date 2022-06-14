@@ -660,7 +660,7 @@ const db: dbData = [
                 url: "Ef7ONrEHmhk",
             },
         },
-        tags: ["cutscene", "chasm", "liyue"]
+        tags: ["story teaser", "chasm", "liyue"]
     },
     {
         id: "C24nvloZZhE",
@@ -683,7 +683,7 @@ const db: dbData = [
                 url: "N0uXI_-710Y"
             }
         },
-        tags: ["cutscene", "yelan", "shinobu", "xiao", "arataki itto", "zhongli", "chasm", "liyue"]
+        tags: ["story teaser", "yelan", "shinobu", "xiao", "arataki itto", "zhongli", "chasm", "liyue"]
     }
 ]
 export default db
