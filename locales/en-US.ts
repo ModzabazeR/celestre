@@ -14,7 +14,10 @@ const en: localeObj = {
     communityLinks: 'Community Links',
     officialLinks: 'Official Links',
     videosContainTag: 'Videos contain tag',
-    subtitleInfo: 'If this sentence is a Genshin Impact font then you should be able to see the subtitle.',
+    subtitleInfo: 'If this paragraph appears to be Genshin Impact font then you should be able to see the subtitle.',
+    watchAlert: 'Changing language is not allowed on watch page',
+    welcomeTitle: 'Welcome to Celestre.',
+    welcomeSubtitle: 'Watch Genshin Impact videos with immersive font, changable subtitle and audio languages. Deliver directly from multiple YouTube videos!',
 }
 
 export default en

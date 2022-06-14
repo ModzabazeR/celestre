@@ -11,6 +11,7 @@ const NavBar = () => {
     const { locale, asPath } = router;
     const t = locale === "th" ? loc.th : loc.en;
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+    const isOnWatchPage = asPath.includes("/watch");
 
     Router.events.on("routeChangeComplete", () => {
         setIsNavExpanded(false);
@@ -30,7 +31,7 @@ const NavBar = () => {
                     <nav className={"md:block" + (!isNavExpanded ? " hidden" : "")} aria-labelledby="header-navigation">
                         <h2 className="sr-only" id="header-navigation">Header navigation</h2>
 
-                        <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-md w-full" : "")}>
+                        <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-b-md w-full" : "")}>
 
                             <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
                                 <Link href="/">
@@ -40,8 +41,6 @@ const NavBar = () => {
                                 </Link>
                             </li>
 
-
-
                             <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
                                 <Link href="/tags">
                                     <a className="text-white transition hover:text-white/75">
@@ -50,8 +49,6 @@ const NavBar = () => {
                                 </Link>
                             </li>
 
-
-
                             <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
                                 <Link href="/about">
                                     <a className="text-white transition hover:text-white/75">
@@ -59,8 +56,6 @@ const NavBar = () => {
                                     </a>
                                 </Link>
                             </li>
-
-
 
                             <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
                                 <Link href="/faq">
@@ -75,7 +70,12 @@ const NavBar = () => {
 
                     <div className="flex items-center gap-4">
                         <div className="sm:gap-4 sm:flex">
-                            <div className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base cursor-pointer" onClick={() => {
+                            <div className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base cursor-pointer" 
+                            onClick={
+                                isOnWatchPage ? () => {
+                                    alert(t.watchAlert);
+                                } :
+                                () => {
                                 router.push(asPath, asPath, { locale: t.code === "th" ? "en-US" : "th" })
                             }}>
                                 <span className="font-medium uppercase">{t.code}</span>

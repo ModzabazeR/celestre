@@ -71,7 +71,7 @@ const db: dbData = [
                 timeshift: 4.5
             },
         },
-        tags: ["character demo", "hutao", "qiqi", "liyue"]
+        tags: ["character demo", "hu tao", "qiqi", "liyue"]
     },
     {
         id: "SO__VQZirJ4",

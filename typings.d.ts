@@ -112,4 +112,7 @@ export interface localeObj {
     officialLinks: string;
     videosContainTag: string;
     subtitleInfo: string;
+    watchAlert: string;
+    welcomeTitle: string;
+    welcomeSubtitle: string;
 }
