@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   return (
     <div className={t.code}>
       <Head>
-        <title>Celestre</title>
+        <title>Celestre - Watch Genshin Impact Videos in All languages</title>
       </Head>
       <WelcomeBanner />
       <div className="m-8">

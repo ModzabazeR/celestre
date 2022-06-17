@@ -1,7 +1,7 @@
 import db from "../../db";
+import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
 import { VideoDetails, VideoFormat, relatedVideos, IIndexable } from "../../typings";
-import CustomVideoPlayer from "../../components/CustomVideoPlayer";
 import packer from "../../utils/packer";
 import Head from "next/head";
 import { NextRouter, useRouter } from "next/router";
@@ -14,6 +14,10 @@ import { langIdentifier } from "../../utils/globalUtils";
 import { isSafari, isMobileSafari } from "react-device-detect";
 import { useEffect } from "react";
 import loc from "../../locales/locales";
+const CustomVideoPlayer = dynamic(() => import("../../components/CustomVideoPlayer"), {
+    ssr: false,
+    loading: () => <div>Loading...</div>
+})
 
 interface PostProps {
     videoDetails: VideoDetails;
@@ -73,19 +77,19 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                 <div className="divide-x-2 divide-[#343746] my-8">
                     <button className="bg-[#1b1d2a] p-2 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
                         <FiRefreshCw className="inline mr-2" />
-                        <span>Reload</span>
+                        <span>{t.reload}</span>
                     </button>
                     <Link href="/">
                         <button className="bg-[#1b1d2a] p-2 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
                             <FaHome className="inline mr-2" />
-                            Back to Home
+                            {t.backToHome}
                         </button>
                     </Link>
                 </div>
                 
                 <div className="bg-[#1b1d2a] rounded-md p-4 divide-y divide-[#343746]">
                     <div className="pb-2">
-                        <h1 className="text-xl font-bold pb-2">Video Details</h1>
+                        <h1 className="text-xl font-bold pb-2">{t.videoDetails}</h1>
                         <div className="inline-flex flex-wrap">
                             {
                                 db_data.tags.map((tag: string, index: number) => (

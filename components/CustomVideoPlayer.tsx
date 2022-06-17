@@ -104,7 +104,6 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
             workerUrl: `${basePath}/subtitle-octopus/subtitles-octopus-worker.js`,
             legacyWorkerUrl: `${basePath}/subtitle-octopus/subtitles-octopus-worker-legacy.js`,
         };
-        console.log(options)
         setInstance(new SubtitlesOctopus(options));
 
         // videoSourceRef.current!.src = videoSrc[0].url; // Best Quality First

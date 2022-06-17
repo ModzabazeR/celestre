@@ -172,6 +172,10 @@ const db: dbData = [
             kor: {
                 url: "ck8CBmeLjVQ",
             },
+            th: {
+                url: "pR47XXFz4A4",
+                timeshift: 4.5
+            }
         },
         tags: ["character demo", "zhongli", "liyue"]
     },
@@ -205,6 +209,10 @@ const db: dbData = [
             kor: {
                 url: "03OrtAv9nBc",
             },
+            th: {
+                url: "M1tI3Q1kfIg",
+                timeshift: 4.5
+            }
         },
         tags: ["character demo", "kaedehara kazuha", "inazuma"]
     },
@@ -317,7 +325,7 @@ const db: dbData = [
             },
             kor: {
                 url: "2eOhA0ofN7Y",
-            }
+            },
         },
         tags: ["character teaser", "childe", "liyue"]
     },
@@ -351,6 +359,10 @@ const db: dbData = [
             kor: {
                 url: "PTDujeNdha4",
             },
+            th: {
+                url: "YiLwBjxKycU",
+                timeshift: 4.5
+            }
         },
         tags: ["character teaser", "zhongli", "liyue"]
     },
@@ -383,6 +395,10 @@ const db: dbData = [
             },
             kor: {
                 url: "P_ndbBYvpiQ",
+            },
+            th: {
+                url: "Pp9PBxm7Y8Y",
+                timeshift: 4.5
             }
         },
         tags: ["character teaser", "ganyu", "liyue"]
@@ -417,6 +433,10 @@ const db: dbData = [
             kor: {
                 url: "gXUxlhY_uQ8",
             },
+            th: {
+                url: "rkgOKmmCbvI",
+                timeshift: 4.5
+            }
         },
         tags: ["character teaser", "hu tao", "liyue"]
     },
@@ -762,6 +782,29 @@ const db: dbData = [
             }
         },
         tags: ["story teaser", "yelan", "shinobu", "xiao", "arataki itto", "zhongli", "chasm", "liyue"]
+    },
+    {
+        id: "13fviLTc0Aw",
+        title: "Character Demo - \"Kuki Shinobu: Jack of All Trades\" | Genshin Impact",
+        duration: "01:19",
+        thumbnail: "https://i.ytimg.com/vi/13fviLTc0Aw/maxresdefault.jpg",
+        uploadDate: "2022-06-17",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "CYBAKJJFtBM",
+            },
+            en: {
+                url: "13fviLTc0Aw",
+            },
+            ja: {
+                url: "8pei2OjUc40",
+            },
+            kor: {
+                url: "PvjgQVThhQg",
+            },
+        },
+        tags: ["character demo", "kuki shinobu", "inazuma"]
     }
 ]
 export default db

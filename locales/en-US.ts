@@ -18,6 +18,9 @@ const en: localeObj = {
     watchAlert: 'Changing language is not allowed on watch page',
     welcomeTitle: 'Welcome to Celestre.',
     welcomeSubtitle: 'Watch Genshin Impact videos with immersive font, changable subtitle and audio languages. Deliver directly from multiple YouTube videos!',
+    reload: 'Reload',
+    backToHome: 'Back to Home',
+    videoDetails: 'Video Details',
 }
 
 export default en

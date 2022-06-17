@@ -29,7 +29,7 @@ const NavBar = () => {
 
                 <div className="flex items-center justify-end flex-1 md:justify-between">
                     <nav className={"md:block" + (!isNavExpanded ? " hidden" : "")} aria-labelledby="header-navigation">
-                        <h2 className="sr-only" id="header-navigation">Header navigation</h2>
+                        <h2 className="sr-only game-font" id="header-navigation">Header navigation</h2>
 
                         <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-b-md w-full" : "")}>
 

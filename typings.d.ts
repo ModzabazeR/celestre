@@ -115,4 +115,7 @@ export interface localeObj {
     watchAlert: string;
     welcomeTitle: string;
     welcomeSubtitle: string;
+    reload: string;
+    backToHome: string;
+    videoDetails: string;
 }

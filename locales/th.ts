@@ -18,6 +18,9 @@ const th: localeObj = {
     watchAlert: 'ไม่สามารถเปลี่ยนภาษาในหน้าดูวิดีโอได้',
     welcomeTitle: 'ยินดีต้อนรับเข้าสู่ Celestre',
     welcomeSubtitle: 'ดูวิดีโอ Genshin Impact ที่สามารถเปลี่ยนซับไตเติ้ลและเสียงพากย์ทุกภาษาส่งตรงจาก YouTube พร้อมกับฟอนต์ภาษาไทยอ่านง่ายได้ที่นี่!',
+    reload: 'โหลดใหม่',
+    backToHome: 'กลับสู่หน้าหลัก',
+    videoDetails: 'รายละเอียดวิดีโอ',
 }
 
 export default th
