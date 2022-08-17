@@ -14,10 +14,10 @@ import { langIdentifier } from "../../utils/globalUtils";
 import { isSafari, isMobileSafari } from "react-device-detect";
 import { useEffect } from "react";
 import loc from "../../locales/locales";
-import HttpsProxyAgent from "https-proxy-agent/dist/agent";
+// import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
-const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
-const agent = new HttpsProxyAgent(proxy);
+// const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
+// const agent = new HttpsProxyAgent(proxy);
 
 const CustomVideoPlayer = dynamic(() => import("../../components/CustomVideoPlayer"), {
     ssr: false,
@@ -137,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     const video = await ytdl.getInfo(db_data.id , {
-        requestOptions: { agent },
+        // requestOptions: { agent },
     });
     const videoFormats = video.formats;
     const relatedVideos = video.related_videos;
