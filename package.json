@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "https-proxy-agent": "^5.0.1",
     "libass-wasm": "^4.0.0",
     "next": "latest",
     "next-svgr": "^0.0.2",

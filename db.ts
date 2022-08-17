@@ -2,7 +2,7 @@ import { dbData } from "./typings"
 
 const subtitlePath = "/assets/subtitles";
 
-const db: dbData = [
+export const db: dbData = [
     {
         id: "TAlKhARUcoY",
         title: "Teyvat Chapter Storyline Preview: Travail｜Genshin Impact (Contains spoilers)",
@@ -807,4 +807,7 @@ const db: dbData = [
         tags: ["character demo", "kuki shinobu", "inazuma"]
     }
 ]
-export default db
+
+
+// combine tags into a single array
+export const allTags = new Set(db.map(item => item.tags).flat())

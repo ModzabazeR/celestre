@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import db from '../db'
+import { db } from '../db'
 import Card from '../components/Card'
 import WelcomeBanner from '../components/WelcomeBanner'
 import useSorted from '../utils/useSorted'

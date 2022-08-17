@@ -1,6 +1,6 @@
 import { NextRouter, useRouter } from 'next/router'
 import Head from 'next/head'
-import db from '../../db'
+import { db } from '../../db'
 import Card from '../../components/Card'
 import useSorted from '../../utils/useSorted'
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa'
