@@ -25,31 +25,31 @@ Style: Genshin Impact,SDK_SC_Web,60,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:02.02,0:00:05.81,Genshin Impact,,0000,0000,0000,,Tương lai của nhà Kamisato, và trọng trách của Hiệp Hội Yashiro
-Dialogue: 0,0:00:07.58,0:00:10.61,Genshin Impact,,0000,0000,0000,,Không thể để anh trai tôi một mình gánh vác
-Dialogue: 0,0:00:21.31,0:00:25.62,Genshin Impact,,0000,0000,0000,,Trận đấu lần này xảy ra chính vì sự kiên trì đó
-Dialogue: 0,0:00:31.02,0:00:31.73,Genshin Impact,,0000,0000,0000,,"Chiếu tướng"
-Dialogue: 0,0:00:35.42,0:00:37.55,Genshin Impact,,0000,0000,0000,,Khi những đóa hoa sơn trà nở rộ
-Dialogue: 0,0:00:38.14,0:00:41.14,Genshin Impact,,0000,0000,0000,,Tôi thường có một giấc mơ giống nhau
-Dialogue: 0,0:00:44.00,0:00:46.94,Genshin Impact,,0000,0000,0000,,Trong mơ tôi và mẹ ở bên nhau
-Dialogue: 0,0:00:48.11,0:00:49.76,Genshin Impact,,0000,0000,0000,,Khiến tôi thấy thật bình yên
-Dialogue: 0,0:00:53.22,0:00:55.04,Genshin Impact,,0000,0000,0000,,Có lẽ nơi sâu thẳm nào đó trong tôi
-Dialogue: 0,0:00:55.98,0:01:01.68,Genshin Impact,,0000,0000,0000,,Vẫn đang tiếp nối quãng thời gian vô lo vô nghĩ khi ở bên gia đình
-Dialogue: 0,0:01:09.76,0:01:11.52,Genshin Impact,,0000,0000,0000,,Nhưng hoa nở rồi tàn
-Dialogue: 0,0:01:14.14,0:01:15.90,Genshin Impact,,0000,0000,0000,,Cũng đến lúc phải thức tỉnh khỏi giấc mộng
-Dialogue: 0,0:01:28.32,0:01:30.05,Genshin Impact,,0000,0000,0000,,Kiếm thuật của Trường Phái Kamisato...
-Dialogue: 0,0:01:30.56,0:01:34.99,Genshin Impact,,0000,0000,0000,,Hư thực tương sinh, nhẹ như sương nhanh như chớp...
-Dialogue: 0,0:01:40.90,0:01:45.55,Genshin Impact,,0000,0000,0000,,Điều khuấy động trong tôi, có lẽ chỉ là dư âm ấm áp của giấc mộng
-Dialogue: 0,0:01:47.02,0:01:50.35,Genshin Impact,,0000,0000,0000,,Nhưng nó vẫn luôn ở đó, ngày này qua ngày khác
-Dialogue: 0,0:02:00.45,0:02:01.87,Genshin Impact,,0000,0000,0000,,Thúc đẩy tôi đột phá giới hạn
-Dialogue: 0,0:02:06.16,0:02:07.46,Genshin Impact,,0000,0000,0000,,Và rèn luyện thanh kiếm của mình
-Dialogue: 0,0:02:14.21,0:02:18.19,Genshin Impact,,0000,0000,0000,,Đó là trận đấu đầu tiên với anh trai mà tôi chiến thắng
-Dialogue: 0,0:02:21.98,0:02:28.64,Genshin Impact,,0000,0000,0000,,Đó cũng là thời điểm Shirasagi Himegimi được sinh ra
-Dialogue: 0,0:02:35.65,0:02:37.95,Genshin Impact,,0000,0000,0000,,Đang ngẩn ngơ gì vậy, Ayaka
-Dialogue: 0,0:02:39.94,0:02:42.75,Genshin Impact,,0000,0000,0000,,Bắt đầu bắn pháo hoa rồi, mọi người đều đang đợi em
-Dialogue: 0,0:02:44.80,0:02:48.19,Genshin Impact,,0000,0000,0000,,Ban đầu chính em là người muốn tiếp quản việc này nhỉ?
-Dialogue: 0,0:02:48.42,0:02:50.99,Genshin Impact,,0000,0000,0000,,Haha, xin lỗi anh, Ayato
-Dialogue: 0,0:02:58.62,0:02:59.87,Genshin Impact,,0000,0000,0000,,Cầu nguyện với Lôi Thần
-Dialogue: 0,0:03:01.02,0:03:04.02,Genshin Impact,,0000,0000,0000,,Cầu mong cho tất cả những giấc mơ của chúng ta trường tồn mãi mãi
-Dialogue: 0,0:03:05.73,0:03:07.33,Genshin Impact,,0000,0000,0000,,Hỡi người dân trên Đảo Narukami
-Dialogue: 0,0:03:08.05,0:03:10.74,Genshin Impact,,0000,0000,0000,,Lễ hội chính thức được bắt đầu!
+Dialogue: 0,0:00:00.42,0:00:04.21,Genshin Impact,,0,0,0,,Tương lai của nhà Kamisato, và trọng trách của Hiệp Hội Yashiro
+Dialogue: 0,0:00:05.98,0:00:09.01,Genshin Impact,,0,0,0,,Không thể để anh trai tôi một mình gánh vác
+Dialogue: 0,0:00:19.71,0:00:24.02,Genshin Impact,,0,0,0,,Trận đấu lần này xảy ra chính vì sự kiên trì đó
+Dialogue: 0,0:00:29.42,0:00:30.13,Genshin Impact,,0,0,0,,"Chiếu tướng"
+Dialogue: 0,0:00:33.82,0:00:35.95,Genshin Impact,,0,0,0,,Khi những đóa hoa sơn trà nở rộ
+Dialogue: 0,0:00:36.54,0:00:39.54,Genshin Impact,,0,0,0,,Tôi thường có một giấc mơ giống nhau
+Dialogue: 0,0:00:42.40,0:00:45.34,Genshin Impact,,0,0,0,,Trong mơ tôi và mẹ ở bên nhau
+Dialogue: 0,0:00:46.51,0:00:48.16,Genshin Impact,,0,0,0,,Khiến tôi thấy thật bình yên
+Dialogue: 0,0:00:51.62,0:00:53.44,Genshin Impact,,0,0,0,,Có lẽ nơi sâu thẳm nào đó trong tôi
+Dialogue: 0,0:00:54.38,0:01:00.08,Genshin Impact,,0,0,0,,Vẫn đang tiếp nối quãng thời gian vô lo vô nghĩ khi ở bên gia đình
+Dialogue: 0,0:01:08.16,0:01:09.92,Genshin Impact,,0,0,0,,Nhưng hoa nở rồi tàn
+Dialogue: 0,0:01:12.54,0:01:14.30,Genshin Impact,,0,0,0,,Cũng đến lúc phải thức tỉnh khỏi giấc mộng
+Dialogue: 0,0:01:26.72,0:01:28.45,Genshin Impact,,0,0,0,,Kiếm thuật của Trường Phái Kamisato...
+Dialogue: 0,0:01:28.96,0:01:33.39,Genshin Impact,,0,0,0,,Hư thực tương sinh, nhẹ như sương nhanh như chớp...
+Dialogue: 0,0:01:39.30,0:01:43.95,Genshin Impact,,0,0,0,,Điều khuấy động trong tôi, có lẽ chỉ là dư âm ấm áp của giấc mộng
+Dialogue: 0,0:01:45.42,0:01:48.75,Genshin Impact,,0,0,0,,Nhưng nó vẫn luôn ở đó, ngày này qua ngày khác
+Dialogue: 0,0:01:58.85,0:02:00.27,Genshin Impact,,0,0,0,,Thúc đẩy tôi đột phá giới hạn
+Dialogue: 0,0:02:04.56,0:02:05.86,Genshin Impact,,0,0,0,,Và rèn luyện thanh kiếm của mình
+Dialogue: 0,0:02:12.61,0:02:16.59,Genshin Impact,,0,0,0,,Đó là trận đấu đầu tiên với anh trai mà tôi chiến thắng
+Dialogue: 0,0:02:20.38,0:02:27.04,Genshin Impact,,0,0,0,,Đó cũng là thời điểm Shirasagi Himegimi được sinh ra
+Dialogue: 0,0:02:34.05,0:02:36.35,Genshin Impact,,0,0,0,,Đang ngẩn ngơ gì vậy, Ayaka
+Dialogue: 0,0:02:38.34,0:02:41.15,Genshin Impact,,0,0,0,,Bắt đầu bắn pháo hoa rồi, mọi người đều đang đợi em
+Dialogue: 0,0:02:43.20,0:02:46.59,Genshin Impact,,0,0,0,,Ban đầu chính em là người muốn tiếp quản việc này nhỉ?
+Dialogue: 0,0:02:46.82,0:02:49.39,Genshin Impact,,0,0,0,,Haha, xin lỗi anh, Ayato
+Dialogue: 0,0:02:57.02,0:02:58.27,Genshin Impact,,0,0,0,,Cầu nguyện với Lôi Thần
+Dialogue: 0,0:02:59.42,0:03:02.42,Genshin Impact,,0,0,0,,Cầu mong cho tất cả những giấc mơ của chúng ta trường tồn mãi mãi
+Dialogue: 0,0:03:04.13,0:03:05.73,Genshin Impact,,0,0,0,,Hỡi người dân trên Đảo Narukami
+Dialogue: 0,0:03:06.45,0:03:09.14,Genshin Impact,,0,0,0,,Lễ hội chính thức được bắt đầu!

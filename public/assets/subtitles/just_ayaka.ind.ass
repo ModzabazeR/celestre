@@ -25,31 +25,31 @@ Style: Genshin Impact,SDK_SC_Web,60,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:02.02,0:00:05.81,Genshin Impact,,0000,0000,0000,,Masa depan Klan Kamisato, dan tanggung jawab Yashiro Commission ....
-Dialogue: 0,0:00:07.58,0:00:10.61,Genshin Impact,,0000,0000,0000,,Kakakku tidak seharusnya menanggung beban ini sendirian.
-Dialogue: 0,0:00:21.31,0:00:25.62,Genshin Impact,,0000,0000,0000,,Kepercayaan inilah yang membawaku pada duel ini.
-Dialogue: 0,0:00:31.02,0:00:31.73,Genshin Impact,,0000,0000,0000,,"Skak!"
-Dialogue: 0,0:00:35.42,0:00:37.55,Genshin Impact,,0000,0000,0000,,Saat musim bunga Tsubaki mekar,
-Dialogue: 0,0:00:38.14,0:00:41.14,Genshin Impact,,0000,0000,0000,,aku selalu bermimpi hal yang sama.
-Dialogue: 0,0:00:44.00,0:00:46.94,Genshin Impact,,0000,0000,0000,,Ibuku berada di sisiku
-Dialogue: 0,0:00:48.11,0:00:49.76,Genshin Impact,,0000,0000,0000,,dan aku merasa damai ....
-Dialogue: 0,0:00:53.22,0:00:55.04,Genshin Impact,,0000,0000,0000,,Mungkin pada suatu tempat di dalam lubuk hatiku,
-Dialogue: 0,0:00:55.98,0:01:01.68,Genshin Impact,,0000,0000,0000,,hari-hari waktu bersantai bersama keluarga belum berakhir untukku.
-Dialogue: 0,0:01:09.76,0:01:11.52,Genshin Impact,,0000,0000,0000,,Tapi sama seperti bunga yang akan layu,
-Dialogue: 0,0:01:14.14,0:01:15.90,Genshin Impact,,0000,0000,0000,,aku juga harus bangun dari mimpiku.
-Dialogue: 0,0:01:28.32,0:01:30.05,Genshin Impact,,0000,0000,0000,,Kamisato Art Tachi Jutsu ....
-Dialogue: 0,0:01:30.56,0:01:34.99,Genshin Impact,,0000,0000,0000,,Tenang bagaikan embun pagi, cepat bagaikan petir ....
-Dialogue: 0,0:01:40.90,0:01:45.55,Genshin Impact,,0000,0000,0000,,Sesuatu bergejolak dalam diriku, mungkin sebuah gema dari mimpi yang indah.
-Dialogue: 0,0:01:47.02,0:01:50.35,Genshin Impact,,0000,0000,0000,,Tapi gejolak itu selalu ada, hari demi hari ....
-Dialogue: 0,0:02:00.45,0:02:01.87,Genshin Impact,,0000,0000,0000,,Mendorongku untuk menguasai
-Dialogue: 0,0:02:06.16,0:02:07.46,Genshin Impact,,0000,0000,0000,,dan menempa pedangku.
-Dialogue: 0,0:02:14.21,0:02:18.19,Genshin Impact,,0000,0000,0000,,Itu adalah pertama kalinya aku mengalahkan Kakak dalam duel.
-Dialogue: 0,0:02:21.98,0:02:28.64,Genshin Impact,,0000,0000,0000,,Itu juga momen lahirnya sang Shirasagi Himegimi.
-Dialogue: 0,0:02:35.65,0:02:37.95,Genshin Impact,,0000,0000,0000,,Ayaka, pertunjukannya sudah mau mulai.
-Dialogue: 0,0:02:39.94,0:02:42.75,Genshin Impact,,0000,0000,0000,,Kembang apinya sudah mulai, semuanya juga sedang menunggumu.
-Dialogue: 0,0:02:44.80,0:02:48.19,Genshin Impact,,0000,0000,0000,,Kalau aku tidak salah ingat, kamu yang mau urus semua ini, 'kan?
-Dialogue: 0,0:02:48.42,0:02:50.99,Genshin Impact,,0000,0000,0000,,Ah, maaf, Ayato.
-Dialogue: 0,0:02:58.62,0:02:59.87,Genshin Impact,,0000,0000,0000,,Kami berdoa pada dewa kami,
-Dialogue: 0,0:03:01.02,0:03:04.02,Genshin Impact,,0000,0000,0000,,Semoga semua mimpi kami bertahan selamanya.
-Dialogue: 0,0:03:05.73,0:03:07.33,Genshin Impact,,0000,0000,0000,,Pulau Narukami,
-Dialogue: 0,0:03:08.05,0:03:10.74,Genshin Impact,,0000,0000,0000,,ayo kita mulai festivalnya!
+Dialogue: 0,0:00:00.42,0:00:04.21,Genshin Impact,,0,0,0,,Masa depan Klan Kamisato, dan tanggung jawab Yashiro Commission ....
+Dialogue: 0,0:00:05.98,0:00:09.01,Genshin Impact,,0,0,0,,Kakakku tidak seharusnya menanggung beban ini sendirian.
+Dialogue: 0,0:00:19.71,0:00:24.02,Genshin Impact,,0,0,0,,Kepercayaan inilah yang membawaku pada duel ini.
+Dialogue: 0,0:00:29.42,0:00:30.13,Genshin Impact,,0,0,0,,"Skak!"
+Dialogue: 0,0:00:33.82,0:00:35.95,Genshin Impact,,0,0,0,,Saat musim bunga Tsubaki mekar,
+Dialogue: 0,0:00:36.54,0:00:39.54,Genshin Impact,,0,0,0,,aku selalu bermimpi hal yang sama.
+Dialogue: 0,0:00:42.40,0:00:45.34,Genshin Impact,,0,0,0,,Ibuku berada di sisiku
+Dialogue: 0,0:00:46.51,0:00:48.16,Genshin Impact,,0,0,0,,dan aku merasa damai ....
+Dialogue: 0,0:00:51.62,0:00:53.44,Genshin Impact,,0,0,0,,Mungkin pada suatu tempat di dalam lubuk hatiku,
+Dialogue: 0,0:00:54.38,0:01:00.08,Genshin Impact,,0,0,0,,hari-hari waktu bersantai bersama keluarga belum berakhir untukku.
+Dialogue: 0,0:01:08.16,0:01:09.92,Genshin Impact,,0,0,0,,Tapi sama seperti bunga yang akan layu,
+Dialogue: 0,0:01:12.54,0:01:14.30,Genshin Impact,,0,0,0,,aku juga harus bangun dari mimpiku.
+Dialogue: 0,0:01:26.72,0:01:28.45,Genshin Impact,,0,0,0,,Kamisato Art Tachi Jutsu ....
+Dialogue: 0,0:01:28.96,0:01:33.39,Genshin Impact,,0,0,0,,Tenang bagaikan embun pagi, cepat bagaikan petir ....
+Dialogue: 0,0:01:39.30,0:01:43.95,Genshin Impact,,0,0,0,,Sesuatu bergejolak dalam diriku, mungkin sebuah gema dari mimpi yang indah.
+Dialogue: 0,0:01:45.42,0:01:48.75,Genshin Impact,,0,0,0,,Tapi gejolak itu selalu ada, hari demi hari ....
+Dialogue: 0,0:01:58.85,0:02:00.27,Genshin Impact,,0,0,0,,Mendorongku untuk menguasai
+Dialogue: 0,0:02:04.56,0:02:05.86,Genshin Impact,,0,0,0,,dan menempa pedangku.
+Dialogue: 0,0:02:12.61,0:02:16.59,Genshin Impact,,0,0,0,,Itu adalah pertama kalinya aku mengalahkan Kakak dalam duel.
+Dialogue: 0,0:02:20.38,0:02:27.04,Genshin Impact,,0,0,0,,Itu juga momen lahirnya sang Shirasagi Himegimi.
+Dialogue: 0,0:02:34.05,0:02:36.35,Genshin Impact,,0,0,0,,Ayaka, pertunjukannya sudah mau mulai.
+Dialogue: 0,0:02:38.34,0:02:41.15,Genshin Impact,,0,0,0,,Kembang apinya sudah mulai, semuanya juga sedang menunggumu.
+Dialogue: 0,0:02:43.20,0:02:46.59,Genshin Impact,,0,0,0,,Kalau aku tidak salah ingat, kamu yang mau urus semua ini, 'kan?
+Dialogue: 0,0:02:46.82,0:02:49.39,Genshin Impact,,0,0,0,,Ah, maaf, Ayato.
+Dialogue: 0,0:02:57.02,0:02:58.27,Genshin Impact,,0,0,0,,Kami berdoa pada dewa kami,
+Dialogue: 0,0:02:59.42,0:03:02.42,Genshin Impact,,0,0,0,,Semoga semua mimpi kami bertahan selamanya.
+Dialogue: 0,0:03:04.13,0:03:05.73,Genshin Impact,,0,0,0,,Pulau Narukami,
+Dialogue: 0,0:03:06.45,0:03:09.14,Genshin Impact,,0,0,0,,ayo kita mulai festivalnya!

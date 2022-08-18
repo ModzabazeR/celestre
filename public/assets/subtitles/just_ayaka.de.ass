@@ -25,31 +25,31 @@ Style: Genshin Impact,SDK_SC_Web,60,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:02.02,0:00:05.81,Genshin Impact,,0000,0000,0000,,Die Zukunft des Kamisato-Klans, die Pflichten der Yashiro-Verwaltung ...
-Dialogue: 0,0:00:07.58,0:00:10.61,Genshin Impact,,0000,0000,0000,,Mein Bruder sollte nicht allein diese Last tragen müssen.
-Dialogue: 0,0:00:21.31,0:00:25.62,Genshin Impact,,0000,0000,0000,,Aus diesen Beweggründen kommt es nun zum Duell.
-Dialogue: 0,0:00:31.02,0:00:31.73,Genshin Impact,,0000,0000,0000,,„Schach!“
-Dialogue: 0,0:00:35.42,0:00:37.55,Genshin Impact,,0000,0000,0000,,Wenn die Kamelien blühen,
-Dialogue: 0,0:00:38.14,0:00:41.14,Genshin Impact,,0000,0000,0000,,habe ich immer denselben Traum.
-Dialogue: 0,0:00:44.00,0:00:46.94,Genshin Impact,,0000,0000,0000,,Im Traum bin ich bei Mutter
-Dialogue: 0,0:00:48.11,0:00:49.76,Genshin Impact,,0000,0000,0000,,und fühle mich geborgen ...
-Dialogue: 0,0:00:53.22,0:00:55.04,Genshin Impact,,0000,0000,0000,,Vielleicht leben tief in mir jene Tage der Gelassenheit
-Dialogue: 0,0:00:55.98,0:01:01.68,Genshin Impact,,0000,0000,0000,,und des frohen Beieinanderseins noch weiter.
-Dialogue: 0,0:01:09.76,0:01:11.52,Genshin Impact,,0000,0000,0000,,Aber so, wie Blumen verwittern,
-Dialogue: 0,0:01:14.14,0:01:15.90,Genshin Impact,,0000,0000,0000,,muss auch ich von diesem Traum erwachen.
-Dialogue: 0,0:01:28.32,0:01:30.05,Genshin Impact,,0000,0000,0000,,Die Schwertkunst im Kamisato-Stil ...
-Dialogue: 0,0:01:30.56,0:01:34.99,Genshin Impact,,0000,0000,0000,,Richtig und Falsch koexistieren, so wie Morgentau und Blitz ...
-Dialogue: 0,0:01:40.90,0:01:45.55,Genshin Impact,,0000,0000,0000,,Etwas in mir regt sich, womöglich nur die nachklingende Zärtlichkeit jenes Traumes,
-Dialogue: 0,0:01:47.02,0:01:50.35,Genshin Impact,,0000,0000,0000,,doch es bleibt fortbestehen, Tag für Tag,
-Dialogue: 0,0:02:00.45,0:02:01.87,Genshin Impact,,0000,0000,0000,,und treibt mich dazu an,
-Dialogue: 0,0:02:06.16,0:02:07.46,Genshin Impact,,0000,0000,0000,,meine Klinge zu schmieden.
-Dialogue: 0,0:02:14.21,0:02:18.19,Genshin Impact,,0000,0000,0000,,Das war das erste Mal, dass ich meinen Bruder im Duell besiegte.
-Dialogue: 0,0:02:21.98,0:02:28.64,Genshin Impact,,0000,0000,0000,,Auch war es die Geburtsstunde der Shirasagi Himegimi.
-Dialogue: 0,0:02:35.65,0:02:37.95,Genshin Impact,,0000,0000,0000,,Es ist höchste Zeit, Ayaka.
-Dialogue: 0,0:02:39.94,0:02:42.75,Genshin Impact,,0000,0000,0000,,Das Feuerwerk hat begonnen und alle warten auf dich.
-Dialogue: 0,0:02:44.80,0:02:48.19,Genshin Impact,,0000,0000,0000,,Du warst es doch, die sich damals gewünscht hat, sich um diese Angelegenheiten zu kümmern, nicht?
-Dialogue: 0,0:02:48.42,0:02:50.99,Genshin Impact,,0000,0000,0000,,Haha, tut mir leid, Ayato.
-Dialogue: 0,0:02:58.62,0:02:59.87,Genshin Impact,,0000,0000,0000,,Elektro-Archon, wir beten dich an:
-Dialogue: 0,0:03:01.02,0:03:04.02,Genshin Impact,,0000,0000,0000,,Dass alle Träume dieser Welt auf ewig bestehen bleiben.
-Dialogue: 0,0:03:05.73,0:03:07.33,Genshin Impact,,0000,0000,0000,,Volk von Narukami,
-Dialogue: 0,0:03:08.05,0:03:10.74,Genshin Impact,,0000,0000,0000,,möge dieses Fest beginnen!
+Dialogue: 0,0:00:00.42,0:00:04.21,Genshin Impact,,0,0,0,,Die Zukunft des Kamisato-Klans, die Pflichten der Yashiro-Verwaltung ...
+Dialogue: 0,0:00:05.98,0:00:09.01,Genshin Impact,,0,0,0,,Mein Bruder sollte nicht allein diese Last tragen müssen.
+Dialogue: 0,0:00:19.71,0:00:24.02,Genshin Impact,,0,0,0,,Aus diesen Beweggründen kommt es nun zum Duell.
+Dialogue: 0,0:00:29.42,0:00:30.13,Genshin Impact,,0,0,0,,„Schach!“
+Dialogue: 0,0:00:33.82,0:00:35.95,Genshin Impact,,0,0,0,,Wenn die Kamelien blühen,
+Dialogue: 0,0:00:36.54,0:00:39.54,Genshin Impact,,0,0,0,,habe ich immer denselben Traum.
+Dialogue: 0,0:00:42.40,0:00:45.34,Genshin Impact,,0,0,0,,Im Traum bin ich bei Mutter
+Dialogue: 0,0:00:46.51,0:00:48.16,Genshin Impact,,0,0,0,,und fühle mich geborgen ...
+Dialogue: 0,0:00:51.62,0:00:53.44,Genshin Impact,,0,0,0,,Vielleicht leben tief in mir jene Tage der Gelassenheit
+Dialogue: 0,0:00:54.38,0:01:00.08,Genshin Impact,,0,0,0,,und des frohen Beieinanderseins noch weiter.
+Dialogue: 0,0:01:08.16,0:01:09.92,Genshin Impact,,0,0,0,,Aber so, wie Blumen verwittern,
+Dialogue: 0,0:01:12.54,0:01:14.30,Genshin Impact,,0,0,0,,muss auch ich von diesem Traum erwachen.
+Dialogue: 0,0:01:26.72,0:01:28.45,Genshin Impact,,0,0,0,,Die Schwertkunst im Kamisato-Stil ...
+Dialogue: 0,0:01:28.96,0:01:33.39,Genshin Impact,,0,0,0,,Richtig und Falsch koexistieren, so wie Morgentau und Blitz ...
+Dialogue: 0,0:01:39.30,0:01:43.95,Genshin Impact,,0,0,0,,Etwas in mir regt sich, womöglich nur die nachklingende Zärtlichkeit jenes Traumes,
+Dialogue: 0,0:01:45.42,0:01:48.75,Genshin Impact,,0,0,0,,doch es bleibt fortbestehen, Tag für Tag,
+Dialogue: 0,0:01:58.85,0:02:00.27,Genshin Impact,,0,0,0,,und treibt mich dazu an,
+Dialogue: 0,0:02:04.56,0:02:05.86,Genshin Impact,,0,0,0,,meine Klinge zu schmieden.
+Dialogue: 0,0:02:12.61,0:02:16.59,Genshin Impact,,0,0,0,,Das war das erste Mal, dass ich meinen Bruder im Duell besiegte.
+Dialogue: 0,0:02:20.38,0:02:27.04,Genshin Impact,,0,0,0,,Auch war es die Geburtsstunde der Shirasagi Himegimi.
+Dialogue: 0,0:02:34.05,0:02:36.35,Genshin Impact,,0,0,0,,Es ist höchste Zeit, Ayaka.
+Dialogue: 0,0:02:38.34,0:02:41.15,Genshin Impact,,0,0,0,,Das Feuerwerk hat begonnen und alle warten auf dich.
+Dialogue: 0,0:02:43.20,0:02:46.59,Genshin Impact,,0,0,0,,Du warst es doch, die sich damals gewünscht hat, sich um diese Angelegenheiten zu kümmern, nicht?
+Dialogue: 0,0:02:46.82,0:02:49.39,Genshin Impact,,0,0,0,,Haha, tut mir leid, Ayato.
+Dialogue: 0,0:02:57.02,0:02:58.27,Genshin Impact,,0,0,0,,Elektro-Archon, wir beten dich an:
+Dialogue: 0,0:02:59.42,0:03:02.42,Genshin Impact,,0,0,0,,Dass alle Träume dieser Welt auf ewig bestehen bleiben.
+Dialogue: 0,0:03:04.13,0:03:05.73,Genshin Impact,,0,0,0,,Volk von Narukami,
+Dialogue: 0,0:03:06.45,0:03:09.14,Genshin Impact,,0,0,0,,möge dieses Fest beginnen!

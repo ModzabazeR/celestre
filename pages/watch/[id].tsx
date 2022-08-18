@@ -11,8 +11,6 @@ import { FaHome } from "react-icons/fa";
 import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
-import { isSafari, isMobileSafari } from "react-device-detect";
-import { useEffect } from "react";
 import loc from "../../locales/locales";
 // import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
