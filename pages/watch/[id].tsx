@@ -49,12 +49,6 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     const webmVideo = webm.filter(format => format.mimeType.includes("video"));
     console.log(webmVideo[0].url);
 
-    useEffect(() => {
-        if (isSafari || isMobileSafari) {
-            alert("Celestre work best on Chrome.")
-        }
-    }, [])
-
     return (
         <div className={"flex flex-col items-center justify-center " + t.code}>
             <Head>

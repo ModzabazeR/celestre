@@ -211,7 +211,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                             const error = (e.target as HTMLVideoElement).error
                             console.log(e)
                             if (error!.code === 4) {
-                                alert(`Video Error: Code ${error!.code} - Try reloading the page or try again later.`)
+                                alert(`Video Error: Code ${error!.code} - Try reloading the page or try again later. (may not work on Apple devices.)`)
                             }
                         }}
                         onDoubleClick={toggleFullScreen}
