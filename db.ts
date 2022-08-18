@@ -222,7 +222,20 @@ export const db: dbData = [
         duration: "03:11",
         thumbnail: "https://i.ytimg.com/vi/rAlymhPyKhQ/maxresdefault.jpg",
         uploadDate: "2022-04-18",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/just_ayaka.zhs.ass`,
+            zht: `${subtitlePath}/just_ayaka.zht.ass`,
+            en: `${subtitlePath}/just_ayaka.en.ass`,
+            kor: `${subtitlePath}/just_ayaka.kor.ass`,
+            es: `${subtitlePath}/just_ayaka.es.ass`,
+            fr: `${subtitlePath}/just_ayaka.fr.ass`,
+            ru: `${subtitlePath}/just_ayaka.ru.ass`,
+            th: `${subtitlePath}/just_ayaka.th.ass`,
+            vi: `${subtitlePath}/just_ayaka.vi.ass`,
+            de: `${subtitlePath}/just_ayaka.de.ass`,
+            ind: `${subtitlePath}/just_ayaka.ind.ass`,
+            pt: `${subtitlePath}/just_ayaka.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "v_QkcrKZ-Wc",
@@ -237,6 +250,10 @@ export const db: dbData = [
             kor: {
                 url: "fMyuzvUQNMg",
             },
+            th: {
+                url: "wiHVUAturyw",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayaka", "kamisato ayato", "inazuma"]
     },
@@ -246,7 +263,20 @@ export const db: dbData = [
         duration: "01:56",
         thumbnail: "https://i.ytimg.com/vi/s3ok84NeMdU/maxresdefault.jpg",
         uploadDate: "2022-03-24",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/ayato_teaser.zhs.ass`,
+            zht: `${subtitlePath}/ayato_teaser.zht.ass`,
+            en: `${subtitlePath}/ayato_teaser.en.ass`,
+            kor: `${subtitlePath}/ayato_teaser.kor.ass`,
+            es: `${subtitlePath}/ayato_teaser.es.ass`,
+            fr: `${subtitlePath}/ayato_teaser.fr.ass`,
+            ru: `${subtitlePath}/ayato_teaser.ru.ass`,
+            th: `${subtitlePath}/ayato_teaser.th.ass`,
+            vi: `${subtitlePath}/ayato_teaser.vi.ass`,
+            de: `${subtitlePath}/ayato_teaser.de.ass`,
+            ind: `${subtitlePath}/ayato_teaser.ind.ass`,
+            pt: `${subtitlePath}/ayato_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "TsVw551Gbwc",
@@ -259,7 +289,11 @@ export const db: dbData = [
             },
             kor: {
                 url: "qo_djskMb9s",
-            }
+            },
+            th: {
+                url: "MLJY4flzc3A",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayato", "kamisato ayaka", "thoma", "inazuma"]
     },
@@ -479,7 +513,20 @@ export const db: dbData = [
         duration: "02:09",
         thumbnail: "https://i.ytimg.com/vi/fFHfbH8UrFE/maxresdefault.jpg",
         uploadDate: "2021-05-11",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/eula_teaser.zhs.ass`,
+            zht: `${subtitlePath}/eula_teaser.zht.ass`,
+            en: `${subtitlePath}/eula_teaser.en.ass`,
+            kor: `${subtitlePath}/eula_teaser.kor.ass`,
+            es: `${subtitlePath}/eula_teaser.es.ass`,
+            fr: `${subtitlePath}/eula_teaser.fr.ass`,
+            ru: `${subtitlePath}/eula_teaser.ru.ass`,
+            th: `${subtitlePath}/eula_teaser.th.ass`,
+            vi: `${subtitlePath}/eula_teaser.vi.ass`,
+            de: `${subtitlePath}/eula_teaser.de.ass`,
+            ind: `${subtitlePath}/eula_teaser.ind.ass`,
+            pt: `${subtitlePath}/eula_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "fFHfbH8UrFE",
@@ -489,7 +536,11 @@ export const db: dbData = [
             },
             kor: {
                 url: "xUNVdIC_IDE",
-            }
+            },
+            th: {
+                url: "LyZ-vPZ-aOo",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "eula", "modstadt"]
     },
@@ -499,7 +550,20 @@ export const db: dbData = [
         duration: "01:47",
         thumbnail: "https://i.ytimg.com/vi/ST5v7-C3iDk/maxresdefault.jpg",
         uploadDate: "2021-06-23",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/kazuha_teaser.zhs.ass`,
+            zht: `${subtitlePath}/kazuha_teaser.zht.ass`,
+            en: `${subtitlePath}/kazuha_teaser.en.ass`,
+            kor: `${subtitlePath}/kazuha_teaser.kor.ass`,
+            es: `${subtitlePath}/kazuha_teaser.es.ass`,
+            fr: `${subtitlePath}/kazuha_teaser.fr.ass`,
+            ru: `${subtitlePath}/kazuha_teaser.ru.ass`,
+            th: `${subtitlePath}/kazuha_teaser.th.ass`,
+            vi: `${subtitlePath}/kazuha_teaser.vi.ass`,
+            de: `${subtitlePath}/kazuha_teaser.de.ass`,
+            ind: `${subtitlePath}/kazuha_teaser.ind.ass`,
+            pt: `${subtitlePath}/kazuha_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "ST5v7-C3iDk",
@@ -509,6 +573,10 @@ export const db: dbData = [
             },
             kor: {
                 url: "UO5GFQcF2JM",
+            },
+            th: {
+                url: "qOL5Pde8Ujg",
+                timeshift: 4.5
             }
         },
         tags: ["character teaser", "kaedehara kazuha", "inazuma"]
@@ -519,7 +587,20 @@ export const db: dbData = [
         duration: "01:50",
         thumbnail: "https://i.ytimg.com/vi/vsCO7C416bs/maxresdefault.jpg",
         uploadDate: "2021-07-15",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/ayaka_teaser.zhs.ass`,
+            zht: `${subtitlePath}/ayaka_teaser.zht.ass`,
+            en: `${subtitlePath}/ayaka_teaser.en.ass`,
+            kor: `${subtitlePath}/ayaka_teaser.kor.ass`,
+            es: `${subtitlePath}/ayaka_teaser.es.ass`,
+            fr: `${subtitlePath}/ayaka_teaser.fr.ass`,
+            ru: `${subtitlePath}/ayaka_teaser.ru.ass`,
+            th: `${subtitlePath}/ayaka_teaser.th.ass`,
+            vi: `${subtitlePath}/ayaka_teaser.vi.ass`,
+            de: `${subtitlePath}/ayaka_teaser.de.ass`,
+            ind: `${subtitlePath}/ayaka_teaser.ind.ass`,
+            pt: `${subtitlePath}/ayaka_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "vsCO7C416bs",
@@ -529,7 +610,11 @@ export const db: dbData = [
             },
             kor: {
                 url: "00m2V1jGNLE",
-            }
+            },
+            th: {
+                url: "fYwymyCUKdc",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayaka", "inazuma"]
     },
@@ -539,7 +624,20 @@ export const db: dbData = [
         duration: "01:15",
         thumbnail: "https://i.ytimg.com/vi/AtqToYEE5r4/maxresdefault.jpg",
         uploadDate: "2021-08-04",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/yoimiya_teaser.zhs.ass`,
+            zht: `${subtitlePath}/yoimiya_teaser.zht.ass`,
+            en: `${subtitlePath}/yoimiya_teaser.en.ass`,
+            kor: `${subtitlePath}/yoimiya_teaser.kor.ass`,
+            es: `${subtitlePath}/yoimiya_teaser.es.ass`,
+            fr: `${subtitlePath}/yoimiya_teaser.fr.ass`,
+            ru: `${subtitlePath}/yoimiya_teaser.ru.ass`,
+            th: `${subtitlePath}/yoimiya_teaser.th.ass`,
+            vi: `${subtitlePath}/yoimiya_teaser.vi.ass`,
+            de: `${subtitlePath}/yoimiya_teaser.de.ass`,
+            ind: `${subtitlePath}/yoimiya_teaser.ind.ass`,
+            pt: `${subtitlePath}/yoimiya_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "AtqToYEE5r4",
@@ -549,7 +647,11 @@ export const db: dbData = [
             },
             kor: {
                 url: "5gl9aE4_al4",
-            }
+            },
+            th: {
+                url: "zpF3GhKhqvs",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "yoimiya", "inazuma"]
     },
@@ -559,7 +661,20 @@ export const db: dbData = [
         duration: "01:40",
         thumbnail: "https://i.ytimg.com/vi/ydPqFAEgHzs/maxresdefault.jpg",
         uploadDate: "2021-08-26",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/raiden_teaser.zhs.ass`,
+            zht: `${subtitlePath}/raiden_teaser.zht.ass`,
+            en: `${subtitlePath}/raiden_teaser.en.ass`,
+            kor: `${subtitlePath}/raiden_teaser.kor.ass`,
+            es: `${subtitlePath}/raiden_teaser.es.ass`,
+            fr: `${subtitlePath}/raiden_teaser.fr.ass`,
+            ru: `${subtitlePath}/raiden_teaser.ru.ass`,
+            th: `${subtitlePath}/raiden_teaser.th.ass`,
+            vi: `${subtitlePath}/raiden_teaser.vi.ass`,
+            de: `${subtitlePath}/raiden_teaser.de.ass`,
+            ind: `${subtitlePath}/raiden_teaser.ind.ass`,
+            pt: `${subtitlePath}/raiden_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "HoqLRiXIpqA",
@@ -582,7 +697,20 @@ export const db: dbData = [
         duration: "01:45",
         thumbnail: "https://i.ytimg.com/vi/OizK-VT4aj8/maxresdefault.jpg",
         uploadDate: "2021-09-15",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/kokomi.zhs.ass`,
+            zht: `${subtitlePath}/kokomi.zht.ass`,
+            en: `${subtitlePath}/kokomi.en.ass`,
+            kor: `${subtitlePath}/kokomi.kor.ass`,
+            es: `${subtitlePath}/kokomi.es.ass`,
+            fr: `${subtitlePath}/kokomi.fr.ass`,
+            ru: `${subtitlePath}/kokomi.ru.ass`,
+            th: `${subtitlePath}/kokomi.th.ass`,
+            vi: `${subtitlePath}/kokomi.vi.ass`,
+            de: `${subtitlePath}/kokomi.de.ass`,
+            ind: `${subtitlePath}/kokomi.ind.ass`,
+            pt: `${subtitlePath}/kokomi.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "t4CzTi7tUEM",
@@ -596,6 +724,10 @@ export const db: dbData = [
             kor: {
                 url: "GFMamsMLcSs",
             },
+            th: {
+                url: "KxJEsML-d4k",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "sangonomiya kokomi", "inazuma"]
     },
@@ -605,7 +737,20 @@ export const db: dbData = [
         duration: "01:25",
         thumbnail: "https://i.ytimg.com/vi/KGjnRThxe7k/maxresdefault.jpg",
         uploadDate: "2021-12-08",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/itto_teaser.zhs.ass`,
+            zht: `${subtitlePath}/itto_teaser.zht.ass`,
+            en: `${subtitlePath}/itto_teaser.en.ass`,
+            kor: `${subtitlePath}/itto_teaser.kor.ass`,
+            es: `${subtitlePath}/itto_teaser.es.ass`,
+            fr: `${subtitlePath}/itto_teaser.fr.ass`,
+            ru: `${subtitlePath}/itto_teaser.ru.ass`,
+            th: `${subtitlePath}/itto_teaser.th.ass`,
+            vi: `${subtitlePath}/itto_teaser.vi.ass`,
+            de: `${subtitlePath}/itto_teaser.de.ass`,
+            ind: `${subtitlePath}/itto_teaser.ind.ass`,
+            pt: `${subtitlePath}/itto_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "iu096jrwfiI",
@@ -619,6 +764,10 @@ export const db: dbData = [
             kor: {
                 url: "tStKxMH1ZTQ",
             },
+            th: {
+                url: "YYuO0ZEjHSQ",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "arataki itto", "inazuma"]
     },
@@ -628,7 +777,20 @@ export const db: dbData = [
         duration: "01:38",
         thumbnail: "https://i.ytimg.com/vi/jvGnekdMOhI/maxresdefault.jpg",
         uploadDate: "2021-12-30",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/shenhe_teaser.zhs.ass`,
+            zht: `${subtitlePath}/shenhe_teaser.zht.ass`,
+            en: `${subtitlePath}/shenhe_teaser.en.ass`,
+            kor: `${subtitlePath}/shenhe_teaser.kor.ass`,
+            es: `${subtitlePath}/shenhe_teaser.es.ass`,
+            fr: `${subtitlePath}/shenhe_teaser.fr.ass`,
+            ru: `${subtitlePath}/shenhe_teaser.ru.ass`,
+            th: `${subtitlePath}/shenhe_teaser.th.ass`,
+            vi: `${subtitlePath}/shenhe_teaser.vi.ass`,
+            de: `${subtitlePath}/shenhe_teaser.de.ass`,
+            ind: `${subtitlePath}/shenhe_teaser.ind.ass`,
+            pt: `${subtitlePath}/shenhe_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "9HcXakmKusw",
@@ -651,7 +813,20 @@ export const db: dbData = [
         duration: "01:46",
         thumbnail: "https://i.ytimg.com/vi/tV2QOX9fXEE/maxresdefault.jpg",
         uploadDate: "2022-02-10",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/yae_teaser.zhs.ass`,
+            zht: `${subtitlePath}/yae_teaser.zht.ass`,
+            en: `${subtitlePath}/yae_teaser.en.ass`,
+            kor: `${subtitlePath}/yae_teaser.kor.ass`,
+            es: `${subtitlePath}/yae_teaser.es.ass`,
+            fr: `${subtitlePath}/yae_teaser.fr.ass`,
+            ru: `${subtitlePath}/yae_teaser.ru.ass`,
+            th: `${subtitlePath}/yae_teaser.th.ass`,
+            vi: `${subtitlePath}/yae_teaser.vi.ass`,
+            de: `${subtitlePath}/yae_teaser.de.ass`,
+            ind: `${subtitlePath}/yae_teaser.ind.ass`,
+            pt: `${subtitlePath}/yae_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "jXTo3G7_310",
@@ -664,6 +839,10 @@ export const db: dbData = [
             },
             kor: {
                 url: "XwNXR-3Qak8",
+            },
+            th: {
+                url: "ELEaiA_wzGM",
+                timeshift: 4.5
             },
         },
         tags: ["character teaser", "yae miko", "inazuma"]
