@@ -2148,7 +2148,7 @@
   dependencies:
     "js-tokens" "^3.0.0 || ^4.0.0"
 
-"m3u8stream@^0.8.6":
+"m3u8stream@^0.8.4":
   "integrity" "sha512-LZj8kIVf9KCphiHmH7sbFQTVe4tOemb202fWwvJwR9W5ENW/1hxJN6ksAWGhQgSBSa3jyWhnjKU1Fw1GaOdbyA=="
   "resolved" "https://registry.npmjs.org/m3u8stream/-/m3u8stream-0.8.6.tgz"
   "version" "0.8.6"
@@ -2191,7 +2191,7 @@
   dependencies:
     "mime-db" "1.52.0"
 
-"miniget@^4.2.2":
+"miniget@^4.0.0", "miniget@^4.2.2":
   "integrity" "sha512-a7voNL1N5lDMxvTMExOkg+Fq89jM2vY8pAi9ZEWzZtfNmdfP6RXkvUtFnCAXoCv2T9k1v/fUJVaAEuepGcvLYA=="
   "resolved" "https://registry.npmjs.org/miniget/-/miniget-4.2.2.tgz"
   "version" "4.2.2"
@@ -2831,11 +2831,11 @@
   "resolved" "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
   "version" "1.10.2"
 
-"ytdl-core@^4.11.0":
-  "integrity" "sha512-Q3hCLiUA9AOGQXzPvno14GN+HgF9wsO1ZBHlj0COTcyxjIyFpWvMfii0UC4/cAbVaIjEdbWB71GdcGuc4J1Lmw=="
-  "resolved" "https://registry.npmjs.org/ytdl-core/-/ytdl-core-4.11.0.tgz"
-  "version" "4.11.0"
+"ytdl-core@^4.10.0":
+  "integrity" "sha512-RCCoSVTmMeBPH5NFR1fh3nkDU9okvWM0ZdN6plw6I5+vBBZVUEpOt8vjbSgprLRMmGUsmrQZJhvG1CHOat4mLA=="
+  "resolved" "https://registry.npmjs.org/ytdl-core/-/ytdl-core-4.10.0.tgz"
+  "version" "4.10.0"
   dependencies:
-    "m3u8stream" "^0.8.6"
-    "miniget" "^4.2.2"
+    "m3u8stream" "^0.8.4"
+    "miniget" "^4.0.0"
     "sax" "^1.1.3"

@@ -25,5 +25,5 @@ module.exports = withSvgr({
   i18n: {
     locales: ['en-US', 'th'],
     defaultLocale: 'en-US',
-  }
+  },
 })
