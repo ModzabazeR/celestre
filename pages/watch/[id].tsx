@@ -1,7 +1,7 @@
-import db from "../../db";
+import { db } from "../../db";
+import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next";
 import { VideoDetails, VideoFormat, relatedVideos, IIndexable } from "../../typings";
-import CustomVideoPlayer from "../../components/CustomVideoPlayer";
 import packer from "../../utils/packer";
 import Head from "next/head";
 import { NextRouter, useRouter } from "next/router";
@@ -11,6 +11,16 @@ import { FaHome } from "react-icons/fa";
 import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
+import loc from "../../locales/locales";
+// import HttpsProxyAgent from "https-proxy-agent/dist/agent";
+
+// const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
+// const agent = new HttpsProxyAgent(proxy);
+
+const CustomVideoPlayer = dynamic(() => import("../../components/CustomVideoPlayer"), {
+    ssr: false,
+    loading: () => <div>Loading...</div>
+})
 
 interface PostProps {
     videoDetails: VideoDetails;
@@ -29,6 +39,8 @@ const ytPrefix = "https://www.youtube.com/watch?v=";
 const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostProps) => {
     const router: NextRouter = useRouter();
     const { id } = router.query;
+    const { locale } = router;
+    const t = locale === "th" ? loc.th : loc.en;
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", title: "", duration: "", thumbnail: "", subtitleUrls: {}, audioUrls: {}, tags: [] };
     const webm = videoFormats.filter(format => format.mimeType.includes("webm"));
@@ -36,13 +48,22 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     console.log(webmVideo[0].url);
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className={"flex flex-col items-center justify-center " + t.code}>
             <Head>
-                <title>{db_data.title} - Genshin Web Player</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>{db_data.title} - Celestre</title>
+                <meta name="description" content={videoDetails.description} />
+                <meta property="og:title" content={`[All languages] ${db_data.title}`} />
+                <meta property="og:description" content={videoDetails.description} />
+                <meta property="og:image" content={db_data.thumbnail} />
+                <meta property="og:url" content={`https://celestre.vercel.app/${id}`} />
+                <meta property="og:type" content="video" />
+                <meta property="og:site_name" content="Celestre" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image:alt" content={`[All languages] ${db_data.title}`} />
             </Head>
             <main className="w-full max-w-screen-md relative grid justify-centers p-8">
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>
+                <p className="text-center game-font text-xs md:text-sm mb-4">{t.subtitleInfo}</p>
                 <CustomVideoPlayer
                     videoSrc={webmVideo}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
@@ -53,19 +74,19 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                 <div className="divide-x-2 divide-[#343746] my-8">
                     <button className="bg-[#1b1d2a] p-2 rounded-l-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base" onClick={router.reload}>
                         <FiRefreshCw className="inline mr-2" />
-                        <span>Reload</span>
+                        <span>{t.reload}</span>
                     </button>
                     <Link href="/">
                         <button className="bg-[#1b1d2a] p-2 rounded-r-md hover:bg-[#343746] transition-all w-1/2 text-sm lg:text-base">
                             <FaHome className="inline mr-2" />
-                            Back to Home
+                            {t.backToHome}
                         </button>
                     </Link>
                 </div>
                 
                 <div className="bg-[#1b1d2a] rounded-md p-4 divide-y divide-[#343746]">
                     <div className="pb-2">
-                        <h1 className="text-xl font-bold pb-2">Video Details</h1>
+                        <h1 className="text-xl font-bold pb-2">{t.videoDetails}</h1>
                         <div className="inline-flex flex-wrap">
                             {
                                 db_data.tags.map((tag: string, index: number) => (
@@ -107,7 +128,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
-    const video = await ytdl.getInfo(db_data.id);
+    const video = await ytdl.getInfo(db_data.id , {
+        // requestOptions: { agent },
+    });
     const videoFormats = video.formats;
     const relatedVideos = video.related_videos;
     const videoDetails = video.videoDetails;

@@ -1,15 +1,24 @@
 import Link from "next/link";
+import Router, { useRouter } from 'next/router'
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import Logo from "../images/logo.svg"
+import loc from "../locales/locales";
 
 const NavBar = () => {
+    const router = useRouter();
+    const { locale, asPath } = router;
+    const t = locale === "th" ? loc.th : loc.en;
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+    const isOnWatchPage = asPath.includes("/watch");
+
+    Router.events.on("routeChangeComplete", () => {
+        setIsNavExpanded(false);
+    })
 
     return (
-        <header className="bg-[#1b1d2a] sticky top-0 z-50">
+        <header className={"bg-[#1b1d2a] sticky top-0 z-50 " + t.code}>
             <div className="flex items-center h-16 gap-8 px-4 mx-auto sm:px-6 lg:px-8">
                 <Link href="/">
                     <a className="block text-teal-600">
@@ -20,51 +29,57 @@ const NavBar = () => {
 
                 <div className="flex items-center justify-end flex-1 md:justify-between">
                     <nav className={"md:block" + (!isNavExpanded ? " hidden" : "")} aria-labelledby="header-navigation">
-                        <h2 className="sr-only" id="header-navigation">Header navigation</h2>
+                        <h2 className="sr-only game-font" id="header-navigation">Header navigation</h2>
 
-                        <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-md w-full" : "")}>
-                            <Link href="/">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
-                                    <a className="text-white transition hover:text-white/75">
-                                        Home
-                                    </a>
-                                </li>
-                            </Link>
+                        <ul className={"flex items-center md:gap-6" + (isNavExpanded ? " flex-col absolute right-0 top-16 bg-[#1b1d2a] p-4 rounded-b-md w-full" : "")}>
 
-                            <Link href="/tags">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/">
                                     <a className="text-white transition hover:text-white/75">
-                                        Tags
+                                        {t.home}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
 
-                            <Link href="/about">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/tags">
                                     <a className="text-white transition hover:text-white/75">
-                                         About
+                                        {t.tags}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
 
-                            <Link href="/faq">
-                                <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/about">
                                     <a className="text-white transition hover:text-white/75">
-                                        FAQ
+                                        {t.about}
                                     </a>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
+
+                            <li className={isNavExpanded ? "w-full text-center hover:bg-[#343746] p-4 rounded-md" : "md:cursor-pointer"}>
+                                <Link href="/faq">
+                                    <a className="text-white transition hover:text-white/75">
+                                        {t.faq}
+                                    </a>
+                                </Link>
+                            </li>
+
                         </ul>
                     </nav>
 
                     <div className="flex items-center gap-4">
                         <div className="sm:gap-4 sm:flex">
-                            <Link href="https://github.com/ModzabazeR/genshin-web-player">
-                                <a className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base" target="_blank">
-                                    <FaGithub className="inline mr-1 md:mr-2" />
-                                    <span className="font-medium">GitHub</span>
-                                </a>
-                            </Link>
+                            <div className="flex items-center justify-center px-4 py-2 text-white bg-[#363f7e] hover:bg-[#657ef8] transition rounded-md text-sm md:text-base cursor-pointer" 
+                            onClick={
+                                isOnWatchPage ? () => {
+                                    alert(t.watchAlert);
+                                } :
+                                () => {
+                                router.push(asPath, asPath, { locale: t.code === "th" ? "en-US" : "th" })
+                            }}>
+                                <span className="font-medium uppercase">{t.code}</span>
+                            </div>
                         </div>
 
                         <button

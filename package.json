@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "fontfaceobserver": "^2.3.0",
+    "https-proxy-agent": "^5.0.1",
     "libass-wasm": "^4.0.0",
     "next": "latest",
     "next-svgr": "^0.0.2",
@@ -15,9 +15,10 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "ytdl-core": "^4.11.0"
+    "ytdl-core": "^4.10.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@types/fontfaceobserver": "^2.1.0",
     "@types/node": "17.0.4",
@@ -31,5 +32,8 @@
     "tailwindcss": "^3.0.7",
     "typescript": "4.5.4",
     "webpack": "^5.72.0"
+  },
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
   }
 }

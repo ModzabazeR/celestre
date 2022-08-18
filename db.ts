@@ -2,7 +2,7 @@ import { dbData } from "./typings"
 
 const subtitlePath = "/assets/subtitles";
 
-const db: dbData = [
+export const db: dbData = [
     {
         id: "TAlKhARUcoY",
         title: "Teyvat Chapter Storyline Preview: Travail｜Genshin Impact (Contains spoilers)",
@@ -71,7 +71,7 @@ const db: dbData = [
                 timeshift: 4.5
             },
         },
-        tags: ["character demo", "hutao", "qiqi", "liyue"]
+        tags: ["character demo", "hu tao", "qiqi", "liyue"]
     },
     {
         id: "SO__VQZirJ4",
@@ -172,6 +172,10 @@ const db: dbData = [
             kor: {
                 url: "ck8CBmeLjVQ",
             },
+            th: {
+                url: "pR47XXFz4A4",
+                timeshift: 4.5
+            }
         },
         tags: ["character demo", "zhongli", "liyue"]
     },
@@ -205,6 +209,10 @@ const db: dbData = [
             kor: {
                 url: "03OrtAv9nBc",
             },
+            th: {
+                url: "M1tI3Q1kfIg",
+                timeshift: 4.5
+            }
         },
         tags: ["character demo", "kaedehara kazuha", "inazuma"]
     },
@@ -214,7 +222,20 @@ const db: dbData = [
         duration: "03:11",
         thumbnail: "https://i.ytimg.com/vi/rAlymhPyKhQ/maxresdefault.jpg",
         uploadDate: "2022-04-18",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/just_ayaka.zhs.ass`,
+            zht: `${subtitlePath}/just_ayaka.zht.ass`,
+            en: `${subtitlePath}/just_ayaka.en.ass`,
+            kor: `${subtitlePath}/just_ayaka.kor.ass`,
+            es: `${subtitlePath}/just_ayaka.es.ass`,
+            fr: `${subtitlePath}/just_ayaka.fr.ass`,
+            ru: `${subtitlePath}/just_ayaka.ru.ass`,
+            th: `${subtitlePath}/just_ayaka.th.ass`,
+            vi: `${subtitlePath}/just_ayaka.vi.ass`,
+            de: `${subtitlePath}/just_ayaka.de.ass`,
+            ind: `${subtitlePath}/just_ayaka.ind.ass`,
+            pt: `${subtitlePath}/just_ayaka.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "v_QkcrKZ-Wc",
@@ -229,6 +250,10 @@ const db: dbData = [
             kor: {
                 url: "fMyuzvUQNMg",
             },
+            th: {
+                url: "wiHVUAturyw",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayaka", "kamisato ayato", "inazuma"]
     },
@@ -238,7 +263,20 @@ const db: dbData = [
         duration: "01:56",
         thumbnail: "https://i.ytimg.com/vi/s3ok84NeMdU/maxresdefault.jpg",
         uploadDate: "2022-03-24",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/ayato_teaser.zhs.ass`,
+            zht: `${subtitlePath}/ayato_teaser.zht.ass`,
+            en: `${subtitlePath}/ayato_teaser.en.ass`,
+            kor: `${subtitlePath}/ayato_teaser.kor.ass`,
+            es: `${subtitlePath}/ayato_teaser.es.ass`,
+            fr: `${subtitlePath}/ayato_teaser.fr.ass`,
+            ru: `${subtitlePath}/ayato_teaser.ru.ass`,
+            th: `${subtitlePath}/ayato_teaser.th.ass`,
+            vi: `${subtitlePath}/ayato_teaser.vi.ass`,
+            de: `${subtitlePath}/ayato_teaser.de.ass`,
+            ind: `${subtitlePath}/ayato_teaser.ind.ass`,
+            pt: `${subtitlePath}/ayato_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "TsVw551Gbwc",
@@ -251,7 +289,11 @@ const db: dbData = [
             },
             kor: {
                 url: "qo_djskMb9s",
-            }
+            },
+            th: {
+                url: "MLJY4flzc3A",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayato", "kamisato ayaka", "thoma", "inazuma"]
     },
@@ -261,7 +303,20 @@ const db: dbData = [
         duration: "01:20",
         thumbnail: "https://i.ytimg.com/vi/TFOeQuShLME/maxresdefault.jpg",
         uploadDate: "2020-10-21",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/klee_teaser.zhs.ass`,
+            zht: `${subtitlePath}/klee_teaser.zht.ass`,
+            en: `${subtitlePath}/klee_teaser.en.ass`,
+            kor: `${subtitlePath}/klee_teaser.kor.ass`,
+            es: `${subtitlePath}/klee_teaser.es.ass`,
+            fr: `${subtitlePath}/klee_teaser.fr.ass`,
+            ru: `${subtitlePath}/klee_teaser.ru.ass`,
+            th: `${subtitlePath}/klee_teaser.th.ass`,
+            vi: `${subtitlePath}/klee_teaser.vi.ass`,
+            de: `${subtitlePath}/klee_teaser.de.ass`,
+            ind: `${subtitlePath}/klee_teaser.ind.ass`,
+            pt: `${subtitlePath}/klee_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "TFOeQuShLME",
@@ -281,7 +336,20 @@ const db: dbData = [
         duration: "01:31",
         thumbnail: "https://i.ytimg.com/vi/ZF4KyX0ASnI/maxresdefault.jpg",
         uploadDate: "2020-11-05",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/childe_teaser.zhs.ass`,
+            zht: `${subtitlePath}/childe_teaser.zht.ass`,
+            en: `${subtitlePath}/childe_teaser.en.ass`,
+            kor: `${subtitlePath}/childe_teaser.kor.ass`,
+            es: `${subtitlePath}/childe_teaser.es.ass`,
+            fr: `${subtitlePath}/childe_teaser.fr.ass`,
+            ru: `${subtitlePath}/childe_teaser.ru.ass`,
+            th: `${subtitlePath}/childe_teaser.th.ass`,
+            vi: `${subtitlePath}/childe_teaser.vi.ass`,
+            de: `${subtitlePath}/childe_teaser.de.ass`,
+            ind: `${subtitlePath}/childe_teaser.ind.ass`,
+            pt: `${subtitlePath}/childe_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "ZF4KyX0ASnI",
@@ -291,7 +359,7 @@ const db: dbData = [
             },
             kor: {
                 url: "2eOhA0ofN7Y",
-            }
+            },
         },
         tags: ["character teaser", "childe", "liyue"]
     },
@@ -301,7 +369,20 @@ const db: dbData = [
         duration: "02:47",
         thumbnail: "https://i.ytimg.com/vi/CvCzYbVei04/maxresdefault.jpg",
         uploadDate: "2020-11-23",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/zhongli_teaser.zhs.ass`,
+            zht: `${subtitlePath}/zhongli_teaser.zht.ass`,
+            en: `${subtitlePath}/zhongli_teaser.en.ass`,
+            kor: `${subtitlePath}/zhongli_teaser.kor.ass`,
+            es: `${subtitlePath}/zhongli_teaser.es.ass`,
+            fr: `${subtitlePath}/zhongli_teaser.fr.ass`,
+            ru: `${subtitlePath}/zhongli_teaser.ru.ass`,
+            th: `${subtitlePath}/zhongli_teaser.th.ass`,
+            vi: `${subtitlePath}/zhongli_teaser.vi.ass`,
+            de: `${subtitlePath}/zhongli_teaser.de.ass`,
+            ind: `${subtitlePath}/zhongli_teaser.ind.ass`,
+            pt: `${subtitlePath}/zhongli_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "CvCzYbVei04",
@@ -312,6 +393,10 @@ const db: dbData = [
             kor: {
                 url: "PTDujeNdha4",
             },
+            th: {
+                url: "YiLwBjxKycU",
+                timeshift: 4.5
+            }
         },
         tags: ["character teaser", "zhongli", "liyue"]
     },
@@ -321,7 +406,20 @@ const db: dbData = [
         duration: "01:05",
         thumbnail: "https://i.ytimg.com/vi/ASO6t2zp_UI/maxresdefault.jpg",
         uploadDate: "2021-01-06",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/ganyu_teaser.zhs.ass`,
+            zht: `${subtitlePath}/ganyu_teaser.zht.ass`,
+            en: `${subtitlePath}/ganyu_teaser.en.ass`,
+            kor: `${subtitlePath}/ganyu_teaser.kor.ass`,
+            es: `${subtitlePath}/ganyu_teaser.es.ass`,
+            fr: `${subtitlePath}/ganyu_teaser.fr.ass`,
+            ru: `${subtitlePath}/ganyu_teaser.ru.ass`,
+            th: `${subtitlePath}/ganyu_teaser.th.ass`,
+            vi: `${subtitlePath}/ganyu_teaser.vi.ass`,
+            de: `${subtitlePath}/ganyu_teaser.de.ass`,
+            ind: `${subtitlePath}/ganyu_teaser.ind.ass`,
+            pt: `${subtitlePath}/ganyu_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "ASO6t2zp_UI",
@@ -331,6 +429,10 @@ const db: dbData = [
             },
             kor: {
                 url: "P_ndbBYvpiQ",
+            },
+            th: {
+                url: "Pp9PBxm7Y8Y",
+                timeshift: 4.5
             }
         },
         tags: ["character teaser", "ganyu", "liyue"]
@@ -341,7 +443,20 @@ const db: dbData = [
         duration: "01:29",
         thumbnail: "https://i.ytimg.com/vi/dc3eD6C6Gbk/maxresdefault.jpg",
         uploadDate: "2021-02-27",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/hutao_teaser.zhs.ass`,
+            zht: `${subtitlePath}/hutao_teaser.zht.ass`,
+            en: `${subtitlePath}/hutao_teaser.en.ass`,
+            kor: `${subtitlePath}/hutao_teaser.kor.ass`,
+            es: `${subtitlePath}/hutao_teaser.es.ass`,
+            fr: `${subtitlePath}/hutao_teaser.fr.ass`,
+            ru: `${subtitlePath}/hutao_teaser.ru.ass`,
+            th: `${subtitlePath}/hutao_teaser.th.ass`,
+            vi: `${subtitlePath}/hutao_teaser.vi.ass`,
+            de: `${subtitlePath}/hutao_teaser.de.ass`,
+            ind: `${subtitlePath}/hutao_teaser.ind.ass`,
+            pt: `${subtitlePath}/hutao_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "dc3eD6C6Gbk",
@@ -352,6 +467,10 @@ const db: dbData = [
             kor: {
                 url: "gXUxlhY_uQ8",
             },
+            th: {
+                url: "rkgOKmmCbvI",
+                timeshift: 4.5
+            }
         },
         tags: ["character teaser", "hu tao", "liyue"]
     },
@@ -361,7 +480,20 @@ const db: dbData = [
         duration: "01:42",
         thumbnail: "https://i.ytimg.com/vi/M9kQP-cmipY/maxresdefault.jpg",
         uploadDate: "2021-03-10",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/venti_teaser.zhs.ass`,
+            zht: `${subtitlePath}/venti_teaser.zht.ass`,
+            en: `${subtitlePath}/venti_teaser.en.ass`,
+            kor: `${subtitlePath}/venti_teaser.kor.ass`,
+            es: `${subtitlePath}/venti_teaser.es.ass`,
+            fr: `${subtitlePath}/venti_teaser.fr.ass`,
+            ru: `${subtitlePath}/venti_teaser.ru.ass`,
+            th: `${subtitlePath}/venti_teaser.th.ass`,
+            vi: `${subtitlePath}/venti_teaser.vi.ass`,
+            de: `${subtitlePath}/venti_teaser.de.ass`,
+            ind: `${subtitlePath}/venti_teaser.ind.ass`,
+            pt: `${subtitlePath}/venti_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "M9kQP-cmipY",
@@ -381,7 +513,20 @@ const db: dbData = [
         duration: "02:09",
         thumbnail: "https://i.ytimg.com/vi/fFHfbH8UrFE/maxresdefault.jpg",
         uploadDate: "2021-05-11",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/eula_teaser.zhs.ass`,
+            zht: `${subtitlePath}/eula_teaser.zht.ass`,
+            en: `${subtitlePath}/eula_teaser.en.ass`,
+            kor: `${subtitlePath}/eula_teaser.kor.ass`,
+            es: `${subtitlePath}/eula_teaser.es.ass`,
+            fr: `${subtitlePath}/eula_teaser.fr.ass`,
+            ru: `${subtitlePath}/eula_teaser.ru.ass`,
+            th: `${subtitlePath}/eula_teaser.th.ass`,
+            vi: `${subtitlePath}/eula_teaser.vi.ass`,
+            de: `${subtitlePath}/eula_teaser.de.ass`,
+            ind: `${subtitlePath}/eula_teaser.ind.ass`,
+            pt: `${subtitlePath}/eula_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "fFHfbH8UrFE",
@@ -391,7 +536,11 @@ const db: dbData = [
             },
             kor: {
                 url: "xUNVdIC_IDE",
-            }
+            },
+            th: {
+                url: "LyZ-vPZ-aOo",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "eula", "modstadt"]
     },
@@ -401,7 +550,20 @@ const db: dbData = [
         duration: "01:47",
         thumbnail: "https://i.ytimg.com/vi/ST5v7-C3iDk/maxresdefault.jpg",
         uploadDate: "2021-06-23",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/kazuha_teaser.zhs.ass`,
+            zht: `${subtitlePath}/kazuha_teaser.zht.ass`,
+            en: `${subtitlePath}/kazuha_teaser.en.ass`,
+            kor: `${subtitlePath}/kazuha_teaser.kor.ass`,
+            es: `${subtitlePath}/kazuha_teaser.es.ass`,
+            fr: `${subtitlePath}/kazuha_teaser.fr.ass`,
+            ru: `${subtitlePath}/kazuha_teaser.ru.ass`,
+            th: `${subtitlePath}/kazuha_teaser.th.ass`,
+            vi: `${subtitlePath}/kazuha_teaser.vi.ass`,
+            de: `${subtitlePath}/kazuha_teaser.de.ass`,
+            ind: `${subtitlePath}/kazuha_teaser.ind.ass`,
+            pt: `${subtitlePath}/kazuha_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "ST5v7-C3iDk",
@@ -411,6 +573,10 @@ const db: dbData = [
             },
             kor: {
                 url: "UO5GFQcF2JM",
+            },
+            th: {
+                url: "qOL5Pde8Ujg",
+                timeshift: 4.5
             }
         },
         tags: ["character teaser", "kaedehara kazuha", "inazuma"]
@@ -421,7 +587,20 @@ const db: dbData = [
         duration: "01:50",
         thumbnail: "https://i.ytimg.com/vi/vsCO7C416bs/maxresdefault.jpg",
         uploadDate: "2021-07-15",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/ayaka_teaser.zhs.ass`,
+            zht: `${subtitlePath}/ayaka_teaser.zht.ass`,
+            en: `${subtitlePath}/ayaka_teaser.en.ass`,
+            kor: `${subtitlePath}/ayaka_teaser.kor.ass`,
+            es: `${subtitlePath}/ayaka_teaser.es.ass`,
+            fr: `${subtitlePath}/ayaka_teaser.fr.ass`,
+            ru: `${subtitlePath}/ayaka_teaser.ru.ass`,
+            th: `${subtitlePath}/ayaka_teaser.th.ass`,
+            vi: `${subtitlePath}/ayaka_teaser.vi.ass`,
+            de: `${subtitlePath}/ayaka_teaser.de.ass`,
+            ind: `${subtitlePath}/ayaka_teaser.ind.ass`,
+            pt: `${subtitlePath}/ayaka_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "vsCO7C416bs",
@@ -431,7 +610,11 @@ const db: dbData = [
             },
             kor: {
                 url: "00m2V1jGNLE",
-            }
+            },
+            th: {
+                url: "fYwymyCUKdc",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "kamisato ayaka", "inazuma"]
     },
@@ -441,7 +624,20 @@ const db: dbData = [
         duration: "01:15",
         thumbnail: "https://i.ytimg.com/vi/AtqToYEE5r4/maxresdefault.jpg",
         uploadDate: "2021-08-04",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/yoimiya_teaser.zhs.ass`,
+            zht: `${subtitlePath}/yoimiya_teaser.zht.ass`,
+            en: `${subtitlePath}/yoimiya_teaser.en.ass`,
+            kor: `${subtitlePath}/yoimiya_teaser.kor.ass`,
+            es: `${subtitlePath}/yoimiya_teaser.es.ass`,
+            fr: `${subtitlePath}/yoimiya_teaser.fr.ass`,
+            ru: `${subtitlePath}/yoimiya_teaser.ru.ass`,
+            th: `${subtitlePath}/yoimiya_teaser.th.ass`,
+            vi: `${subtitlePath}/yoimiya_teaser.vi.ass`,
+            de: `${subtitlePath}/yoimiya_teaser.de.ass`,
+            ind: `${subtitlePath}/yoimiya_teaser.ind.ass`,
+            pt: `${subtitlePath}/yoimiya_teaser.pt.ass`,
+        },
         audioUrls: {
             en: {
                 url: "AtqToYEE5r4",
@@ -451,7 +647,11 @@ const db: dbData = [
             },
             kor: {
                 url: "5gl9aE4_al4",
-            }
+            },
+            th: {
+                url: "zpF3GhKhqvs",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "yoimiya", "inazuma"]
     },
@@ -461,7 +661,20 @@ const db: dbData = [
         duration: "01:40",
         thumbnail: "https://i.ytimg.com/vi/ydPqFAEgHzs/maxresdefault.jpg",
         uploadDate: "2021-08-26",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/raiden_teaser.zhs.ass`,
+            zht: `${subtitlePath}/raiden_teaser.zht.ass`,
+            en: `${subtitlePath}/raiden_teaser.en.ass`,
+            kor: `${subtitlePath}/raiden_teaser.kor.ass`,
+            es: `${subtitlePath}/raiden_teaser.es.ass`,
+            fr: `${subtitlePath}/raiden_teaser.fr.ass`,
+            ru: `${subtitlePath}/raiden_teaser.ru.ass`,
+            th: `${subtitlePath}/raiden_teaser.th.ass`,
+            vi: `${subtitlePath}/raiden_teaser.vi.ass`,
+            de: `${subtitlePath}/raiden_teaser.de.ass`,
+            ind: `${subtitlePath}/raiden_teaser.ind.ass`,
+            pt: `${subtitlePath}/raiden_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "HoqLRiXIpqA",
@@ -484,7 +697,20 @@ const db: dbData = [
         duration: "01:45",
         thumbnail: "https://i.ytimg.com/vi/OizK-VT4aj8/maxresdefault.jpg",
         uploadDate: "2021-09-15",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/kokomi.zhs.ass`,
+            zht: `${subtitlePath}/kokomi.zht.ass`,
+            en: `${subtitlePath}/kokomi.en.ass`,
+            kor: `${subtitlePath}/kokomi.kor.ass`,
+            es: `${subtitlePath}/kokomi.es.ass`,
+            fr: `${subtitlePath}/kokomi.fr.ass`,
+            ru: `${subtitlePath}/kokomi.ru.ass`,
+            th: `${subtitlePath}/kokomi.th.ass`,
+            vi: `${subtitlePath}/kokomi.vi.ass`,
+            de: `${subtitlePath}/kokomi.de.ass`,
+            ind: `${subtitlePath}/kokomi.ind.ass`,
+            pt: `${subtitlePath}/kokomi.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "t4CzTi7tUEM",
@@ -498,6 +724,10 @@ const db: dbData = [
             kor: {
                 url: "GFMamsMLcSs",
             },
+            th: {
+                url: "KxJEsML-d4k",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "sangonomiya kokomi", "inazuma"]
     },
@@ -507,7 +737,20 @@ const db: dbData = [
         duration: "01:25",
         thumbnail: "https://i.ytimg.com/vi/KGjnRThxe7k/maxresdefault.jpg",
         uploadDate: "2021-12-08",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/itto_teaser.zhs.ass`,
+            zht: `${subtitlePath}/itto_teaser.zht.ass`,
+            en: `${subtitlePath}/itto_teaser.en.ass`,
+            kor: `${subtitlePath}/itto_teaser.kor.ass`,
+            es: `${subtitlePath}/itto_teaser.es.ass`,
+            fr: `${subtitlePath}/itto_teaser.fr.ass`,
+            ru: `${subtitlePath}/itto_teaser.ru.ass`,
+            th: `${subtitlePath}/itto_teaser.th.ass`,
+            vi: `${subtitlePath}/itto_teaser.vi.ass`,
+            de: `${subtitlePath}/itto_teaser.de.ass`,
+            ind: `${subtitlePath}/itto_teaser.ind.ass`,
+            pt: `${subtitlePath}/itto_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "iu096jrwfiI",
@@ -521,6 +764,10 @@ const db: dbData = [
             kor: {
                 url: "tStKxMH1ZTQ",
             },
+            th: {
+                url: "YYuO0ZEjHSQ",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "arataki itto", "inazuma"]
     },
@@ -530,7 +777,20 @@ const db: dbData = [
         duration: "01:38",
         thumbnail: "https://i.ytimg.com/vi/jvGnekdMOhI/maxresdefault.jpg",
         uploadDate: "2021-12-30",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/shenhe_teaser.zhs.ass`,
+            zht: `${subtitlePath}/shenhe_teaser.zht.ass`,
+            en: `${subtitlePath}/shenhe_teaser.en.ass`,
+            kor: `${subtitlePath}/shenhe_teaser.kor.ass`,
+            es: `${subtitlePath}/shenhe_teaser.es.ass`,
+            fr: `${subtitlePath}/shenhe_teaser.fr.ass`,
+            ru: `${subtitlePath}/shenhe_teaser.ru.ass`,
+            th: `${subtitlePath}/shenhe_teaser.th.ass`,
+            vi: `${subtitlePath}/shenhe_teaser.vi.ass`,
+            de: `${subtitlePath}/shenhe_teaser.de.ass`,
+            ind: `${subtitlePath}/shenhe_teaser.ind.ass`,
+            pt: `${subtitlePath}/shenhe_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "9HcXakmKusw",
@@ -553,7 +813,20 @@ const db: dbData = [
         duration: "01:46",
         thumbnail: "https://i.ytimg.com/vi/tV2QOX9fXEE/maxresdefault.jpg",
         uploadDate: "2022-02-10",
-        subtitleUrls: {},
+        subtitleUrls: {
+            zhs: `${subtitlePath}/yae_teaser.zhs.ass`,
+            zht: `${subtitlePath}/yae_teaser.zht.ass`,
+            en: `${subtitlePath}/yae_teaser.en.ass`,
+            kor: `${subtitlePath}/yae_teaser.kor.ass`,
+            es: `${subtitlePath}/yae_teaser.es.ass`,
+            fr: `${subtitlePath}/yae_teaser.fr.ass`,
+            ru: `${subtitlePath}/yae_teaser.ru.ass`,
+            th: `${subtitlePath}/yae_teaser.th.ass`,
+            vi: `${subtitlePath}/yae_teaser.vi.ass`,
+            de: `${subtitlePath}/yae_teaser.de.ass`,
+            ind: `${subtitlePath}/yae_teaser.ind.ass`,
+            pt: `${subtitlePath}/yae_teaser.pt.ass`,
+        },
         audioUrls: {
             zh: {
                 url: "jXTo3G7_310",
@@ -567,8 +840,153 @@ const db: dbData = [
             kor: {
                 url: "XwNXR-3Qak8",
             },
+            th: {
+                url: "ELEaiA_wzGM",
+                timeshift: 4.5
+            },
         },
         tags: ["character teaser", "yae miko", "inazuma"]
+    },
+    {
+        id: "VbFZvVeY0LY",
+        title: "Version 2.7 \"Hidden Dreams in the Depths\" Trailer | Genshin Impact",
+        duration: "03:47",
+        thumbnail: "https://i.ytimg.com/vi/VbFZvVeY0LY/maxresdefault.jpg",
+        uploadDate: "2022-05-20",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "kjnauvswIjs",
+            },
+            en: {
+                url: "VbFZvVeY0LY",
+            },
+            ja: {
+                url: "eU38SaRoqQk",
+            },
+            kor: {
+                url: "AT8N3QYjAZ0",
+            },
+        },
+        tags: ["version trailer", "aether", "lumine", "yelan", "shinobu", "xiao", "arataki itto", "chasm", "liyue"]
+    },
+    {
+        id: "nEX4Umn5Bx8",
+        title: "Character Teaser - \"Yelan: Inevitable Justice\" | Genshin Impact",
+        duration: "01:28",
+        thumbnail: "https://i.ytimg.com/vi/nEX4Umn5Bx8/maxresdefault.jpg",
+        uploadDate: "2022-05-25",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "J7QBXDMGxTk",
+            },
+            en: {
+                url: "nEX4Umn5Bx8",
+            },
+            ja: {
+                url: "aRY7K8nMO6M",
+            },
+            kor: {
+                url: "v5SpyQy9Fdc",
+            },
+        },
+        tags: ["character teaser", "yelan", "liyue"]
+    },
+    {
+        id: "MDpYYzMvnHI",
+        title: "Character Demo - \"Yelan: Shadow in the \" | Genshin Impact",
+        duration: "02:45",
+        thumbnail: "https://i.ytimg.com/vi/MDpYYzMvnHI/maxresdefault.jpg",
+        uploadDate: "2022-05-30",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "6ykUq4XK2hE"
+            },
+            en: {
+                url: "MDpYYzMvnHI",
+            },
+            ja: {
+                url: "kzvrzHPrrSk",
+            },
+            kor: {
+                url: "16vo4VyH_1M",
+            },
+        },
+        tags: ["character demo", "yelan", "liyue"]
+    },
+    {
+        id: "ZVnfjTVZrWY",
+        title: "Story Teaser: Only Old Memories Remain | Genshin Impact",
+        duration: "04:07",
+        thumbnail: "https://i.ytimg.com/vi/ZVnfjTVZrWY/maxresdefault.jpg",
+        uploadDate: "2022-06-02",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "z-nCZrrOZxA",
+            },
+            en: {
+                url: "ZVnfjTVZrWY",
+            },
+            ja: {
+                url: "kjab0g2h7TM",
+            },
+            kor: {
+                url: "Ef7ONrEHmhk",
+            },
+        },
+        tags: ["story teaser", "chasm", "liyue"]
+    },
+    {
+        id: "C24nvloZZhE",
+        title: "Perilous Trail Event Cutscene Animation: \"Moment of Life or Death\" | Genshin Impact",
+        duration: "04:08",
+        thumbnail: "https://i.ytimg.com/vi/C24nvloZZhE/maxresdefault.jpg",
+        uploadDate: "2022-06-05",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "NECRh-3zUA4",
+            },
+            en: {
+                url: "C24nvloZZhE",
+            },
+            ja: {
+                url: "Mu8JxZpZ6TA",
+            },
+            kor: {
+                url: "N0uXI_-710Y"
+            }
+        },
+        tags: ["story teaser", "yelan", "shinobu", "xiao", "arataki itto", "zhongli", "chasm", "liyue"]
+    },
+    {
+        id: "13fviLTc0Aw",
+        title: "Character Demo - \"Kuki Shinobu: Jack of All Trades\" | Genshin Impact",
+        duration: "01:19",
+        thumbnail: "https://i.ytimg.com/vi/13fviLTc0Aw/maxresdefault.jpg",
+        uploadDate: "2022-06-17",
+        subtitleUrls: {},
+        audioUrls: {
+            zh: {
+                url: "CYBAKJJFtBM",
+            },
+            en: {
+                url: "13fviLTc0Aw",
+            },
+            ja: {
+                url: "8pei2OjUc40",
+            },
+            kor: {
+                url: "PvjgQVThhQg",
+            },
+        },
+        tags: ["character demo", "kuki shinobu", "inazuma"]
     }
 ]
-export default db
+
+
+// combine tags into a single array
+export const allTags = new Set(db.map(item => item.tags).flat())
