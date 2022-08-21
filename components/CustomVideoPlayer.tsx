@@ -56,8 +56,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
         setIsFullScreen,
     } = useVideoPlayer({ videoRef, videoWrapperRef, audioRef })
 
-    const time = formatTime(Number(videoDetails.lengthSeconds))
-
+    const time = formatTime(Number(videoDetails.lengthSeconds) - 1)
     const audioHandler = (langId: number) => {
         setIsLoading(true)
         videoRef.current!.pause()
@@ -232,11 +231,11 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                     </audio>
                     <div className="controls opacity-0" ref={controlsRef} onMouseOver={() => { setControlsOnHover(true) }} onMouseLeave={() => { setControlsOnHover(false) }}>
                         <div className="relative h-[8.4px] mb-[10px] mx-1 md:mx-2">
-                            <progress value={progress} max={videoDetails.lengthSeconds}></progress>
+                            <progress value={progress} max={Number(videoDetails.lengthSeconds)}></progress>
                             <input
                                 type="range"
                                 min="0"
-                                max={videoDetails.lengthSeconds}
+                                max={Number(videoDetails.lengthSeconds) - 1}
                                 value={progress}
                                 onChange={(e) => handleVideoProgress(e)}
                                 className="bg-white/20 rounded-lg absolute top-0 w-full"
