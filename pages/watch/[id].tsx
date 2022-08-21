@@ -12,6 +12,7 @@ import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
 import loc from "../../locales/locales";
+import { isIOS } from "react-device-detect";
 // import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
 // const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
@@ -43,9 +44,10 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     const t = locale === "th" ? loc.th : loc.en;
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", title: "", duration: "", thumbnail: "", subtitleUrls: {}, audioUrls: {}, tags: [] };
-    const webm = videoFormats.filter(format => format.mimeType.includes("webm"));
-    const webmVideo = webm.filter(format => format.mimeType.includes("video"));
-    console.log(webmVideo[0].url);
+    const video = videoFormats.filter(format => format.mimeType.includes("video"));
+    const webmVideo = video.filter(format => format.mimeType.includes("webm"));
+    const mp4Video = video.filter(format => format.mimeType.includes("mp4") && format.hasAudio === false);
+    const mp4Audio = videoFormats.filter(format => format.mimeType.includes("audio/mp4"))
 
     return (
         <div className={"flex flex-col items-center justify-center " + t.code}>
@@ -65,7 +67,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>
                 <p className="text-center game-font text-xs md:text-sm mb-4">{t.subtitleInfo}</p>
                 <CustomVideoPlayer
-                    videoSrc={webmVideo}
+                    videoSrc={isIOS ? mp4Video : webmVideo}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}
@@ -124,7 +126,7 @@ export default Post;
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { id } = context.query;
     const res = context.res;
-    res.setHeader("Cache-Control", "private, s-maxage=3600, stale-while-revalidate=60");
+    res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
