@@ -12,7 +12,7 @@ import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
 import loc from "../../locales/locales";
-import { isIOS } from "react-device-detect";
+import { isIOS, isMacOs } from "react-device-detect";
 // import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
 // const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
@@ -35,6 +35,8 @@ interface PostProps {
     }[];
 }
 
+const isAppleDevice = isIOS || isMacOs;
+
 const ytPrefix = "https://www.youtube.com/watch?v=";
 
 const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostProps) => {
@@ -46,8 +48,9 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", title: "", duration: "", thumbnail: "", subtitleUrls: {}, audioUrls: {}, tags: [] };
     const video = videoFormats.filter(format => format.mimeType.includes("video"));
     const webmVideo = video.filter(format => format.mimeType.includes("webm"));
-    const mp4Video = video.filter(format => format.mimeType.includes("mp4") && format.hasAudio === false);
+    const mp4Video = video.filter(format => format.mimeType.includes("mp4") && format.videoCodec.includes("av01") && format.hasAudio === false);
     const mp4Audio = videoFormats.filter(format => format.mimeType.includes("audio/mp4"))
+    console.log(mp4Video);
 
     return (
         <div className={"flex flex-col items-center justify-center " + t.code}>
@@ -67,7 +70,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
                 <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-8">{db_data.title}</h1>
                 <p className="text-center game-font text-xs md:text-sm mb-4">{t.subtitleInfo}</p>
                 <CustomVideoPlayer
-                    videoSrc={isIOS ? mp4Video : webmVideo}
+                    videoSrc={mp4Video}
                     subtitleList={packer.packSubtitle({ subtitleUrls: db_data.subtitleUrls })}
                     audioList={audio_list}
                     thumbnail={db_data.thumbnail}

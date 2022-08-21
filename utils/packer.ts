@@ -47,7 +47,7 @@ const packAudio = async (url: string | undefined) => {
     if (url) {
         const info = await ytdl.getInfo(url)
         const formats = info.formats;
-        const real_audio_url = formats.find((format: any) => format.audioQuality === 'AUDIO_QUALITY_MEDIUM' && format.container === 'webm' && format.hasVideo === false)?.url;
+        const real_audio_url = formats.find((format: any) => format.audioQuality === 'AUDIO_QUALITY_MEDIUM' && format.container === 'mp4' && format.hasVideo === false)?.url;
         return real_audio_url
     }
     else {

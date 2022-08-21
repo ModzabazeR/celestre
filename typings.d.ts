@@ -35,6 +35,7 @@ export interface VideoFormat {
     qualityLabel: string;
     averageBitrate: number;
     audioQuality?: string;
+    videoCodec: string;
 }
 
 export type dbItem = {
