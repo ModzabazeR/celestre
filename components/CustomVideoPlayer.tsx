@@ -203,6 +203,7 @@ const CustomVideoPlayer = ({ videoSrc, subtitleList, audioList, thumbnail, video
                         className="w-full"
                         preload='auto'
                         poster={thumbnail}
+                        playsInline={true}
                         src={videoSrc[0].url}
                         ref={videoRef}
                         onTimeUpdate={handleOnTimeUpdate}
