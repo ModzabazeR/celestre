@@ -1,3 +1,5 @@
+import cookies from "../data/cookies.json"
+
 export interface packAudioProps {
     audioUrls: {
         zh?: {
@@ -43,8 +45,10 @@ export interface packSubtitleProps {
 
 const packAudio = async (url: string | undefined) => {
     const { default: ytdl } = await import("@distube/ytdl-core");
+    const agent = ytdl.createAgent(cookies);
+
     if (url) {
-        const info = await ytdl.getInfo(url)
+        const info = await ytdl.getInfo(url, {agent})
         const formats = info.formats;
         const real_audio_url = formats.find((format: any) => format.audioQuality === 'AUDIO_QUALITY_MEDIUM' && format.container === 'mp4' && format.hasVideo === false)?.url;
         return real_audio_url
@@ -55,6 +59,7 @@ const packAudio = async (url: string | undefined) => {
 }
 
 const packAudios = async ({ audioUrls }: packAudioProps) => {
+    console.log(cookies)
 
     const zh_real_url = audioUrls.zh ? await packAudio(audioUrls.zh.url) : null;
     const en_real_url = audioUrls.en ? await packAudio(audioUrls.en.url) : null;

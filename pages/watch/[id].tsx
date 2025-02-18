@@ -12,6 +12,7 @@ import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
 import loc from "../../locales/locales";
 import { isIOS, isMacOs } from "react-device-detect";
+import cookies from "../../data/cookies.json"
 // import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
 // const proxy = "https://celestre-git-dev-modzabazer.vercel.app"
@@ -49,7 +50,7 @@ const Post = ({ videoDetails, videoFormats, relatedVideos, audio_list }: PostPro
     const webmVideo = video.filter(format => format.mimeType.includes("webm"));
     const mp4Video = video.filter(format => format.mimeType.includes("mp4") && format.videoCodec.includes("av01") && format.hasAudio === false);
     const mp4Audio = videoFormats.filter(format => format.mimeType.includes("audio/mp4"))
-    console.log(mp4Video);
+    // console.log(mp4Video);
 
     return (
         <div className={"flex flex-col items-center justify-center " + t.code}>
@@ -133,9 +134,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
 
     const { default: ytdl } = await import("@distube/ytdl-core");
+    const agent = ytdl.createAgent(cookies);
 
     const video = await ytdl.getInfo(db_data.id , {
-        // requestOptions: { agent },
+        agent
     });
     const videoFormats = video.formats;
     const relatedVideos = video.related_videos;
