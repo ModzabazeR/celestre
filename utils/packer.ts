@@ -1,5 +1,3 @@
-import ytdl from "ytdl-core";
-
 export interface packAudioProps {
     audioUrls: {
         zh?: {
@@ -44,6 +42,7 @@ export interface packSubtitleProps {
 }
 
 const packAudio = async (url: string | undefined) => {
+    const { default: ytdl } = await import("@distube/ytdl-core");
     if (url) {
         const info = await ytdl.getInfo(url)
         const formats = info.formats;
@@ -171,6 +170,7 @@ const packSubtitle = ({ subtitleUrls }: packSubtitleProps) => {
 }
 
 const extractVideoUrl = async (videoUrl: string) => {
+    const { default: ytdl } = await import("@distube/ytdl-core");
     const info = await ytdl.getInfo(videoUrl)
     const formats = info.formats;
     const real_video_url = formats.find((format: any) => format.quality === 'hd1080' && format.container === 'webm' && format.hasAudio === false)?.url;

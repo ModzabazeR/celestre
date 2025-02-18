@@ -8,7 +8,6 @@ import { NextRouter, useRouter } from "next/router";
 import Link from "next/link";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
-import ytdl from "ytdl-core";
 import Tag from "../../components/Tag";
 import { langIdentifier } from "../../utils/globalUtils";
 import loc from "../../locales/locales";
@@ -132,6 +131,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=60");
 
     const db_data = db.find((video: any) => video.id === id) ?? { id: "", subtitleUrls: {}, audioUrls: {} };
+
+    const { default: ytdl } = await import("@distube/ytdl-core");
 
     const video = await ytdl.getInfo(db_data.id , {
         // requestOptions: { agent },

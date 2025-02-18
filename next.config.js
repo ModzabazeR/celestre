@@ -17,6 +17,13 @@ module.exports = withSvgr({
         ]
       })
     )
+
+    if (!isServer) {
+      config.plugins.push(
+        new webpack.IgnorePlugin({ resourceRegExp: /@distube\/ytdl-core/ })
+      )
+    }
+
     return config;
   },
   images: {
